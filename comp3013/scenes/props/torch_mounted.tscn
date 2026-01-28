@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlfno8gvrpwdh"]
+
+[ext_resource type="PackedScene" uid="uid://yrt4eytyhdoi" path="res://models/props/torch_mounted.glb" id="1_ixr0i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_coxj2"]
+
+[node name="torch_mounted" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00830078, 0.24832, 0.25469)
+shape = SubResource("BoxShape3D_coxj2")
+
+[node name="torch_mounted2" parent="." instance=ExtResource("1_ixr0i")]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwj2ei6jujyrf"]
+
+[ext_resource type="PackedScene" uid="uid://crcduyw6kv1cl" path="res://models/props/candles.glb" id="1_blnjy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7f040"]
+height = 1.0
+radius = 0.25
+
+[node name="candles" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486156, -0.0770874)
+shape = SubResource("CylinderShape3D_7f040")
+
+[node name="candles" parent="." instance=ExtResource("1_blnjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0954633, 0, -0.0951868)
