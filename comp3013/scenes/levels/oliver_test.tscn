@@ -11,3 +11,4 @@ script = ExtResource("1_dl1ir")
 visible = false
 
 [node name="ProtoController" parent="." instance=ExtResource("3_agku4")]
+can_freefly = true
