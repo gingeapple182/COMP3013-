@@ -11,3 +11,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00830078, 0.24832, 0.25469
 shape = SubResource("BoxShape3D_coxj2")
 
 [node name="torch_mounted2" parent="." instance=ExtResource("1_ixr0i")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653392, 0.467535)
+light_color = Color(0.921569, 0.415686, 0.0980392, 1)
+light_energy = 8.158
+light_indirect_energy = 0.461
+light_volumetric_fog_energy = 0.83
+light_size = 0.465
+shadow_enabled = true
+shadow_bias = 1.755
+distance_fade_enabled = true

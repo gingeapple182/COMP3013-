@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0yu1muinaqv"]
+[gd_scene load_steps=23 format=3 uid="uid://d0yu1muinaqv"]
 
 [ext_resource type="Texture2D" uid="uid://c0kr30se3dmnv" path="res://addons/kiara_1_dawn_1k.exr" id="1_ekdjy"]
+[ext_resource type="Script" path="res://main.gd" id="1_ji0gb"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_mhrui"]
 [ext_resource type="PackedScene" uid="uid://cycax6rkxeo3a" path="res://scenes/building/floor_stone.tscn" id="2_nhw8r"]
 [ext_resource type="PackedScene" uid="uid://isexncjk8vms" path="res://scenes/building/wall.tscn" id="3_7b5qo"]
+[ext_resource type="PackedScene" uid="uid://w5xbieyc4bup" path="res://ui/menu.tscn" id="4_a1ycj"]
 [ext_resource type="PackedScene" uid="uid://dxhhpff888pf5" path="res://scenes/building/pillar.tscn" id="5_b6ikv"]
 [ext_resource type="PackedScene" uid="uid://dmk7n17cjs70s" path="res://scenes/props/chair.tscn" id="9_85ikr"]
 [ext_resource type="PackedScene" uid="uid://dlfno8gvrpwdh" path="res://scenes/props/torch_mounted.tscn" id="10_5g5uq"]
@@ -31,6 +33,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_ji0gb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5j5gy")
@@ -42,6 +45,9 @@ shadow_enabled = true
 [node name="ProtoController" parent="." instance=ExtResource("1_mhrui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80559, 0.5, 4.89312)
 can_freefly = true
+
+[node name="Menu" parent="." instance=ExtResource("4_a1ycj")]
+visible = false
 
 [node name="Floor" type="Node3D" parent="."]
 
