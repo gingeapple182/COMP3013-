@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://5tbvj0dltfq1"]
 
-[ext_resource type="Script" path="res://scenes/levels/oliver_test.gd" id="1_dl1ir"]
+[ext_resource type="Script" path="res://scripts/oliver_test.gd" id="1_dl1ir"]
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="2_ymiqa"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="3_agku4"]
 [ext_resource type="PackedScene" uid="uid://d0cwxoj52daa6" path="res://scenes/house/fantasy_house.tscn" id="4_s7eon"]
