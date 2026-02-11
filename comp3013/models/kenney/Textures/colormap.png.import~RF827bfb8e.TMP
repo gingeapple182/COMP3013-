@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ufyd7siusksp"
-path="res://.godot/imported/hexagon_grey.png-eee3ccd518645c6c6ad15f5ca3e6dea2.ctex"
+uid="uid://dhvm6jn2oys7o"
+path="res://.godot/imported/colormap.png-80093a22e19a6984f58540056c3aae96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/ui/Default/hexagon_grey.png"
-dest_files=["res://.godot/imported/hexagon_grey.png-eee3ccd518645c6c6ad15f5ca3e6dea2.ctex"]
+source_file="res://models/kenney/Textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-80093a22e19a6984f58540056c3aae96.ctex"]
 
 [params]
 
