@@ -1,10 +1,88 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt6abxttk6y13"]
+[gd_scene load_steps=9 format=3 uid="uid://bt6abxttk6y13"]
 
 [ext_resource type="Script" uid="uid://cm2re6iww4ti6" path="res://scripts/michael_test.gd" id="1_hhh7v"]
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="2_8gebl"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="3_sy3e5"]
+[ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="4_sy3e5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gebl"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_sy3e5"]
+sky_material = SubResource("ProceduralSkyMaterial_8gebl")
+
+[sub_resource type="Environment" id="Environment_n4w7j"]
+background_mode = 2
+sky = SubResource("Sky_sy3e5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gebl"]
 
 [node name="MichaelTest" type="Node3D"]
 script = ExtResource("1_hhh7v")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n4w7j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Menu" parent="." instance=ExtResource("2_8gebl")]
 visible = false
+
+[node name="ProtoController" parent="." instance=ExtResource("3_sy3e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_8gebl")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+use_collision = true
+size = Vector3(11, 1, 11)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(0.9238795, 0, 0.38268346, 0, 1, 0, -0.38268346, 0, 0.9238795, 16, 8, 0)
+use_collision = true
+radius = 4.5
+height = 15.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2/CSGCylinder3D"]
+operation = 2
+radius = 4.0
+height = 16.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D2"]
+transform = Transform3D(0.9238795, 0, 0.38268346, 0, 1, 0, -0.38268346, 0, 0.9238795, 16, 8, 0)
+use_collision = true
+radius = 1.0
+height = 15.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4029274, 7.3, 2.3989496)
+visible = false
+size = Vector3(2.8, 0.25, 3.4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2/CSGCylinder3D2"]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -0.6426678, 6.8, 2.6340485)
+visible = false
+size = Vector3(2.8, 0.25, 3.4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2/CSGCylinder3D2"]
+transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, -2.3914728, 6.3, 1.368474)
+visible = false
+size = Vector3(2.8, 0.25, 3.4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2/CSGCylinder3D2"]
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, -2.7189093, 5.8, -0.71546125)
+visible = false
+size = Vector3(2.8, 0.25, 3.4)
+
+[node name="CentralHubHouse" parent="." instance=ExtResource("4_sy3e5")]

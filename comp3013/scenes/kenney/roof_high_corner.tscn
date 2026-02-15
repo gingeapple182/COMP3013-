@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://nbqj4rfq2wim"]
+
+[ext_resource type="PackedScene" uid="uid://dex0j6rf4pfbh" path="res://models/kenney/roof-high-corner.glb" id="1_0pl85"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gh01w"]
+size = Vector3(4.2000003, 1.1, 4.2000003)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ni6mt"]
+size = Vector3(3.3, 1, 3.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsxbt"]
+size = Vector3(2.3, 1, 2.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ntqkc"]
+size = Vector3(1.3000001, 1, 1.3000001)
+
+[node name="Roof_High_Corner" type="StaticBody3D"]
+
+[node name="roof-high-corner2" parent="." instance=ExtResource("1_0pl85")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.097070456, 0.42353517, 0.11367202)
+shape = SubResource("BoxShape3D_gh01w")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3529297, 1.4735353, -0.33632815)
+shape = SubResource("BoxShape3D_ni6mt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8529297, 2.4735353, -0.83632815)
+shape = SubResource("BoxShape3D_rsxbt")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3529296, 3.4735353, -1.336328)
+shape = SubResource("BoxShape3D_ntqkc")

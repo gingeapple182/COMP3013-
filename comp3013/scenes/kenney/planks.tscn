@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://2bjcbp0onoys"]
+
+[ext_resource type="PackedScene" uid="uid://dvwdtwagttj7f" path="res://models/kenney/planks.glb" id="1_dhf0l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gnjem"]
+size = Vector3(4, 0.2, 4)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="planks2" parent="." instance=ExtResource("1_dhf0l")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999994, 0)
+shape = SubResource("BoxShape3D_gnjem")
