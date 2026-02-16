@@ -1,32 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj2t7ks0y85i1"]
+[gd_scene format=3 uid="uid://dj2t7ks0y85i1"]
 
 [ext_resource type="PackedScene" uid="uid://cckr0ac1gd0wv" path="res://models/kenney/stairs-wood-handrail.glb" id="1_3mujv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kyrps"]
-size = Vector3(5.6556764, 0.6, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ip0ku"]
-size = Vector3(0.38603514, 0.421875, 2)
+size = Vector3(6, 0.6, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1nd0p"]
 size = Vector3(5.5562987, 0.22940063, 0.15859374)
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" unique_id=555974993]
 
-[node name="stairs-wood-handrail2" parent="." instance=ExtResource("1_3mujv")]
+[node name="stairs-wood-handrail2" parent="." unique_id=473024270 instance=ExtResource("1_3mujv")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.19244747, 1.7903951, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2084308945]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.07071069, 1.9121319, 0)
 shape = SubResource("BoxShape3D_kyrps")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 1.807662, 3.7873156, 0)
-shape = SubResource("BoxShape3D_ip0ku")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=807636026]
 transform = Transform3D(0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, 0, 0, 0, 1, -0.03300631, 3.5787694, 0.9207031)
 shape = SubResource("BoxShape3D_1nd0p")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=567337261]
 transform = Transform3D(0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, 0, 0, 0, 1, -0.03300631, 3.5787694, -0.91453177)
 shape = SubResource("BoxShape3D_1nd0p")
