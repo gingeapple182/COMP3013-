@@ -18,8 +18,6 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_txlrf"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_u4oai"]
-
 [sub_resource type="Animation" id="Animation_u4oai"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,16 +35,17 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_txlrf"]
 resource_name = "rabbitJump"
-length = 0.46666667
+length = 0.55
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("CharacterBody3D:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.23333333, 0.46666667),
-"transitions": PackedFloat32Array(0.2253132, 1.000002, 4.43827),
+"transitions": PackedFloat32Array(0.2253132, 1.0000019, 4.43827),
 "update": 0,
 "values": [Vector3(-2.591, -0.013975292, 0), Vector3(-2.591, 0.2, 0), Vector3(-2.591, -0.013975292, 0)]
 }
@@ -56,6 +55,8 @@ _data = {
 &"RESET": SubResource("Animation_u4oai"),
 &"rabbitJump": SubResource("Animation_txlrf")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u4oai"]
 
 [node name="Joemama" type="Node3D" unique_id=1985768849]
 
@@ -79,9 +80,11 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -2.591, -0.013975292
 [node name="Conejo" parent="CharacterBody3D" unique_id=957782843 instance=ExtResource("2_u4oai")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0.85432047, 0)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Conejo" unique_id=162658183]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_m7elm")
+autoplay = &"rabbitJump"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=242831492]
 transform = Transform3D(3.9999993, 0, 0, 0, 3.9999993, 0, 0, 0, 3.9999993, 0, 1.2133534, 0.31049585)
 shape = SubResource("SphereShape3D_u4oai")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=162658183]
-libraries/ = SubResource("AnimationLibrary_m7elm")
