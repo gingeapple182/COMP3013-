@@ -1,6 +1,8 @@
+extends Node
+
 class_name Entity
 
-var name
+var entityName
 var maxHp
 var hp
 var attack

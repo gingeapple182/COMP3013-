@@ -43,6 +43,8 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to open mail bag
+@export var input_openMailBag : String = "OpenMailBag"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -75,6 +77,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
+	
+	#Open the mail bag	
+	if Input.is_action_just_pressed(input_openMailBag):
+		OpenMailBag()
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -176,3 +182,7 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+		
+		
+func OpenMailBag() -> void:
+	print("joemama")
