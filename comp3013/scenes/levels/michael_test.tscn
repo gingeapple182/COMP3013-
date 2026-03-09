@@ -48,7 +48,6 @@ shape = SubResource("WorldBoundaryShape3D_8gebl")
 
 [node name="CentralHubWizardTower" parent="." unique_id=778040479 instance=ExtResource("5_n4w7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014160156, 4.600006, -0.060937405)
-visible = false
 
 [node name="central_hub_cleric_chapel" parent="." unique_id=1648689189 instance=ExtResource("6_j3cyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
