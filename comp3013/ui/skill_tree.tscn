@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://usmj4tcgfjv8"]
+
+[ext_resource type="PackedScene" uid="uid://cjr7wqhog61k6" path="res://ui/SkillTreeButton.tscn" id="1_3lm3h"]
+
+[node name="SkillTree" type="Control" unique_id=1624636207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1268278139]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillTreeButton" parent="." unique_id=540059065 instance=ExtResource("1_3lm3h")]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 406.0
+offset_right = 638.0
+offset_bottom = 599.0
+
+[node name="SkillTreeButton2" parent="SkillTreeButton" unique_id=483239096 instance=ExtResource("1_3lm3h")]
+layout_mode = 0
+offset_left = 402.0
+offset_top = -331.0
+offset_right = 554.0
+offset_bottom = -125.0
+disabled = true
+
+[node name="SkillTreeButton" parent="SkillTreeButton" unique_id=2115636537 instance=ExtResource("1_3lm3h")]
+layout_mode = 0
+offset_left = -327.0
+offset_top = -319.0
+offset_right = -175.0
+offset_bottom = -113.0
+disabled = true

@@ -61,6 +61,7 @@ _data = {
 [node name="Joemama" type="Node3D" unique_id=1985768849]
 
 [node name="ProtoController" parent="." unique_id=1488632968 instance=ExtResource("1_dqnwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4475536)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1991623612]
 environment = SubResource("Environment_u4oai")
@@ -88,3 +89,10 @@ autoplay = &"rabbitJump"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=242831492]
 transform = Transform3D(3.9999993, 0, 0, 0, 3.9999993, 0, 0, 0, 3.9999993, 0, 1.2133534, 0.31049585)
 shape = SubResource("SphereShape3D_u4oai")
+
+[node name="Panel" type="Panel" parent="." unique_id=2025984352]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

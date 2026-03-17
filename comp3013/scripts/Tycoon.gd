@@ -1,6 +1,8 @@
 extends Player
 
-class_name Wizard
+var Courier : bool = false 
+var Banker : bool = false 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
