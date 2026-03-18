@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhyerr20oq43g"]
+
+[ext_resource type="PackedScene" uid="uid://cgw4s84lf4mha" path="res://models/kenney/wall-detail-cross.glb" id="1_j7tei"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3van"]
+size = Vector3(0.4, 4, 4)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="wall-detail-cross2" parent="." instance=ExtResource("1_j7tei")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 2, 0)
+shape = SubResource("BoxShape3D_x3van")

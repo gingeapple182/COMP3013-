@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dmpsldbqjxhiu"]
+
+[ext_resource type="PackedScene" uid="uid://dddhr3q2nrh38" path="res://models/kenney/wall-half.glb" id="1_yjln1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4r3i"]
+size = Vector3(0.4, 2, 4)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1073573256]
+
+[node name="wall-half2" parent="." unique_id=1244914866 instance=ExtResource("1_yjln1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1436715581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8000001, 1, 0)
+shape = SubResource("BoxShape3D_a4r3i")

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bt6abxttk6y13"]
+
+[ext_resource type="Script" uid="uid://cm2re6iww4ti6" path="res://scripts/michael_test.gd" id="1_hhh7v"]
+[ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="2_8gebl"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="3_sy3e5"]
+[ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="4_sy3e5"]
+[ext_resource type="PackedScene" uid="uid://pocv1d41fmju" path="res://scenes/house/central_hub_wizard_tower.tscn" id="5_n4w7j"]
+[ext_resource type="PackedScene" uid="uid://duhnwnpsr5w55" path="res://scenes/house/central_hub_cleric_chapel.tscn" id="6_j3cyp"]
+[ext_resource type="PackedScene" uid="uid://cnkj5gvcb0cy3" path="res://scenes/house/central_hub_tycoon_house.tscn" id="7_jafym"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gebl"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_sy3e5"]
+sky_material = SubResource("ProceduralSkyMaterial_8gebl")
+
+[sub_resource type="Environment" id="Environment_n4w7j"]
+background_mode = 2
+sky = SubResource("Sky_sy3e5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gebl"]
+
+[node name="MichaelTest" type="Node3D" unique_id=255373765]
+script = ExtResource("1_hhh7v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1953928957]
+environment = SubResource("Environment_n4w7j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1785910619]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Menu" parent="." unique_id=1719642566 instance=ExtResource("2_8gebl")]
+visible = false
+
+[node name="ProtoController" parent="." unique_id=666385917 instance=ExtResource("3_sy3e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1540310589]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=303287209]
+shape = SubResource("WorldBoundaryShape3D_8gebl")
+
+[node name="CentralHubHouse" parent="." unique_id=1714537308 instance=ExtResource("4_sy3e5")]
+
+[node name="CentralHubWizardTower" parent="." unique_id=778040479 instance=ExtResource("5_n4w7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014160156, 4.600006, -0.060937405)
+
+[node name="central_hub_cleric_chapel" parent="." unique_id=1648689189 instance=ExtResource("6_j3cyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+visible = false
+
+[node name="CentralHubTycoonHouse" parent="." unique_id=551726593 instance=ExtResource("7_jafym")]
+visible = false
