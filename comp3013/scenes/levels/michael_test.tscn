@@ -105,6 +105,8 @@ visible = false
 
 [node name="ProtoController" parent="." unique_id=666385917 instance=ExtResource("3_sy3e5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.3, 96.399994, -132.40001)
+can_sprint = true
+can_freefly = true
 
 [node name="CentralHubHouse" parent="." unique_id=1714537308 instance=ExtResource("4_sy3e5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.3, 95.5, -132.40001)
