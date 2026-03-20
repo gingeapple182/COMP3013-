@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://pocv1d41fmju" path="res://scenes/house/central_hub_wizard_tower.tscn" id="5_n4w7j"]
 [ext_resource type="PackedScene" uid="uid://duhnwnpsr5w55" path="res://scenes/house/central_hub_cleric_chapel.tscn" id="6_j3cyp"]
 [ext_resource type="PackedScene" uid="uid://cnkj5gvcb0cy3" path="res://scenes/house/central_hub_tycoon_house.tscn" id="7_jafym"]
-[ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="8_adm0b"]
-[ext_resource type="PackedScene" uid="uid://d3sr0a7dxfkr8" path="res://addons/terrain_3d/extras/particle_example/Terrain3DParticles.tscn" id="9_uk71l"]
+[ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="8_adm0b"]
+[ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="9_uk71l"]
+[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="10_fv0k8"]
+[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="11_104i7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gebl"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,11 +25,11 @@ sky = SubResource("Sky_sy3e5")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Gradient" id="Gradient_vr1m7"]
+[sub_resource type="Gradient" id="Gradient_jafym"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_d8lcj"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_51ffb"]
 noise_type = 2
 frequency = 0.03
 cellular_jitter = 3.0
@@ -39,56 +41,66 @@ domain_warp_fractal_type = 2
 domain_warp_fractal_lacunarity = 1.5
 domain_warp_fractal_gain = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bov7h"]
-noise = SubResource("FastNoiseLite_d8lcj")
-color_ramp = SubResource("Gradient_vr1m7")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_adm0b"]
+noise = SubResource("FastNoiseLite_51ffb")
+color_ramp = SubResource("Gradient_jafym")
 seamless = true
 
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_fv0k8"]
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_uk71l"]
 _shader_parameters = {
-"_mouse_layer": 2147483648,
-"auto_base_texture": 0,
-"auto_height_reduction": 0.05,
-"auto_overlay_texture": 1,
-"auto_slope": 0.45,
-"bias_distance": 512.0,
-"blend_sharpness": 0.5,
-"depth_blur": 0.0,
-"dual_scale_far": 170.0,
-"dual_scale_near": 100.0,
-"dual_scale_reduction": 0.3,
-"dual_scale_texture": 0,
-"enable_macro_variation": true,
-"enable_projection": true,
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
 &"flat_terrain_normals": false,
-"macro_variation1": Color(0.855, 0.8625, 0.9, 1),
-"macro_variation2": Color(0.9, 0.885, 0.81, 1),
-"macro_variation_slope": 0.333,
-"mipmap_bias": 1.0,
-"noise1_angle": 0.1,
-"noise1_offset": Vector2(0.5, 0.5),
-"noise1_scale": 0.04,
-"noise2_scale": 0.076,
-"noise_texture": SubResource("NoiseTexture2D_bov7h"),
-"projection_threshold": 0.87,
-"tri_scale_reduction": 0.3,
-"world_noise_fragment_normals": false,
-"world_noise_height": 34.0,
-"world_noise_lod_distance": 7500.0,
-"world_noise_max_octaves": 4,
-"world_noise_min_octaves": 2,
-"world_noise_offset": Vector3(2.17, -1.225, 1.9),
-"world_noise_region_blend": 0.33,
-"world_noise_scale": 9.85
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_adm0b"),
+&"projection_threshold": 0.8
 }
-world_background = 2
-auto_shader = true
-dual_scaling = true
 
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_104i7"]
-shape = 0
-section_length = 0.18
-section_segments = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv0k8"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_104i7"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_fv0k8")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_fv0k8"]
+name = ""
+albedo_texture = ExtResource("8_adm0b")
+normal_texture = ExtResource("9_uk71l")
+uv_scale = 0.066
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_mjy73"]
+name = ""
+id = 1
+albedo_texture = ExtResource("10_fv0k8")
+normal_texture = ExtResource("11_104i7")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_mjy73"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_104i7")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_fv0k8"), SubResource("Terrain3DTextureAsset_mjy73")])
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fv0k8"]
 
 [node name="MichaelTest" type="Node3D" unique_id=255373765]
 script = ExtResource("1_hhh7v")
@@ -104,32 +116,26 @@ shadow_enabled = true
 visible = false
 
 [node name="ProtoController" parent="." unique_id=666385917 instance=ExtResource("3_sy3e5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.3, 96.399994, -132.40001)
 can_sprint = true
 can_freefly = true
 
 [node name="CentralHubHouse" parent="." unique_id=1714537308 instance=ExtResource("4_sy3e5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.3, 95.5, -132.40001)
 
 [node name="CentralHubWizardTower" parent="." unique_id=778040479 instance=ExtResource("5_n4w7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.314, 100.2, -132.461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 visible = false
 
 [node name="central_hub_cleric_chapel" parent="." unique_id=1648689189 instance=ExtResource("6_j3cyp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.3, 100.1, -132.4)
-
-[node name="CentralHubTycoonHouse" parent="." unique_id=551726593 instance=ExtResource("7_jafym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.3, 95.5, -132.40001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
 visible = false
 
-[node name="Terrain3D" type="Terrain3D" parent="." unique_id=9238860]
-data_directory = "res://demo/data"
-material = SubResource("Terrain3DMaterial_fv0k8")
-assets = ExtResource("8_adm0b")
-collision_mask = 3
+[node name="CentralHubTycoonHouse" parent="." unique_id=551726593 instance=ExtResource("7_jafym")]
+visible = false
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=548570971]
+data_directory = "res://models/Terrain"
+material = SubResource("Terrain3DMaterial_uk71l")
+assets = SubResource("Terrain3DAssets_mjy73")
+physics_material = SubResource("PhysicsMaterial_fv0k8")
 top_level = true
 metadata/_edit_lock_ = true
-
-[node name="Terrain3DParticles" parent="Terrain3D" unique_id=342749579 node_paths=PackedStringArray("terrain") instance=ExtResource("9_uk71l")]
-terrain = NodePath("..")
-mesh = SubResource("RibbonTrailMesh_104i7")
