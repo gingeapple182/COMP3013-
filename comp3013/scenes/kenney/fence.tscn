@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7xgp6xwctfdt"]
+
+[ext_resource type="PackedScene" uid="uid://cg5p8r156gmm1" path="res://models/kenney/fence.glb" id="1_5nrnm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_207qd"]
+size = Vector3(0.3, 0.90000004, 3.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68m0u"]
+size = Vector3(0.3, 1.5, 0.3)
+
+[node name="Fence" type="StaticBody3D"]
+
+[node name="fence2" parent="." instance=ExtResource("1_5nrnm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85, 0.75, 0)
+shape = SubResource("BoxShape3D_207qd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85, 0.75, -1.85)
+shape = SubResource("BoxShape3D_68m0u")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85, 0.75, 1.85)
+shape = SubResource("BoxShape3D_68m0u")

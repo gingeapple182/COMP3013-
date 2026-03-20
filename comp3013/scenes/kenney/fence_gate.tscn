@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dhw8v7iauskxq"]
+
+[ext_resource type="PackedScene" uid="uid://b5pckxhcvbbyt" path="res://models/kenney/fence-gate.glb" id="1_iqexo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hfbm"]
+size = Vector3(0.14999999, 1.4599999, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvc46"]
+size = Vector3(0.3, 1.52, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ice32"]
+size = Vector3(0.3, 1.52, 1.2)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=561931800]
+
+[node name="fence-gate2" parent="." unique_id=419134337 instance=ExtResource("1_iqexo")]
+
+[node name="gate" parent="fence-gate2/fence-gate" index="0"]
+transform = Transform3D(-0.17364825, 0, -0.9848076, 0, 1, 0, 0.9848076, 0, -0.17364825, 1.85, 0.74112463, -0.7)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fence-gate2/fence-gate/gate" index="0" unique_id=1477823625]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence-gate2/fence-gate/gate/StaticBody3D" unique_id=334471332]
+transform = Transform3D(1.0000716, 0, -4.917383e-07, 0, 1, 0, 4.917383e-07, 0, 1.0000716, 1.1920929e-07, 0.050000012, 0.8000038)
+shape = SubResource("BoxShape3D_6hfbm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372772554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85, 0.76000005, 1.4)
+shape = SubResource("BoxShape3D_fvc46")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1161917192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8499999, 0.76000005, -1.4)
+shape = SubResource("BoxShape3D_ice32")
+
+[editable path="fence-gate2"]

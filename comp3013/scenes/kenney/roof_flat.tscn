@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bedp56ych1ojx"]
+
+[ext_resource type="PackedScene" uid="uid://b4sr4yp12hw0y" path="res://models/kenney/roof-flat.glb" id="1_ahddh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_htogr"]
+size = Vector3(4, 0.3, 4)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="roof-flat2" parent="." instance=ExtResource("1_ahddh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_htogr")
