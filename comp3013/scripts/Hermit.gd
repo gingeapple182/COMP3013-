@@ -1,7 +1,6 @@
 extends Player
 
-var Entropy : bool = false 
-var Reputation : bool = false 
+class_name Hermit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

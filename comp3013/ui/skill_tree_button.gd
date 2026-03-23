@@ -14,7 +14,6 @@ func _ready():
 	if get_parent() is SkillTreeButton:
 		line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
 		line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
-		print("1")
 	if !disabled && level == 0:
 		texture_rect.visible = true
 		
@@ -35,9 +34,9 @@ var level : int = 0:
 
 
 func _on_pressed() -> void:
-	if skill_tree.player.skillPoints == 0:
+	if GameManager.skillPoints == 0:
 		return
-	skill_tree.player.skillPoints -= 1
+	GameManager.skillPoints -= 1
 	level = min(level+1, 3)
 	panel.show_behind_parent = true
 	line_2d.default_color = Color(0.0, 1.0, 0.0, 1.0)
