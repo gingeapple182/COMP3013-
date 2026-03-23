@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://bvei0kjbibw2h"]
+[gd_scene load_steps=10 format=3 uid="uid://bvei0kjbibw2h"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_dqnwj"]
-[ext_resource type="Script" uid="uid://d2fai5cm5yul3" path="res://scripts/joemama.gd" id="1_m7elm"]
+[ext_resource type="Script" path="res://scripts/joemama.gd" id="1_m7elm"]
 [ext_resource type="PackedScene" uid="uid://pw7dojku57nq" path="res://models/rabbitWithHat/Conejo.fbx" id="2_u4oai"]
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="3_txlrf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dqnwj"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
 [sub_resource type="Sky" id="Sky_sy3e5"]
 sky_material = SubResource("ProceduralSkyMaterial_dqnwj")
@@ -20,78 +20,39 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_txlrf"]
 
-[sub_resource type="Animation" id="Animation_u4oai"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-2.591, -0.013975292, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_txlrf"]
-resource_name = "rabbitJump"
-length = 0.55
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.46666667),
-"transitions": PackedFloat32Array(0.2253132, 1.0000019, 4.43827),
-"update": 0,
-"values": [Vector3(-2.591, -0.013975292, 0), Vector3(-2.591, 0.2, 0), Vector3(-2.591, -0.013975292, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7elm"]
-_data = {
-&"RESET": SubResource("Animation_u4oai"),
-&"rabbitJump": SubResource("Animation_txlrf")
-}
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_u4oai"]
 
-[node name="Joemama" type="Node3D" unique_id=1985768849]
+[node name="Joemama" type="Node3D"]
 script = ExtResource("1_m7elm")
 
-[node name="ProtoController" parent="." unique_id=1488632968 instance=ExtResource("1_dqnwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4475536)
+[node name="ProtoController" parent="." instance=ExtResource("1_dqnwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.44755)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1991623612]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u4oai")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=49722142]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2131242859]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=340526331]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_txlrf")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1674764169]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -2.591, -0.013975292, 0)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -2.591, -0.0139753, 0)
 
-[node name="Conejo" parent="CharacterBody3D" unique_id=957782843 instance=ExtResource("2_u4oai")]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0.85432047, 0)
+[node name="Conejo" parent="CharacterBody3D" instance=ExtResource("2_u4oai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85432, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Conejo" unique_id=162658183]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Conejo"]
 root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_m7elm")
-autoplay = &"rabbitJump"
+autoplay = "rabbitJump"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=242831492]
-transform = Transform3D(3.9999993, 0, 0, 0, 3.9999993, 0, 0, 0, 3.9999993, 0, 1.2133534, 0.31049585)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.21335, 0.310496)
 shape = SubResource("SphereShape3D_u4oai")
 
-[node name="Menu" parent="." unique_id=261331055 instance=ExtResource("3_txlrf")]
+[node name="Menu" parent="." instance=ExtResource("3_txlrf")]
 visible = false

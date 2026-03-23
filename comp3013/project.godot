@@ -16,12 +16,16 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="COMP3013"
 run/main_scene="res://ui/menu.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://GameManager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
