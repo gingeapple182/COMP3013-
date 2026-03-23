@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvei0kjbibw2h"]
+[gd_scene format=3 uid="uid://bvei0kjbibw2h"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_dqnwj"]
-[ext_resource type="Script" path="res://scripts/joemama.gd" id="1_m7elm"]
+[ext_resource type="Script" uid="uid://d2fai5cm5yul3" path="res://scripts/joemama.gd" id="1_m7elm"]
 [ext_resource type="PackedScene" uid="uid://pw7dojku57nq" path="res://models/rabbitWithHat/Conejo.fbx" id="2_u4oai"]
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="3_txlrf"]
 [ext_resource type="PackedScene" uid="uid://usmj4tcgfjv8" path="res://ui/skill_tree.tscn" id="5_u205u"]
@@ -23,47 +23,47 @@ glow_enabled = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u4oai"]
 
-[node name="Joemama" type="Node3D"]
+[node name="Joemama" type="Node3D" unique_id=1011971079]
 script = ExtResource("1_m7elm")
 
-[node name="ProtoController" parent="." instance=ExtResource("1_dqnwj")]
+[node name="ProtoController" parent="." unique_id=1468763836 instance=ExtResource("1_dqnwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.44755)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1304328864]
 environment = SubResource("Environment_u4oai")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1545695327]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=755091670]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=808076320]
 shape = SubResource("WorldBoundaryShape3D_txlrf")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=378755832]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -2.591, -0.0139753, 0)
 
-[node name="Conejo" parent="CharacterBody3D" instance=ExtResource("2_u4oai")]
+[node name="Conejo" parent="CharacterBody3D" unique_id=2063453862 instance=ExtResource("2_u4oai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85432, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Conejo"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D/Conejo" unique_id=1484178149]
 root_node = NodePath("../../..")
-autoplay = "rabbitJump"
+autoplay = &"rabbitJump"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2037701685]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.21335, 0.310496)
 shape = SubResource("SphereShape3D_u4oai")
 
-[node name="Menu" parent="." instance=ExtResource("3_txlrf")]
+[node name="Menu" parent="." unique_id=1056365548 instance=ExtResource("3_txlrf")]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1832245365]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1528958135]
 offset_right = 186.0
 offset_bottom = 72.0
 
-[node name="SkillTree" parent="." instance=ExtResource("5_u205u")]
+[node name="SkillTree" parent="." unique_id=1399280576 instance=ExtResource("5_u205u")]
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
