@@ -36,8 +36,9 @@ var level : int = 0:
 func _on_pressed() -> void:
 	if GameManager.skillPoints == 0:
 		return
-	GameManager.skillPoints -= 1
-	level = min(level+1, 3)
+	if level < 3:
+		GameManager.skillPoints -= 1
+		level = min(level+1, 3)
 	panel.show_behind_parent = true
 	line_2d.default_color = Color(0.0, 1.0, 0.0, 1.0)
 	texture_rect.visible = false
