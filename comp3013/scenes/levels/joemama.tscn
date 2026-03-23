@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvei0kjbibw2h"]
+[gd_scene load_steps=11 format=3 uid="uid://bvei0kjbibw2h"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_dqnwj"]
 [ext_resource type="Script" path="res://scripts/joemama.gd" id="1_m7elm"]
@@ -58,12 +58,12 @@ shape = SubResource("SphereShape3D_u4oai")
 [node name="Menu" parent="." instance=ExtResource("3_txlrf")]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1300989868]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=1765170296]
+[node name="Button" type="Button" parent="CanvasLayer"]
 offset_right = 186.0
 offset_bottom = 72.0
 
-[node name="SkillTree" parent="." unique_id=1624636207 instance=ExtResource("5_u205u")]
+[node name="SkillTree" parent="." instance=ExtResource("5_u205u")]
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

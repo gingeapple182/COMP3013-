@@ -8,6 +8,7 @@ var is_paused := false
 
 func _input(event):
 	if event.is_action_pressed("pause"):
+		skill_tree.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		toggle_pause()
 
