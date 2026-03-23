@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var menu: Control = $Menu
+@onready var skill_tree: Control = $SkillTree
+@onready var button: Button = $CanvasLayer/Button
 
 var is_paused := false
 
@@ -13,3 +15,8 @@ func toggle_pause():
 	is_paused = not is_paused
 	get_tree().paused = is_paused
 	menu.visible = is_paused
+
+
+func _on_button_pressed() -> void:
+	skill_tree.visible = !skill_tree.visible
+	pass # Replace with function body.

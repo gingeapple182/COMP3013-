@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/joemama.gd" id="1_m7elm"]
 [ext_resource type="PackedScene" uid="uid://pw7dojku57nq" path="res://models/rabbitWithHat/Conejo.fbx" id="2_u4oai"]
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="3_txlrf"]
+[ext_resource type="PackedScene" uid="uid://usmj4tcgfjv8" path="res://ui/skill_tree.tscn" id="5_u205u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dqnwj"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -56,3 +57,13 @@ shape = SubResource("SphereShape3D_u4oai")
 
 [node name="Menu" parent="." instance=ExtResource("3_txlrf")]
 visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1300989868]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1765170296]
+offset_right = 186.0
+offset_bottom = 72.0
+
+[node name="SkillTree" parent="." unique_id=1624636207 instance=ExtResource("5_u205u")]
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
