@@ -1,8 +1,6 @@
-extends Wizard
+extends Player
 
-var Collection : bool = false 
-var Informant : bool = false 
-
+class_name Wizard
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

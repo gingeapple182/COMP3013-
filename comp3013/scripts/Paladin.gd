@@ -1,9 +1,6 @@
 extends Player
 
-#skills
-var Reputation : bool = false 
-var Slayer : bool = false 
-
+class_name Paladin
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
