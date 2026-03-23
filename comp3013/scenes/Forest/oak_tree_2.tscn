@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dw8wsuxnrad0i"]
+
+[ext_resource type="PackedScene" uid="uid://cwdbplxm7u6ox" path="res://models/LowpolyForestPack/Trees/OakTree2.fbx" id="1_1owdd"]
+[ext_resource type="Texture2D" uid="uid://co35iegwqbkd0" path="res://models/LowpolyForestPack/TreesTexture/OakTreeTrunk.png" id="2_dcheg"]
+[ext_resource type="Texture2D" uid="uid://c1qbbfb0dxjh8" path="res://models/LowpolyForestPack/TreesTexture/OakTreeLeaf.png" id="3_n71kj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we0si"]
+albedo_texture = ExtResource("2_dcheg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qppb"]
+albedo_texture = ExtResource("3_n71kj")
+
+[node name="OakTree2" unique_id=1036924566 instance=ExtResource("1_1owdd")]
+
+[node name="OakTree2" parent="." index="0" unique_id=413625774]
+surface_material_override/0 = SubResource("StandardMaterial3D_we0si")
+surface_material_override/1 = SubResource("StandardMaterial3D_8qppb")
