@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dfbpdfd8u58ht"]
+
+[ext_resource type="PackedScene" uid="uid://bm6m3jj8wxk5g" path="res://addons/character_basic/Model/characterMedium.fbx" id="1_sulxt"]
+[ext_resource type="Texture2D" uid="uid://b2632bfxc71mn" path="res://addons/character_basic/Skins/criminalMaleA.png" id="2_1ab4o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w70r4"]
+albedo_texture = ExtResource("2_1ab4o")
+
+[node name="characterMedium" unique_id=1636460911 instance=ExtResource("1_sulxt")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="characterMedium" parent="Root/Skeleton3D" parent_id_path=PackedInt32Array(549519257) index="0" unique_id=895469305]
+surface_material_override/0 = SubResource("StandardMaterial3D_w70r4")
