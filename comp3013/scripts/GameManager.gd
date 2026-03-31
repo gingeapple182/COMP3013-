@@ -15,4 +15,5 @@ extends Node
 
 
 func _ready() -> void:
-	skillPoints = 5
+	skillPoints = 1
+	playerLevel = 1
