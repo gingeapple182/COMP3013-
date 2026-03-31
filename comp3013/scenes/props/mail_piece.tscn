@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2i2wsnwo53y"]
+
+[ext_resource type="PackedScene" uid="uid://dmyyxqiasyx8r" path="res://scripts/inventory/interaction_component.tscn" id="1_b0tvi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vgd7l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0tvi"]
+
+[node name="mail_piece" type="RigidBody3D" unique_id=478892953]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1398780775]
+mesh = SubResource("BoxMesh_vgd7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=759137016]
+shape = SubResource("BoxShape3D_b0tvi")
+
+[node name="interaction_component" parent="." unique_id=1291159474 node_paths=PackedStringArray("object_reference") instance=ExtResource("1_b0tvi")]
+object_reference = NodePath("..")

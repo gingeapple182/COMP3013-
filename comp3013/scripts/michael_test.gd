@@ -10,6 +10,7 @@ var is_paused := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	inventoryUI.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass # Replace with function body.
 
 
@@ -20,14 +21,17 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		if (Input.MOUSE_MODE_CAPTURED):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		elif (Input.MOUSE_MODE_VISIBLE):
+		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		toggle_pause()
 		
 	if event.is_action_pressed("OpenMailBag"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		toggle_inventory()
 
 

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8k47lxnrsswp" path="res://scenes/building/floor_wood.tscn" id="6_7rggw"]
 [ext_resource type="PackedScene" uid="uid://2bjcbp0onoys" path="res://scenes/kenney/planks.tscn" id="7_0jkbm"]
 [ext_resource type="PackedScene" uid="uid://bxil0rvseu6bs" path="res://scenes/props/table_medium.tscn" id="8_0jkbm"]
+[ext_resource type="PackedScene" uid="uid://c2i2wsnwo53y" path="res://scenes/props/mail_piece.tscn" id="9_0ddcj"]
 
 [node name="CentralHubHouse" type="Node3D" unique_id=2064951200]
 
@@ -118,3 +119,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 
 
 [node name="table_medium2" parent="Mail Bench" unique_id=420710502 instance=ExtResource("8_0jkbm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 4.7683716e-07)
+
+[node name="mail_piece" parent="." unique_id=1769382295 instance=ExtResource("9_0ddcj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0000002, 4.7)

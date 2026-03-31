@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c2huwe1qym023"]
 
+[ext_resource type="Script" uid="uid://dxf1162g5ws4x" path="res://scripts/inventory/InventoryController.gd" id="1_qjdys"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ujl"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -21,13 +23,13 @@ corner_detail = 5
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2122604213]
 
 [node name="Inventory UI" type="Control" parent="CanvasLayer" unique_id=2138160837]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qjdys")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Inventory UI" unique_id=143824574]
 custom_minimum_size = Vector2(100, 100)
@@ -58,6 +60,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Inventory UI/Panel/MarginContainer" unique_id=98931105]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 5

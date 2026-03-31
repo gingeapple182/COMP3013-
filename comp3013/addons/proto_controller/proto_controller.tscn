@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://or0wf2hww0md" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="PackedScene" uid="uid://oe45i43rmj36" path="res://scripts/inventory/item_interaction.tscn" id="2_wr06p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -35,3 +36,15 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=2016146737]
+unique_name_in_owner = true
+
+[node name="InteractionRayCast" type="RayCast3D" parent="Head/Camera3D" unique_id=932383139]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+
+[node name="Marker3D" type="Marker3D" parent="Head/Camera3D" unique_id=670085601]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="item_interaction" parent="." unique_id=655012343 instance=ExtResource("2_wr06p")]
+unique_name_in_owner = true
