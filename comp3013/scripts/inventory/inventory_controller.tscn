@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2huwe1qym023"]
 
-[ext_resource type="Script" uid="uid://dxf1162g5ws4x" path="res://scripts/inventory/InventoryController.gd" id="1_qjdys"]
+[ext_resource type="Script" uid="uid://dxf1162g5ws4x" path="res://scripts/inventory/inventory_controller.gd" id="1_qjdys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ujl"]
 content_margin_left = 0.0
@@ -39,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -140.0
-offset_right = 180.0
-offset_bottom = 145.0
+offset_left = -340.0
+offset_top = -275.0
+offset_right = 340.0
+offset_bottom = 275.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k0ujl")

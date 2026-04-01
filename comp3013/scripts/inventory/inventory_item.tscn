@@ -43,7 +43,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="Inventory Item" type="Button" unique_id=685902125]
-custom_minimum_size = Vector2(66, 66)
+custom_minimum_size = Vector2(130, 130)
 offset_right = 8.0
 offset_bottom = 8.0
 focus_mode = 0
@@ -53,7 +53,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_i131u")
 script = ExtResource("1_wa0k3")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1579329241]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

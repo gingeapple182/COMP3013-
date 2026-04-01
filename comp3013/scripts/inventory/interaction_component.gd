@@ -1,19 +1,21 @@
-extends Node
+extends AbstractInteraction
+class_name InteractionComponent
 
 enum InteractionType { DEFAULT, MAIL }
 
-@export var object_reference: Node3D
-@export var interaction_type: InteractionType = InteractionType.MAIL
+@export var interaction_type: InteractionType = InteractionType.DEFAULT
+@export var mail_data: MailData
 
-var can_interact: bool = true
-var is_interacting: bool = false
 var player_hand: Marker3D
 
 signal item_collected(item: Node)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super()
+	
+	var scene_path: String = get_parent().scene_file_path
+	mail_data.item_model_prefab = load(scene_path)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +25,8 @@ func _process(delta: float) -> void:
 func preInteract(hand: Marker3D) -> void:
 	is_interacting = true
 	match interaction_type:
+		InteractionType.DEFAULT:
+			player_hand = hand
 		InteractionType.MAIL:
 			player_hand = hand
 	
@@ -31,8 +35,10 @@ func interact() -> void:
 		return
 	
 	match interaction_type:
-		InteractionType.MAIL:
+		InteractionType.DEFAULT:
 			_default_interact()
+		InteractionType.MAIL:
+			_collect_mail()
 	
 func postInteract() -> void:
 	is_interacting = false
@@ -50,4 +56,4 @@ func _default_interact() -> void:
 		rigid_body_3d.set_linear_velocity((object_distance) * (5 / rigid_body_3d.mass))
 
 func _collect_mail() -> void:
-	emit_signal("item_collected")
+	emit_signal("item_collected", get_parent())
