@@ -64,6 +64,20 @@ func _ready() -> void:
 	capture_mouse()
 
 func _unhandled_input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("OpenMailBag"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			GameManager.uiOpen = true
+		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			GameManager.uiOpen = false
+		toggle_inventory()
+	
+	#
+	#Only put movement controls past here otherwise ui keyboard inputs will not be reached
+	#
+	
 	#if ui is open then dont let player control camera
 	if GameManager.uiOpen:
 		return
@@ -84,13 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
-	
-	if event.is_action_pressed("OpenMailBag"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		toggle_inventory()
+
 
 func _physics_process(delta: float) -> void:
 	
