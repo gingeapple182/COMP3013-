@@ -9,7 +9,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b0tvi"]
 
-[sub_resource type="Resource" id="Resource_vnkn2"]
+[sub_resource type="Resource" id="Resource_djy1f"]
 script = ExtResource("2_qvfkj")
 metadata/_custom_type_script = "uid://c76gmf1g8r7no"
 
@@ -17,10 +17,11 @@ metadata/_custom_type_script = "uid://c76gmf1g8r7no"
 script = ExtResource("2_4dwtm")
 item_name = "Envelope"
 item_icon = ExtResource("2_djy1f")
-action_data = SubResource("Resource_vnkn2")
+action_data = SubResource("Resource_djy1f")
 metadata/_custom_type_script = "uid://c4rfo6jlb4mr8"
 
 [node name="mail_piece" type="RigidBody3D" unique_id=478892953]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1398780775]
 mesh = SubResource("BoxMesh_vgd7l")

@@ -1,7 +1,7 @@
 extends AbstractInteraction
 class_name InteractionComponent
 
-enum InteractionType { DEFAULT, MAIL }
+enum InteractionType { DEFAULT, MAIL, NPC }
 
 @export var interaction_type: InteractionType = InteractionType.DEFAULT
 @export var mail_data: MailData
@@ -24,11 +24,7 @@ func _process(delta: float) -> void:
 
 func preInteract(hand: Marker3D) -> void:
 	is_interacting = true
-	match interaction_type:
-		InteractionType.DEFAULT:
-			player_hand = hand
-		InteractionType.MAIL:
-			player_hand = hand
+	player_hand = hand
 	
 func interact() -> void:
 	if(!can_interact):
@@ -39,6 +35,8 @@ func interact() -> void:
 			_default_interact()
 		InteractionType.MAIL:
 			_collect_mail()
+		InteractionType.NPC:
+			_npc_interaction()
 	
 func postInteract() -> void:
 	is_interacting = false
@@ -57,3 +55,7 @@ func _default_interact() -> void:
 
 func _collect_mail() -> void:
 	emit_signal("item_collected", get_parent())
+
+func _npc_interaction() -> void:
+	## start npc interaction here
+	return

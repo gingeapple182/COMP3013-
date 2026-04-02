@@ -53,8 +53,6 @@ unique_name_in_owner = true
 
 [node name="Inventory Controller" parent="." unique_id=1757811440 instance=ExtResource("3_5hfox")]
 
-[editable path="Inventory Controller"]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=737331989]
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=1662043872]
@@ -76,3 +74,5 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Press \"F\" to interact"
+
+[editable path="Inventory Controller"]
