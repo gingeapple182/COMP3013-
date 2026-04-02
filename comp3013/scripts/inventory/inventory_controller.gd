@@ -11,6 +11,10 @@ func _ready() -> void:
 	for i in item_slots_count:
 		var item = inventory_slot_prefab.instantiate() as InventoryItem
 		inventory_grid.add_child(item)
+		item.slot_index = i
+		item.on_item_swapped.connect(item_moving_slot)
+		item.on_item_double_clicked.connect(item_double_clicked)
+		item.on_item_right_clicked.connect(item_right_clicked)
 		inventory_slots.append(item)
 
 
@@ -32,3 +36,14 @@ func pickup_item(mail_data: MailData) -> void:
 			return
 	inventory_full = true
 			
+func item_moving_slot(old_slot_index: int, new_slot_index: int) -> void:
+	var new_slot_item: MailData = inventory_slots[new_slot_index].slot_data
+	var old_slot_item: MailData = inventory_slots[old_slot_index].slot_data
+	inventory_slots[new_slot_index].fill_slot(old_slot_item)
+	inventory_slots[old_slot_index].fill_slot(new_slot_item)
+
+func item_double_clicked(selected_index: int) -> void:
+	return
+
+func item_right_clicked(selected_index: int) -> void:
+	return

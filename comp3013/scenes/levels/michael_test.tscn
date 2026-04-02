@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="9_uk71l"]
 [ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="10_fv0k8"]
 [ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="11_104i7"]
-[ext_resource type="PackedScene" uid="uid://c2huwe1qym023" path="res://scripts/inventory/inventory_controller.tscn" id="12_104i7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gebl"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -139,7 +138,3 @@ assets = SubResource("Terrain3DAssets_lml0p")
 physics_material = SubResource("PhysicsMaterial_fv0k8")
 top_level = true
 metadata/_edit_lock_ = true
-
-[node name="Inventory Controller" parent="." unique_id=1757811440 instance=ExtResource("12_104i7")]
-
-[editable path="Inventory Controller"]

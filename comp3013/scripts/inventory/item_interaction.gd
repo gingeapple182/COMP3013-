@@ -4,7 +4,7 @@ extends Node
 @onready var interaction_ray_cast: RayCast3D = %InteractionRayCast
 @onready var player_camera: Camera3D = %Camera3D
 @onready var marker_3d: Marker3D = %Marker3D
-@onready var inventory_ui: Control = $"../../Inventory Controller/CanvasLayer/Inventory UI"
+@onready var inventory_ui: Control = $"../Inventory Controller/CanvasLayer/Inventory UI"
 
 var current_object: Object
 var last_object: Object

@@ -43,6 +43,8 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to open and close the mail bag.
+@export var input_mail_bag : String = "OpenMailBag"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -52,8 +54,10 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var inventory_ui: Control = $"Inventory Controller/CanvasLayer/Inventory UI"
 
 func _ready() -> void:
+	inventory_ui.visible = false
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
@@ -76,6 +80,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			disable_freefly()
 	
+	if event.is_action_pressed("OpenMailBag"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		toggle_inventory()
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -152,6 +162,8 @@ func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
+func toggle_inventory():
+	inventory_ui.visible = !inventory_ui.visible
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.
@@ -177,5 +189,6 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
-		
+	if not InputMap.has_action(input_mail_bag):
+		push_error("Mail bag disabled. No InputAction found for input_mail_bag: " + input_mail_bag)
 		
