@@ -15,7 +15,7 @@ func _init() -> void:
 	xp = 0
 	xpToNextLevel = 100
 	
-func gainXP(xpGain: int) -> void:
+func gainXP(xpGain: int) -> void: #override later if class skills affect xp gain
 	xp+= xpGain
 	if xp >= xpToNextLevel:
 		GameManager.playerLevel+=1

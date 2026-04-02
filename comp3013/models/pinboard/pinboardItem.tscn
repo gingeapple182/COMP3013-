@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bkccjwfu3tfgs"]
+
+[ext_resource type="Texture2D" uid="uid://dscwurbu8w08o" path="res://models/pinboard/pinboardItemTex.png" id="1_ywebq"]
+[ext_resource type="Texture2D" uid="uid://bctv1mq8cg7dd" path="res://models/pinboard/pinboardButtonTex.png" id="2_fipke"]
+
+[node name="PinboardItem" type="Control" unique_id=2119410009]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=182117118]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 338.513
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ywebq")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Accept" type="TextureButton" parent="TextureRect" unique_id=894502557]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 84.0
+offset_right = 1112.0
+offset_bottom = 577.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_fipke")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect/Accept" unique_id=1454542894]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 120.00001
+offset_right = 162.0
+offset_bottom = 143.0
+scale = Vector2(10, 10)
+text = "Accpet"

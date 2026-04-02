@@ -11,6 +11,7 @@ extends Node
 @onready var Informant : int
 @onready var className : String
 @onready var playerLevel : int
+@onready var uiOpen : bool = false
 
 
 

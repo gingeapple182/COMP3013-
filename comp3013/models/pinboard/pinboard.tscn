@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dr0lnri8310us"]
+
+[ext_resource type="Script" uid="uid://6mmhvsfynik2" path="res://models/pinboard/pinboard.gd" id="1_l7plc"]
+[ext_resource type="PackedScene" uid="uid://bul43v3urlt8j" path="res://models/pinboard/pinboard.glb" id="1_renlg"]
+[ext_resource type="PackedScene" uid="uid://bkccjwfu3tfgs" path="res://models/pinboard/pinboardItem.tscn" id="3_slhm2"]
+[ext_resource type="Texture2D" uid="uid://bwkn2muws6i1c" path="res://models/pinboard/pinboardUIbg.png" id="3_tmcq2"]
+[ext_resource type="Texture2D" uid="uid://bctv1mq8cg7dd" path="res://models/pinboard/pinboardButtonTex.png" id="5_nqijx"]
+[ext_resource type="Script" uid="uid://eeb3nuj6t5su" path="res://models/pinboard/close.gd" id="6_b8om2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7plc"]
+size = Vector3(0.12921143, 1.560669, 1.0227051)
+
+[node name="pinboard" type="StaticBody3D" unique_id=671473385]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_l7plc")
+
+[node name="model" parent="." unique_id=545762400 instance=ExtResource("1_renlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.967473, -3.2995195, 3.7107325)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="model" unique_id=1491563743]
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="model/CanvasLayer" unique_id=1132190243]
+offset_left = 361.42856
+offset_top = 137.14285
+offset_right = 1261.4286
+offset_bottom = 737.1428
+texture = ExtResource("3_tmcq2")
+expand_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="model/CanvasLayer" unique_id=1376101983]
+offset_left = 392.85715
+offset_top = 152.85715
+offset_right = 1260.0
+offset_bottom = 740.0
+
+[node name="PinboardItem" parent="model/CanvasLayer/GridContainer" unique_id=2119410009 instance=ExtResource("3_slhm2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="PinboardItem2" parent="model/CanvasLayer/GridContainer" unique_id=366173418 instance=ExtResource("3_slhm2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="PinboardItem3" parent="model/CanvasLayer/GridContainer" unique_id=897453421 instance=ExtResource("3_slhm2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="PinboardItem4" parent="model/CanvasLayer/GridContainer" unique_id=1215079282 instance=ExtResource("3_slhm2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="PinboardItem5" parent="model/CanvasLayer/GridContainer" unique_id=1151062154 instance=ExtResource("3_slhm2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Close" type="TextureButton" parent="model/CanvasLayer" unique_id=1575768807]
+offset_left = 1065.7142
+offset_top = 594.2857
+offset_right = 1805.7142
+offset_bottom = 1087.2856
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("5_nqijx")
+stretch_mode = 0
+script = ExtResource("6_b8om2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="model/CanvasLayer/Close" unique_id=1121041254]
+layout_mode = 0
+offset_left = 171.42857
+offset_top = 121.42856
+offset_right = 213.42857
+offset_bottom = 144.42856
+scale = Vector2(10, 10)
+text = "Close"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1816682068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.3015695, 0.061553955, -0.07757568, 0.057675064)
+shape = SubResource("BoxShape3D_l7plc")
+
+[connection signal="pressed" from="model/CanvasLayer/Close" to="model/CanvasLayer/Close" method="_on_pressed"]

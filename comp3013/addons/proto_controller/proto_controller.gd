@@ -63,6 +63,10 @@ func _ready() -> void:
 	look_rotation.x = head.rotation.x
 
 func _unhandled_input(event: InputEvent) -> void:
+	#if ui is open then dont let player control camera
+	if GameManager.uiOpen:
+		return
+		
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture_mouse()
@@ -88,6 +92,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_inventory()
 
 func _physics_process(delta: float) -> void:
+	
+	#if ui is open dont let player move their character
+	if GameManager.uiOpen:
+		return
+	
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)

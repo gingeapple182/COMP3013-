@@ -1,15 +1,18 @@
 extends Node
 
+@onready var interact_text: Label = $"../CanvasLayer/BoxContainer/InteractText"
+
 @onready var item_interaction: Node = %item_interaction
 @onready var interaction_ray_cast: RayCast3D = %InteractionRayCast
 @onready var player_camera: Camera3D = %Camera3D
 @onready var marker_3d: Marker3D = %Marker3D
+
 @onready var inventory_ui: Control = $"../Inventory Controller/CanvasLayer/Inventory UI"
+
 
 var current_object: Object
 var last_object: Object
 var interaction_component: Node
-
 signal inventory_on_item_collected(item)
 
 # Called when the node enters the scene tree for the first time.
@@ -63,3 +66,20 @@ func find_interaction_component(node: Node) -> AbstractInteraction:
 				return child
 		node = node.get_parent()
 	return null
+	
+	
+#for 3d objects in scenes
+#objects must be on collision layer 2 to be picked up by raycast
+func _physics_process(delta):
+	if GameManager.uiOpen:
+		return
+	var target = %InteractionRayCast.get_collider()
+	if target != null && target.has_method("interact"):
+		interact_text.show()
+		if Input.is_action_just_pressed("interact"):
+			target.interact()
+			interact_text.hide()
+
+	else:
+		interact_text.hide()
+	
