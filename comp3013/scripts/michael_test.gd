@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var input_openMailBag: String = "OpenMailBag"
+@onready var proto_controller: CharacterBody3D = $ProtoController
 
 @onready var menu: Control = $Menu
 
@@ -19,6 +20,9 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("pause"):
+		if proto_controller.is_mail_bag_open():
+			proto_controller.close_mail_bag()
+			return
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:

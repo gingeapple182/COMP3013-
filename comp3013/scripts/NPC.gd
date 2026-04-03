@@ -8,7 +8,8 @@ enum NPCState {
 	IDLE,
 	WANDER,
 	DESTINATION,
-	RETURN
+	RETURN,
+	KILL
 }
 
 @export_group("NPC State")

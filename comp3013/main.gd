@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var menu: Control = $Menu
+@onready var proto_controller: CharacterBody3D = $ProtoController
 
 var is_paused := false
 
@@ -16,6 +17,9 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("pause"):
+		if proto_controller.is_mail_bag_open():
+			proto_controller.close_mail_bag()
+			return
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		toggle_pause()
 

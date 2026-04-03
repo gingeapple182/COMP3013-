@@ -210,3 +210,16 @@ func check_input_mappings():
 	if not InputMap.has_action(input_mail_bag):
 		push_error("Mail bag disabled. No InputAction found for input_mail_bag: " + input_mail_bag)
 		
+
+## -- helpers
+
+func is_mail_bag_open() -> bool:
+	return inventory_ui.visible
+
+
+func close_mail_bag():
+	if not inventory_ui.visible:
+		return
+	inventory_ui.visible = false
+	GameManager.uiOpen = false
+	capture_mouse()

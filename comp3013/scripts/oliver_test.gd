@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var menu: Control = $Menu
+@onready var proto_controller: CharacterBody3D = $ProtoController
 
 var is_paused := false
 
