@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://or0wf2hww0md" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="PackedScene" uid="uid://oe45i43rmj36" path="res://scripts/inventory/item_interaction.tscn" id="2_wr06p"]
 [ext_resource type="PackedScene" uid="uid://c2huwe1qym023" path="res://scripts/inventory/inventory_controller.tscn" id="3_5hfox"]
+[ext_resource type="PackedScene" uid="uid://hayylx4cfwia" path="res://scripts/inventory/submit_screen.tscn" id="4_6dqce"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -42,7 +43,7 @@ unique_name_in_owner = true
 [node name="InteractionRayCast" type="RayCast3D" parent="Head/Camera3D" unique_id=932383139]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -2)
-collision_mask = 2
+collision_mask = 3
 
 [node name="Marker3D" type="Marker3D" parent="Head/Camera3D" unique_id=670085601]
 unique_name_in_owner = true
@@ -52,6 +53,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 unique_name_in_owner = true
 
 [node name="Inventory Controller" parent="." unique_id=1757811440 instance=ExtResource("3_5hfox")]
+
+[node name="SubmitScreen" parent="." unique_id=545728484 instance=ExtResource("4_6dqce")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=737331989]
 
@@ -76,3 +79,4 @@ size_flags_horizontal = 4
 text = "Press \"F\" to interact"
 
 [editable path="Inventory Controller"]
+[editable path="SubmitScreen"]

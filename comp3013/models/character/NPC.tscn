@@ -4,19 +4,29 @@
 [ext_resource type="PackedScene" uid="uid://dfbpdfd8u58ht" path="res://models/character/character_medium.tscn" id="1_mq0sf"]
 [ext_resource type="AnimationLibrary" uid="uid://bp7r1ldejlmj2" path="res://addons/character_basic/Animations/idle.fbx" id="2_wktfc"]
 [ext_resource type="AnimationLibrary" uid="uid://00r77o02seuy" path="res://addons/character_basic/Animations/run.fbx" id="4_petv1"]
+[ext_resource type="Script" uid="uid://b323koyac6j8u" path="res://scripts/inventory/interaction_component.gd" id="5_ayc1s"]
+[ext_resource type="Script" uid="uid://c4rfo6jlb4mr8" path="res://scripts/inventory/mail_data.gd" id="6_t6ka4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wktfc"]
 radius = 0.4
 
+[sub_resource type="Resource" id="Resource_hggnm"]
+script = ExtResource("6_t6ka4")
+metadata/_custom_type_script = "uid://c4rfo6jlb4mr8"
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=492491780]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 3
+collision_mask = 3
 floor_max_angle = 0.87266463
 script = ExtResource("1_j2mbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=44224535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CapsuleShape3D_wktfc")
+
+[node name="Label3D" type="Label3D" parent="CollisionShape3D" unique_id=1040532518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1062689, 0)
+text = "{npc_name}"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1766874342]
 avoidance_enabled = true
@@ -29,3 +39,8 @@ root_node = NodePath("../characterMedium")
 libraries/idle = ExtResource("2_wktfc")
 libraries/run = ExtResource("4_petv1")
 autoplay = &"idle/Root|0_Targeting Pose"
+
+[node name="interaction_component" type="Node" parent="." unique_id=249743906]
+script = ExtResource("5_ayc1s")
+interaction_type = 2
+mail_data = SubResource("Resource_hggnm")

@@ -7,6 +7,7 @@ enum InteractionType { DEFAULT, MAIL, NPC }
 @export var mail_data: MailData
 
 var player_hand: Marker3D
+var has_output := false
 
 signal item_collected(item: Node)
 
@@ -21,6 +22,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
 
 func preInteract(hand: Marker3D) -> void:
 	is_interacting = true
@@ -37,9 +39,10 @@ func interact() -> void:
 			_collect_mail()
 		InteractionType.NPC:
 			_npc_interaction()
-	
+
 func postInteract() -> void:
 	is_interacting = false
+	has_output = false
 
 func _input(event: InputEvent) -> void:
 	return
@@ -57,5 +60,22 @@ func _collect_mail() -> void:
 	emit_signal("item_collected", get_parent())
 
 func _npc_interaction() -> void:
-	## start npc interaction here
-	return
+	if has_output:
+		return
+	
+	has_output = true
+	
+	var npc := get_parent() as NPC
+	
+	print("NPC interaction triggered")
+	print("NPC role: ", NPC.NPCRole.keys()[npc.npc_role])
+	
+	if npc.npc_role != NPC.NPCRole.RECIPIENT:
+		return
+	
+	var player = get_tree().get_first_node_in_group("player")
+	if player == null:
+		push_warning("No player found in group 'player'.")
+		return
+	
+	player.open_submit(npc)

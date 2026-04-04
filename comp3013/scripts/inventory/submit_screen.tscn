@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://hayylx4cfwia"]
+
+[ext_resource type="Script" uid="uid://b7vwiig15t0w0" path="res://scripts/inventory/submit_ui.gd" id="1_vxjr4"]
+
+[node name="SubmitScreen" type="Node" unique_id=545728484]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1333528205]
+
+[node name="SubmitUI" type="Control" parent="CanvasLayer" unique_id=620311487 node_paths=PackedStringArray("inventory_grid", "submit_grid", "npc_name_label", "npc_request_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vxjr4")
+inventory_grid = NodePath("VBox/HBox/ScrollContainer/MarginContainer/GridContainer")
+submit_grid = NodePath("VBox/HBox/VBox/MarginContainer/GridContainer")
+npc_name_label = NodePath("VBox/HBox/VBox/NPCName")
+npc_request_label = NodePath("VBox/HBox/VBox/NPCRequest")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/SubmitUI" unique_id=1215618822]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/SubmitUI/VBox" unique_id=1495880199]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/SubmitUI/VBox" unique_id=1024246272]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox" unique_id=1029007115]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/SubmitUI/VBox/HBox" unique_id=214003071]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SubmitUI/VBox/HBox/ScrollContainer" unique_id=2139422088]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/SubmitUI/VBox/HBox/ScrollContainer/MarginContainer" unique_id=137268662]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 5
+
+[node name="Control2" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox" unique_id=1403317519]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/SubmitUI/VBox/HBox" unique_id=6088659]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="NPCName" type="Label" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox" unique_id=1874414077]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "{NPC_Name}"
+
+[node name="NPCRequest" type="Label" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox" unique_id=1687006715]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "{NPC_Request}"
+
+[node name="Control" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox" unique_id=1383961525]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox" unique_id=1022123272]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox/MarginContainer" unique_id=19332073]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox" unique_id=1719658048]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox" unique_id=730439352]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox" unique_id=937594016]
+layout_mode = 2
+text = "CANCEL"
+
+[node name="Control2" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox" unique_id=439439226]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="ButtonSubmit" type="Button" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox" unique_id=2142864042]
+layout_mode = 2
+text = "SUBMIT"
+
+[node name="Control3" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox" unique_id=668078004]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control3" type="Control" parent="CanvasLayer/SubmitUI/VBox/HBox" unique_id=1231949225]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/SubmitUI/VBox" unique_id=1399578403]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox/ButtonCancel" to="CanvasLayer/SubmitUI" method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="CanvasLayer/SubmitUI/VBox/HBox/VBox/HBox/ButtonSubmit" to="CanvasLayer/SubmitUI" method="_on_button_submit_pressed"]

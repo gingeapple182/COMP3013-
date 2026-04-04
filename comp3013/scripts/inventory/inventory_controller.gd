@@ -6,7 +6,7 @@ extends Control
 
 var item_slots_count: int = 20
 var inventory_slot_prefab: PackedScene = load("res://scripts/inventory/inventory_item.tscn")
-@onready var inventory_grid: GridContainer = %GridContainer
+@export var inventory_grid: GridContainer
 var inventory_slots: Array[InventoryItem] = []
 var inventory_full: bool = false
 
@@ -152,3 +152,7 @@ func drop_item (selected_index: int) -> void:
 	instance.rotation_degrees.y = randf() * 360
 	slot.fill_slot(null)
 	inventory_full = not has_free_slot()
+
+## -- signal stuff
+func send_inventory_to_submit_screen(submit_screen: SubmitMailScreen) -> void:
+	submit_screen.set_inventory_data(inventory_slots)

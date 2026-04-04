@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://4xrcsca4sovu" path="res://models/props/plate_food.glb" id="25_xp602"]
 [ext_resource type="PackedScene" uid="uid://fido61ugvghk" path="res://scenes/props/coin_stack.tscn" id="26_7408t"]
 [ext_resource type="PackedScene" uid="uid://cfnvgbukyrg3e" path="res://scenes/building/house.tscn" id="27_oui80"]
+[ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="29_uqssa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0qi5k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -535,6 +536,8 @@ destination_marker = NodePath("../../NavigationRegion3D/Node3D/MapCenter")
 
 [node name="TestReturn" parent="NPC" unique_id=921774527 instance=ExtResource("12_jcwi5")]
 transform = Transform3D(-0.015044166, 0, 0.9998868, 0, 1, 0, -0.9998868, 0, -0.015044166, 2.3453293, 0, -15.720287)
+npc_name = "Bob the bland"
+npc_role = 1
 starting_state = 3
 move_speed = 6.0
 rotation_speed = 5.0
@@ -542,11 +545,14 @@ stop_distance = 2.0
 wander_markers = Array[NodePath]([NodePath("../../NavigationRegion3D/Node3D/HomeTest"), NodePath("../../NavigationRegion3D/Node3D/MapCenter"), NodePath("../../NavigationRegion3D/Node3D/WalkEnd")])
 home_marker = NodePath("../../NavigationRegion3D/Node3D/HomeTest")
 destination_marker = NodePath("../../NavigationRegion3D/Node3D/MapCenter")
+player_path = NodePath("../../ProtoController")
 
 [node name="TestSlope" parent="NPC" unique_id=2025560901 instance=ExtResource("12_jcwi5")]
 transform = Transform3D(-0.015044166, 0, 0.9998868, 0, 1, 0, -0.9998868, 0, -0.015044166, 4.310032, 0, -15.720287)
 collision_layer = 1
 collision_mask = 1
+npc_name = "Bob the bland"
+npc_role = 1
 base_state = 1
 starting_state = 1
 move_speed = 6.0
@@ -555,5 +561,14 @@ stop_distance = 2.0
 wander_markers = Array[NodePath]([NodePath("../../NavigationRegion3D/Node3D/SlopeTest"), NodePath("../../NavigationRegion3D/Node3D/TownTest")])
 home_marker = NodePath("../../NavigationRegion3D/Node3D/HomeTest")
 destination_marker = NodePath("../../NavigationRegion3D/Node3D/SlopeTest")
+
+[node name="TestInteract" parent="NPC" unique_id=1630988912 instance=ExtResource("12_jcwi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.61885, 10.042281, -158.69702)
+npc_name = "Froderik the gay"
+npc_role = 1
+player_path = NodePath("../../ProtoController")
+
+[node name="CentralHubHouse" parent="." unique_id=2064951200 instance=ExtResource("29_uqssa")]
+transform = Transform3D(-0.2466438, 0, 0.9691062, 0, 1, 0, -0.9691062, 0, -0.2466438, 80.395, 10, -152.081)
 
 [editable path="NavigationRegion3D/Node3D2/Houses/House2"]

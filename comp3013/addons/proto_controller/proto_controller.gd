@@ -55,9 +55,13 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var inventory_ui: Control = $"Inventory Controller/CanvasLayer/Inventory UI"
+@onready var submit_ui: SubmitMailScreen = $SubmitScreen/CanvasLayer/SubmitUI
 
 func _ready() -> void:
+	add_to_group("player")
 	inventory_ui.visible = false
+	submit_ui.visible = false
+	submit_ui.inventory_requested.connect(_on_submit_inventory_requested)
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
@@ -180,8 +184,37 @@ func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
+func open_submit(npc: NPC) -> void:
+	if inventory_ui.visible:
+		inventory_ui.visible = false
+	if submit_ui.visible:
+		return
+	
+	GameManager.uiOpen = true
+	release_mouse()
+	submit_ui.open_screen(npc, inventory_ui.inventory_slots)
+
 func toggle_inventory():
 	inventory_ui.visible = !inventory_ui.visible
+	
+	if inventory_ui.visible:
+		submit_ui.visible = false
+		GameManager.uiOpen = true
+		release_mouse()
+	else:
+		GameManager.uiOpen = false
+		capture_mouse()
+
+func toggle_submit():
+	submit_ui.visible = !submit_ui.visible
+	
+	if submit_ui.visible:
+		inventory_ui.visible = false
+		GameManager.uiOpen = true
+		release_mouse()
+	else:
+		GameManager.uiOpen = false
+		capture_mouse()
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.
@@ -216,6 +249,8 @@ func check_input_mappings():
 func is_mail_bag_open() -> bool:
 	return inventory_ui.visible
 
+func is_submit_open() -> bool:
+	return submit_ui.visible
 
 func close_mail_bag():
 	if not inventory_ui.visible:
@@ -223,3 +258,13 @@ func close_mail_bag():
 	inventory_ui.visible = false
 	GameManager.uiOpen = false
 	capture_mouse()
+
+func close_submit():
+	if not submit_ui.visible:
+		return
+	submit_ui.visible = false
+	GameManager.uiOpen = false
+	capture_mouse()
+
+func _on_submit_inventory_requested() -> void:
+	inventory_ui.send_inventory_to_submit_screen(submit_ui)

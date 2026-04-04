@@ -12,6 +12,9 @@ func _input(event):
 		if proto_controller.is_mail_bag_open():
 			proto_controller.close_mail_bag()
 			return
+		if proto_controller.is_submit_open():
+			proto_controller.close_submit()
+			return
 		skill_tree.visible = false
 		button.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

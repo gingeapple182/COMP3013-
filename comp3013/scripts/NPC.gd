@@ -3,6 +3,12 @@ extends CharacterBody3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var name_label: Label3D = $CollisionShape3D/Label3D
+
+enum NPCRole {
+	BYSTANDER,
+	RECIPIENT
+}
 
 enum NPCState {
 	IDLE,
@@ -12,6 +18,10 @@ enum NPCState {
 	KILL
 }
 
+@export var npc_name: String
+
+@export_group("NPC Role")
+@export var npc_role: NPCRole = NPCRole.BYSTANDER
 @export_group("NPC State")
 @export var base_state: NPCState = NPCState.IDLE
 @export var starting_state: NPCState = NPCState.IDLE
@@ -32,6 +42,10 @@ var current_state: NPCState = NPCState.IDLE
 @export var home_marker: NodePath
 @export var destination_marker: NodePath
 
+@export_group("Targets")
+@export var player_path: NodePath
+
+var player: Node3D = null
 var idle_timer: float = 0.0
 var current_idle_wait: float = 0.0
 var current_wander_index: int = 0
@@ -43,6 +57,11 @@ func _ready() -> void:
 	if not navigation_agent.velocity_computed.is_connected(_on_velocity_computed):
 		navigation_agent.velocity_computed.connect(_on_velocity_computed)
 	
+		player = get_node_or_null(player_path) as Node3D
+	if player == null:
+		npc_log("Player path is not assigned or invalid.")
+	
+	name_label.text = npc_name 
 	current_idle_wait = randf_range(idle_wait_min, idle_wait_max)
 	current_state = starting_state
 	npc_log("STARTING STATE: %s | BASE STATE: %s" % [NPCState.keys()[current_state], NPCState.keys()[base_state]])
@@ -59,6 +78,8 @@ func _physics_process(delta: float) -> void:
 			handle_destination_state()
 		NPCState.RETURN:
 			handle_return_state()
+		NPCState.KILL:
+			handle_kill_state()
 	
 	velocity = safe_velocity
 	move_and_slide()
@@ -93,6 +114,8 @@ func enter_current_state() -> void:
 			enter_destination_state()
 		NPCState.RETURN:
 			enter_return_state()
+		NPCState.KILL:
+			enter_kill_state()
 	
 	update_animation()
 
@@ -201,6 +224,24 @@ func handle_return_state() -> void:
 	
 	move_towards_next_path_point()
 
+func enter_kill_state() -> void:
+	if player == null:
+		npc_log("Cannot enter KILL state, player is missing.")
+		change_state(NPCState.IDLE)
+		return
+	
+	navigation_agent.set_target_position(player.global_position)
+
+func handle_kill_state() -> void:
+	if player == null:
+		velocity = Vector3.ZERO
+		npc_log("Player missing during KILL state.")
+		change_state(NPCState.IDLE)
+		return
+	
+	navigation_agent.set_target_position(player.global_position)
+	move_towards_next_path_point()
+
 
 # =========================================================
 # MOVEMENT
@@ -242,7 +283,7 @@ func update_animation() -> void:
 	match current_state:
 		NPCState.IDLE:
 			animation_name = "idle/Root|Idle"
-		NPCState.WANDER, NPCState.DESTINATION, NPCState.RETURN:
+		NPCState.WANDER, NPCState.DESTINATION, NPCState.RETURN, NPCState.KILL:
 			animation_name = "run/Root|Run"
 	
 	if animation_name != "" and animation_player.current_animation != animation_name:
@@ -281,5 +322,9 @@ func start_wander() -> void:
 	change_state(NPCState.WANDER)
 
 
+func start_kill() -> void:
+	change_state(NPCState.KILL)
+
+
 func npc_log(message: String) -> void:
-	print("NPC: ", name, ": ", message)
+	print("NPC: ", npc_name, ": ", message)
