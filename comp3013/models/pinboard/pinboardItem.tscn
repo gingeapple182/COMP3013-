@@ -4,10 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bctv1mq8cg7dd" path="res://models/pinboard/pinboardButtonTex.png" id="2_fipke"]
 
 [node name="PinboardItem" type="Control" unique_id=2119410009]
+custom_minimum_size = Vector2(350, 140)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -2.0
+offset_right = -742.5
+offset_bottom = -490.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -15,7 +20,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 600.0
 offset_bottom = 338.513
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_ywebq")
 expand_mode = 5
 stretch_mode = 4

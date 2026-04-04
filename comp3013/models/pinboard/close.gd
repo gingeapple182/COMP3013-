@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var canvas_layer: CanvasLayer = $".."
+@onready var canvas_layer: CanvasLayer = $"../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
