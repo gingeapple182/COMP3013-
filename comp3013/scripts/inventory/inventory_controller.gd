@@ -155,4 +155,5 @@ func drop_item (selected_index: int) -> void:
 
 ## -- signal stuff
 func send_inventory_to_submit_screen(submit_screen: SubmitMailScreen) -> void:
+	print("inventory_slots size: ", inventory_slots.size())
 	submit_screen.set_inventory_data(inventory_slots)

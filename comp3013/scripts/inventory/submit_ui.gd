@@ -77,12 +77,13 @@ func close_screen() -> void:
 	visible = false
 
 	current_npc = null
-	source_inventory_slots.clear()
+	#source_inventory_slots.clear()
+	source_inventory_slots = []
 	selected_mail_data = null
 	selected_inventory_index = -1
 
 	_clear_submit_slot()
-	#_clear_inventory_display()
+	_clear_inventory_display()
 	_clear_npc_info()
 
 
@@ -159,7 +160,8 @@ func _select_inventory_item(slot_index: int) -> void:
 
 
 func set_inventory_data(inventory_slots: Array[InventoryItem]) -> void:
-	source_inventory_slots = inventory_slots
+	print("received inventory size: ", inventory_slots.size())
+	source_inventory_slots = inventory_slots.duplicate()
 	_refresh_inventory_display()
 
 func get_selected_mail_data() -> MailData:
