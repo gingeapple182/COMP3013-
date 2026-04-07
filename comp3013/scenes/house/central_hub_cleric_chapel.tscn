@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dj2t7ks0y85i1" path="res://scenes/kenney/stairs_wood_handrail.tscn" id="12_8c831"]
 
 [node name="central_hub_cleric_chapel" type="Node3D" unique_id=1648689189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3, 0)
 
 [node name="Walls" type="Node3D" parent="." unique_id=1314488511]
 

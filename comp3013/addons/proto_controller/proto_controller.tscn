@@ -37,17 +37,28 @@ shape = SubResource("CapsuleShape3D_iof21")
 [node name="Head" type="Node3D" parent="." unique_id=917337246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head" unique_id=2016146737]
-unique_name_in_owner = true
+[node name="Eyes" type="Node3D" parent="Head" unique_id=1875982616]
 
-[node name="InteractionRayCast" type="RayCast3D" parent="Head/Camera3D" unique_id=932383139]
+[node name="MainCamera" type="Camera3D" parent="Head/Eyes" unique_id=2016146737]
+unique_name_in_owner = true
+fov = 90.0
+
+[node name="InteractionRayCast" type="RayCast3D" parent="Head/Eyes/MainCamera" unique_id=932383139]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -2)
 collision_mask = 3
 
-[node name="Marker3D" type="Marker3D" parent="Head/Camera3D" unique_id=670085601]
+[node name="main_hand" type="Marker3D" parent="Head/Eyes/MainCamera" unique_id=670085601]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="envelope_hand" type="Marker3D" parent="Head/Eyes/MainCamera" unique_id=1708120804]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.25, -0.75)
+
+[node name="equipped_hand" type="Marker3D" parent="Head/Eyes/MainCamera" unique_id=980383191]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.25, -0.75)
 
 [node name="item_interaction" parent="." unique_id=655012343 instance=ExtResource("2_wr06p")]
 unique_name_in_owner = true
@@ -56,9 +67,11 @@ unique_name_in_owner = true
 
 [node name="SubmitScreen" parent="." unique_id=545728484 instance=ExtResource("4_6dqce")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=737331989]
+[node name="InteractText" type="Node" parent="." unique_id=363458712]
 
-[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=1662043872]
+[node name="CanvasLayer" type="CanvasLayer" parent="InteractText" unique_id=737331989]
+
+[node name="BoxContainer" type="BoxContainer" parent="InteractText/CanvasLayer" unique_id=1662043872]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -73,7 +86,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="InteractText" type="Label" parent="CanvasLayer/BoxContainer" unique_id=1867698537]
+[node name="InteractText" type="Label" parent="InteractText/CanvasLayer/BoxContainer" unique_id=1867698537]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Press \"F\" to interact"

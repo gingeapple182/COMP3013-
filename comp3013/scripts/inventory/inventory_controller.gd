@@ -1,6 +1,7 @@
 extends Control
 
 @onready var player_camera: Camera3D = $"../../../Head/Camera3D"
+@onready var item_interaction: Node = $"../../../item_interaction"
 @onready var hand: Marker3D = $"../../../Head/Camera3D/Marker3D"
 @onready var context_menu: PopupMenu = PopupMenu.new()
 
@@ -90,9 +91,9 @@ func _on_context_menu(id: int) -> void:
 		ActionData.ActionType.DELIVERABLE:
 			match id:
 				0:
-					print("Viewing item")
+					view_item(selected_index)
 				1:
-					print("Equipping item")
+					equip_item(selected_index)
 				2:
 					drop_item(selected_index)
 
@@ -152,6 +153,24 @@ func drop_item (selected_index: int) -> void:
 	instance.rotation_degrees.y = randf() * 360
 	slot.fill_slot(null)
 	inventory_full = not has_free_slot()
+
+func view_item (selectedindex: int) -> void:
+	var slot: InventoryItem = inventory_slots[selectedindex]
+	if (slot.slot_data == null):
+		return
+	
+	var instance = slot.slot_data.item_model_prefab.instantiate() as Node3D
+	item_interaction.on_item_viewed(instance)
+	slot.fill_slot(null)
+	
+func equip_item (selectedindex: int) -> void:
+	var slot: InventoryItem = inventory_slots[selectedindex]
+	if (slot.slot_data == null):
+		return
+	
+	var instance = slot.slot_data.item_model_prefab.instantiate() as Node3D
+	item_interaction.on_item_equipped(instance)
+	slot.fill_slot(null)
 
 ## -- signal stuff
 func send_inventory_to_submit_screen(submit_screen: SubmitMailScreen) -> void:

@@ -133,7 +133,7 @@ can_freefly = true
 visible = false
 
 [node name="CentralHubHouse" parent="." unique_id=457941109 instance=ExtResource("24_xuqvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032186508, -0.40786758, -0.0010080338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, -0.45, -0.001)
 
 [node name="pinboard" parent="CentralHubHouse" unique_id=671473385 instance=ExtResource("6_0odxb")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 4.0525217, 2.1862166, 5.5872273)

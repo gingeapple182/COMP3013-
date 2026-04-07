@@ -9,6 +9,9 @@ enum InteractionType { DEFAULT, MAIL, NPC }
 var player_hand: Marker3D
 var has_output := false
 
+var meshes: Array[MeshInstance3D] = []
+var collision_shapes: Array[CollisionShape3D] = []
+
 signal item_collected(item: Node)
 
 # Called when the node enters the scene tree for the first time.
@@ -46,7 +49,7 @@ func postInteract() -> void:
 
 func _input(event: InputEvent) -> void:
 	return
-	
+
 func _default_interact() -> void:
 	var object_current_position: Vector3 = object_reference.global_transform.origin
 	var player_hand_position: Vector3 = player_hand.global_transform.origin

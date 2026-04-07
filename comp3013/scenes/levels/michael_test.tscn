@@ -4,9 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="2_8gebl"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="3_sy3e5"]
 [ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="4_sy3e5"]
-[ext_resource type="PackedScene" uid="uid://pocv1d41fmju" path="res://scenes/house/central_hub_wizard_tower.tscn" id="5_n4w7j"]
-[ext_resource type="PackedScene" uid="uid://duhnwnpsr5w55" path="res://scenes/house/central_hub_cleric_chapel.tscn" id="6_j3cyp"]
-[ext_resource type="PackedScene" uid="uid://cnkj5gvcb0cy3" path="res://scenes/house/central_hub_tycoon_house.tscn" id="7_jafym"]
 [ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="8_adm0b"]
 [ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="9_uk71l"]
 [ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="10_fv0k8"]
@@ -119,17 +116,6 @@ can_sprint = true
 can_freefly = true
 
 [node name="CentralHubHouse" parent="." unique_id=1676408774 instance=ExtResource("4_sy3e5")]
-
-[node name="CentralHubWizardTower" parent="." unique_id=914764620 instance=ExtResource("5_n4w7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-visible = false
-
-[node name="central_hub_cleric_chapel" parent="." unique_id=2115947589 instance=ExtResource("6_j3cyp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
-visible = false
-
-[node name="CentralHubTycoonHouse" parent="." unique_id=198308529 instance=ExtResource("7_jafym")]
-visible = false
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=712702442]
 data_directory = "res://models/Terrain"
