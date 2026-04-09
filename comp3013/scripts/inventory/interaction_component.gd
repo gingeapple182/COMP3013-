@@ -5,6 +5,7 @@ enum InteractionType { DEFAULT, MAIL, NPC }
 
 @export var interaction_type: InteractionType = InteractionType.DEFAULT
 @export var mail_data: MailData
+@export var content: String
 
 var player_hand: Marker3D
 var has_output := false
@@ -20,7 +21,7 @@ func _ready() -> void:
 	
 	var scene_path: String = get_parent().scene_file_path
 	mail_data.item_model_prefab = load(scene_path)
-
+	content = content.replace("\\n", "\n")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -60,7 +61,12 @@ func _default_interact() -> void:
 		rigid_body_3d.set_linear_velocity((object_distance) * (5 / rigid_body_3d.mass))
 
 func _collect_mail() -> void:
+	var collider = get_parent().find_child("CollisionShape3D", true, false)
+	if collider:
+		collider.get_parent().remove_child(collider)
+		collider.queue_free()
 	emit_signal("item_collected", get_parent())
+	#get_parent().queue_free()
 
 func _npc_interaction() -> void:
 	if has_output:

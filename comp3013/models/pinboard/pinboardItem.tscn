@@ -42,4 +42,4 @@ offset_top = 120.00001
 offset_right = 162.0
 offset_bottom = 143.0
 scale = Vector2(10, 10)
-text = "Accpet"
+text = "Accept"

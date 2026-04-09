@@ -2,7 +2,9 @@ extends Control
 
 @onready var player_camera: Camera3D = $"../../../Head/Camera3D"
 @onready var item_interaction: Node = $"../../../item_interaction"
-@onready var hand: Marker3D = $"../../../Head/Camera3D/Marker3D"
+@onready var main_hand: Marker3D = $"../../../Head/Camera3D/Marker3D"
+@onready var envelope_hand: Marker3D = $"../../../Head/Eyes/MainCamera/envelope_hand"
+@onready var equipped_hand: Marker3D = $"../../../Head/Eyes/MainCamera/equipped_hand"
 @onready var context_menu: PopupMenu = PopupMenu.new()
 
 var item_slots_count: int = 20
@@ -117,13 +119,13 @@ func drop_item (selected_index: int) -> void:
 	var forward_direction: Vector3 = -player_camera.global_transform.basis.z.normalized()
 	var target_position: Vector3 = player_camera.global_transform.origin + forward_direction * drop_distance
 	
-	var space_state = hand.get_world_3d().direct_space_state
+	var space_state = main_hand.get_world_3d().direct_space_state
 	
 	# obstacle check
 	var obstacle_parameters = PhysicsRayQueryParameters3D.new()
 	obstacle_parameters.from = player_camera.global_transform.origin
 	obstacle_parameters.to = target_position
-	obstacle_parameters.exclude = [hand.get_parent()]
+	obstacle_parameters.exclude = [main_hand.get_parent()]
 	
 	var obstacle_hit: Dictionary = space_state.intersect_ray(obstacle_parameters)
 	if (obstacle_hit):
@@ -134,7 +136,7 @@ func drop_item (selected_index: int) -> void:
 	var ground_parameters = PhysicsRayQueryParameters3D.new()
 	ground_parameters.from = target_position + Vector3.UP * 2.0
 	ground_parameters.to = target_position - Vector3.UP * 5.0
-	ground_parameters.exclude = [hand.get_parent()]
+	ground_parameters.exclude = [main_hand.get_parent()]
 	
 	var ground_hit: Dictionary = space_state.intersect_ray(ground_parameters)
 	if (not ground_hit):
@@ -171,6 +173,13 @@ func equip_item (selectedindex: int) -> void:
 	var instance = slot.slot_data.item_model_prefab.instantiate() as Node3D
 	item_interaction.on_item_equipped(instance)
 	slot.fill_slot(null)
+	var envelopes = equipped_hand.get_children()
+	envelopes.erase(instance)
+	for envelope in envelopes:
+		envelope.visible = false
+		var item_component = item_interaction.find_interaction_component(envelope)
+		item_interaction._add_item_to_inventory(item_component.mail_data)
+		envelope.queue_free()
 
 ## -- signal stuff
 func send_inventory_to_submit_screen(submit_screen: SubmitMailScreen) -> void:

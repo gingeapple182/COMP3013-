@@ -51,11 +51,16 @@ var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 
+## Variables for items swaying.
+var item_sway_amount: float = 0.1
+
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var inventory_ui: Control = $"Inventory Controller/CanvasLayer/Inventory UI"
 @onready var submit_ui: SubmitMailScreen = $SubmitScreen/CanvasLayer/SubmitUI
+@onready var envelope_hand: Marker3D = %envelope_hand
+@onready var equipped_hand: Marker3D = %equipped_hand
 
 func _ready() -> void:
 	add_to_group("player")
@@ -69,13 +74,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("OpenMailBag"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			GameManager.uiOpen = true
-		elif Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			GameManager.uiOpen = false
+	if event.is_action_pressed(input_mail_bag):
 		toggle_inventory()
 	
 	#
@@ -144,9 +143,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
+		item_swaying(input_dir, delta)
 	else:
 		velocity.x = 0
 		velocity.y = 0
+		item_swaying(Vector2.ZERO, delta)
 	
 	# Use velocity to actually move
 	move_and_slide()
@@ -195,15 +196,13 @@ func open_submit(npc: NPC) -> void:
 	submit_ui.open_screen(npc, inventory_ui.inventory_slots)
 
 func toggle_inventory():
-	inventory_ui.visible = !inventory_ui.visible
-	
-	if inventory_ui.visible:
+	if (envelope_hand.get_child_count(false) == 0 and is_mail_bag_open() == false):
+		inventory_ui.visible = true
 		submit_ui.visible = false
 		GameManager.uiOpen = true
 		release_mouse()
 	else:
-		GameManager.uiOpen = false
-		capture_mouse()
+		close_mail_bag()
 
 func toggle_submit():
 	submit_ui.visible = !submit_ui.visible
@@ -268,3 +267,13 @@ func close_submit():
 
 func _on_submit_inventory_requested() -> void:
 	inventory_ui.send_inventory_to_submit_screen(submit_ui)
+
+func item_swaying(input_direction: Vector2, delta: float) -> void:
+	if envelope_hand:
+		envelope_hand.rotation.x = lerp(envelope_hand.rotation.x, -input_direction.y * item_sway_amount, 10 * delta)
+		envelope_hand.rotation.z = lerp(envelope_hand.rotation.z, -input_direction.x * item_sway_amount, 10 * delta)
+	if equipped_hand:
+		equipped_hand.rotation.x = lerp(equipped_hand.rotation.x, -input_direction.y * item_sway_amount, 10 * delta)
+		equipped_hand.rotation.z = lerp(equipped_hand.rotation.z, -input_direction.x * item_sway_amount, 10 * delta)
+	
+		

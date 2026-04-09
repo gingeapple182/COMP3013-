@@ -11,6 +11,8 @@
 
 [sub_resource type="Resource" id="Resource_djy1f"]
 script = ExtResource("2_qvfkj")
+item_address = "Mr. J Brown"
+item_recipient = "House 1"
 metadata/_custom_type_script = "uid://c76gmf1g8r7no"
 
 [sub_resource type="Resource" id="Resource_0ld3k"]
@@ -32,3 +34,4 @@ shape = SubResource("BoxShape3D_b0tvi")
 [node name="interaction_component" parent="." unique_id=1291159474 instance=ExtResource("1_b0tvi")]
 interaction_type = 1
 mail_data = SubResource("Resource_0ld3k")
+content = "Mr. J Brown\\nHouse no. 1\\nStreet no. 1\\nTown no. 1"
