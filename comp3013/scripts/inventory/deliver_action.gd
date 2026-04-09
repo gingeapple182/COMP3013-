@@ -1,7 +1,7 @@
 extends ActionData
 class_name DeliveryAction
 
-@export var item_address: String
+@export var item_address: Array[String]
 @export var item_recipient: String
 
 func _init() -> void:

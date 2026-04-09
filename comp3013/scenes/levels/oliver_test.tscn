@@ -564,7 +564,7 @@ destination_marker = NodePath("../../NavigationRegion3D/Node3D/SlopeTest")
 
 [node name="TestInteract" parent="NPC" unique_id=1630988912 instance=ExtResource("12_jcwi5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.61885, 10.042281, -158.69702)
-npc_name = "Froderik the gay"
+npc_name = "Mr. J Brown"
 npc_role = 1
 player_path = NodePath("../../ProtoController")
 

@@ -13,22 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://ckih1sjkbban1" path="res://scenes/kenney/planks_half.tscn" id="7_3pthj"]
 [ext_resource type="PackedScene" uid="uid://bxil0rvseu6bs" path="res://scenes/props/table_medium.tscn" id="8_0jkbm"]
 [ext_resource type="PackedScene" uid="uid://c2i2wsnwo53y" path="res://scenes/props/mail_piece.tscn" id="9_0ddcj"]
-[ext_resource type="Script" uid="uid://c76gmf1g8r7no" path="res://scripts/inventory/deliver_action.gd" id="10_0m672"]
-[ext_resource type="Texture2D" uid="uid://h68cek51vakm" path="res://icon.png" id="10_7rggw"]
-[ext_resource type="Script" uid="uid://c4rfo6jlb4mr8" path="res://scripts/inventory/mail_data.gd" id="11_0m672"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pthj"]
 size = Vector3(1.8564453, 1, 5.1879883)
-
-[sub_resource type="Resource" id="Resource_v3d1n"]
-script = ExtResource("10_0m672")
-metadata/_custom_type_script = "uid://c76gmf1g8r7no"
-
-[sub_resource type="Resource" id="Resource_3pthj"]
-script = ExtResource("11_0m672")
-item_icon = ExtResource("10_7rggw")
-action_data = SubResource("Resource_v3d1n")
-metadata/_custom_type_script = "uid://c4rfo6jlb4mr8"
 
 [node name="CentralHubHouse" type="Node3D" unique_id=2064951200]
 
@@ -221,8 +208,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.0000002, 4.7)
 
 [node name="mail_piece2" parent="." unique_id=478892953 instance=ExtResource("9_0ddcj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 2.0000002, 4.7)
-
-[node name="interaction_component" parent="mail_piece2" index="2" unique_id=1291159474]
-mail_data = SubResource("Resource_3pthj")
-
-[editable path="mail_piece2"]

@@ -50,8 +50,7 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
-
-## Variables for items swaying.
+var item_equipped: bool = false
 var item_sway_amount: float = 0.1
 
 ## IMPORTANT REFERENCES

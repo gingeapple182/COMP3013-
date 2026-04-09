@@ -1,8 +1,8 @@
 extends Control
 
-@onready var player_camera: Camera3D = $"../../../Head/Camera3D"
+@onready var player_camera: Camera3D = $"../../../Head/Eyes/MainCamera"
 @onready var item_interaction: Node = $"../../../item_interaction"
-@onready var main_hand: Marker3D = $"../../../Head/Camera3D/Marker3D"
+@onready var main_hand: Marker3D = $"../../../Head/Eyes/MainCamera/main_hand"
 @onready var envelope_hand: Marker3D = $"../../../Head/Eyes/MainCamera/envelope_hand"
 @onready var equipped_hand: Marker3D = $"../../../Head/Eyes/MainCamera/equipped_hand"
 @onready var context_menu: PopupMenu = PopupMenu.new()

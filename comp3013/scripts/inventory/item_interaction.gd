@@ -23,7 +23,6 @@ var last_object: Object
 var interaction_component: Node
 signal inventory_on_item_collected(item)
 
-var item_equipped: bool = false
 var equipped_item: Node3D
 var equipped_item_component: AbstractInteraction
 
@@ -62,6 +61,7 @@ func _process(delta: float) -> void:
 				if (Input.is_action_just_pressed("interact")):
 					current_object = cast_object
 					interaction_component.preInteract(hand)
+					
 					if (interaction_component.interaction_type == interaction_component.InteractionType.MAIL):
 						interaction_component.connect("item_collected", Callable(self, "_on_item_collected"))
 			#else:
@@ -79,10 +79,8 @@ func _input(event: InputEvent) -> void:
 			var item_component = find_interaction_component(envelope)
 			_add_item_to_inventory(item_component.mail_data)
 			envelope.queue_free()
-	
-	if (item_equipped and event.is_action_pressed("interact")):
-		## Insert code to interact with NPCs
-		return
+	elif (player_controller.item_equipped and event.is_action_pressed("interact")):
+		give_equipped_mail()
 
 func _on_item_collected(item: Node):
 	if item is RigidBody3D:
@@ -175,9 +173,30 @@ func on_item_equipped(item: Node3D) -> void:
 	item.position = Vector3(0,0,0)
 	item.rotation_degrees = Vector3(90, 10, 90)
 	
-	item_equipped = true
+	player_controller.item_equipped = true
 	equipped_item = item
 	equipped_item_component = find_interaction_component(equipped_item)
+
+func give_equipped_mail() -> void:
+	if (last_object):
+		if (interaction_component.has_method("use_item")):
+			if (interaction_component.use_item(equipped_item_component.mail_data)):
+				if (equipped_item_component.mail_data.action_data.item_address):
+					print("successfully used item")
+					equipped_item.queue_free()
+					player_controller.item_equipped = false
+					return
+				else:
+					print("no item address listed")
+			else:
+				print("use item doesn't work")
+		else:
+			print("no item use component")
+	else:
+		print("nothing to interact with")
+	inventory_ui.pickup_item(equipped_item_component.mail_data)
+	equipped_item.queue_free()
+	player_controller.item_equipped = false
 
 #for 3d objects in scenes
 #objects must be on collision layer 2 to be picked up by raycast

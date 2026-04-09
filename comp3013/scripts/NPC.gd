@@ -19,6 +19,7 @@ enum NPCState {
 }
 
 @export var npc_name: String
+@export var npc_address: String
 
 @export_group("NPC Role")
 @export var npc_role: NPCRole = NPCRole.BYSTANDER

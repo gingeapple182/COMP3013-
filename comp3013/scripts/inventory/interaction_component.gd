@@ -5,8 +5,8 @@ enum InteractionType { DEFAULT, MAIL, NPC }
 
 @export var interaction_type: InteractionType = InteractionType.DEFAULT
 @export var mail_data: MailData
-@export var content: String
 
+var content: String
 var player_hand: Marker3D
 var has_output := false
 
@@ -21,7 +21,11 @@ func _ready() -> void:
 	
 	var scene_path: String = get_parent().scene_file_path
 	mail_data.item_model_prefab = load(scene_path)
-	content = content.replace("\\n", "\n")
+	content = mail_data.action_data.item_recipient + "\n" + "\n"
+	print(content)
+	for address_line in mail_data.action_data.item_address:
+		content = content + address_line + "\n"
+	print(content)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -66,7 +70,6 @@ func _collect_mail() -> void:
 		collider.get_parent().remove_child(collider)
 		collider.queue_free()
 	emit_signal("item_collected", get_parent())
-	#get_parent().queue_free()
 
 func _npc_interaction() -> void:
 	if has_output:
@@ -87,4 +90,5 @@ func _npc_interaction() -> void:
 		push_warning("No player found in group 'player'.")
 		return
 	
-	player.open_submit(npc)
+	if !player.item_equipped:
+		player.open_submit(npc)
