@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dscwurbu8w08o" path="res://models/pinboard/pinboardItemTex.png" id="1_ywebq"]
 [ext_resource type="Texture2D" uid="uid://bctv1mq8cg7dd" path="res://models/pinboard/pinboardButtonTex.png" id="2_fipke"]
+[ext_resource type="Script" uid="uid://klhxl3tydkf4" path="res://models/pinboard/acceptQuest.gd" id="3_fipke"]
 
 [node name="PinboardItem" type="Control" unique_id=2119410009]
 custom_minimum_size = Vector2(350, 140)
@@ -34,6 +35,7 @@ offset_bottom = 577.0
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("2_fipke")
 stretch_mode = 5
+script = ExtResource("3_fipke")
 
 [node name="Label" type="Label" parent="TextureRect/Accept" unique_id=1454542894]
 layout_mode = 0
@@ -55,3 +57,5 @@ offset_right = -3.0517578e-05
 grow_vertical = 2
 text = "quest info"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="TextureRect/Accept" to="TextureRect/Accept" method="_on_pressed"]

@@ -1,6 +1,7 @@
 extends TextureButton
+@onready var label: Label = $"../Label"
+@onready var pinboard_item: Control = $"../.."
 
-@onready var canvas_layer: CanvasLayer = $"../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	GameManager.uiOpen = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	canvas_layer.hide()
-	print(GameManager.acceptedQuests)
+	GameManager.acceptedQuests[int(label.text)] = 1
+	pinboard_item.queue_free()
+	pass # Replace with function body.
