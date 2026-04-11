@@ -43,3 +43,15 @@ offset_right = 162.0
 offset_bottom = 143.0
 scale = Vector2(10, 10)
 text = "Accept"
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=534382149]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10897437
+anchor_top = 0.23632771
+anchor_right = 0.61153847
+anchor_bottom = 0.5499164
+offset_right = -3.0517578e-05
+grow_vertical = 2
+text = "quest info"
+metadata/_edit_use_anchors_ = true

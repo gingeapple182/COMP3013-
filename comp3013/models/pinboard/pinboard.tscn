@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://6mmhvsfynik2" path="res://models/pinboard/pinboard.gd" id="1_l7plc"]
 [ext_resource type="PackedScene" uid="uid://bul43v3urlt8j" path="res://models/pinboard/pinboard.glb" id="1_renlg"]
-[ext_resource type="PackedScene" uid="uid://bkccjwfu3tfgs" path="res://models/pinboard/pinboardItem.tscn" id="3_slhm2"]
 [ext_resource type="Texture2D" uid="uid://bwkn2muws6i1c" path="res://models/pinboard/pinboardUIbg.png" id="3_tmcq2"]
 [ext_resource type="Texture2D" uid="uid://bctv1mq8cg7dd" path="res://models/pinboard/pinboardButtonTex.png" id="5_nqijx"]
 [ext_resource type="Script" uid="uid://eeb3nuj6t5su" path="res://models/pinboard/close.gd" id="6_b8om2"]
@@ -54,24 +53,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="PinboardItem" parent="model/CanvasLayer/TextureRect/GridContainer" unique_id=2119410009 instance=ExtResource("3_slhm2")]
-layout_mode = 2
-
-[node name="PinboardItem2" parent="model/CanvasLayer/TextureRect/GridContainer" unique_id=333001931 instance=ExtResource("3_slhm2")]
-layout_mode = 2
-
-[node name="PinboardItem3" parent="model/CanvasLayer/TextureRect/GridContainer" unique_id=326755333 instance=ExtResource("3_slhm2")]
-layout_mode = 2
-
-[node name="PinboardItem4" parent="model/CanvasLayer/TextureRect/GridContainer" unique_id=1498426181 instance=ExtResource("3_slhm2")]
-layout_mode = 2
-
-[node name="PinboardItem5" parent="model/CanvasLayer/TextureRect/GridContainer" unique_id=1256184107 instance=ExtResource("3_slhm2")]
-layout_mode = 2
-
-[node name="PinboardItem6" parent="model/CanvasLayer/TextureRect/GridContainer" unique_id=104001885 instance=ExtResource("3_slhm2")]
-layout_mode = 2
 
 [node name="Close" type="TextureButton" parent="model/CanvasLayer/TextureRect" unique_id=1575768807]
 layout_mode = 1
