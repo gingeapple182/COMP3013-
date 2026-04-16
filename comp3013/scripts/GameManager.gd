@@ -14,7 +14,7 @@ extends Node
 @onready var uiOpen : bool = false
 @onready var npcQuests = [0,0,0,0,0,0,0,0]
 @onready var acceptedQuests = [0,0,0,0,0,0,0,0]
-
+@onready var player : Player
 
 
 func _ready() -> void:

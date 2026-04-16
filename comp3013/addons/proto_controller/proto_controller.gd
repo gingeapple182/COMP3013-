@@ -45,6 +45,8 @@ extends CharacterBody3D
 @export var input_freefly : String = "freefly"
 ## Name of Input Action to open and close the mail bag.
 @export var input_mail_bag : String = "OpenMailBag"
+## Name of Input Actio to open and close the skill tree
+@export var input_skill_tree : String = "OpenSkillTree"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -60,6 +62,7 @@ var item_sway_amount: float = 0.1
 @onready var submit_ui: SubmitMailScreen = $SubmitScreen/CanvasLayer/SubmitUI
 @onready var envelope_hand: Marker3D = %envelope_hand
 @onready var equipped_hand: Marker3D = %equipped_hand
+@onready var skill_tree_ui: CanvasLayer = $SkillTree/CanvasLayer
 
 func _ready() -> void:
 	add_to_group("player")
@@ -75,6 +78,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed(input_mail_bag):
 		toggle_inventory()
+	
+	if event.is_action_pressed(input_skill_tree):
+		toggle_skill_tree()
 	
 	#
 	#Only put movement controls past here otherwise ui keyboard inputs will not be reached
@@ -276,3 +282,19 @@ func item_swaying(input_direction: Vector2, delta: float) -> void:
 		equipped_hand.rotation.z = lerp(equipped_hand.rotation.z, -input_direction.x * item_sway_amount, 10 * delta)
 	
 		
+func toggle_skill_tree() -> void:
+	if skill_tree_ui.visible:
+		close_skill_tree()
+		GameManager.uiOpen = false
+	else:
+		open_skill_tree()
+		GameManager.uiOpen = true
+
+	
+func close_skill_tree() -> void:
+	skill_tree_ui.hide()
+	capture_mouse()
+	
+func open_skill_tree() -> void:
+	skill_tree_ui.show()
+	release_mouse()

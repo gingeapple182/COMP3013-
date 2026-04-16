@@ -199,6 +199,7 @@ func _on_button_submit_pressed() -> void:
 	
 	current_npc.start_kill()
 	print("Submitted item to: ", current_npc.npc_name)
+	GameManager.player.gainXP(100)
 	
 	close_screen()
 	GameManager.uiOpen = false
