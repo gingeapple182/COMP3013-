@@ -2,6 +2,14 @@ extends Entity
 
 class_name Player
 
+@onready var wizardFlying : int = 0
+@onready var Reputation : int = 0  
+@onready var Slayer : int = 0
+@onready var Collection : int = 0
+@onready var Informant : int = 0
+@onready var Courier : int = 0
+@onready var Banker : int = 0
+@onready var Entropy : int = 0
 @onready var xp : int
 @onready var xpToNextLevel : int
 
