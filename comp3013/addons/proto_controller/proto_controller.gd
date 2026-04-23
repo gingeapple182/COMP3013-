@@ -80,6 +80,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_inventory()
 	
 	if event.is_action_pressed(input_skill_tree):
+		print("tab")
 		toggle_skill_tree()
 	
 	#
@@ -267,7 +268,7 @@ func close_submit():
 	if not submit_ui.visible:
 		return
 	submit_ui.visible = false
-	GameManager.uiOpen = false
+	GameManager.uiOpen = false	
 	capture_mouse()
 
 func _on_submit_inventory_requested() -> void:
@@ -284,10 +285,13 @@ func item_swaying(input_direction: Vector2, delta: float) -> void:
 		
 func toggle_skill_tree() -> void:
 	if skill_tree_ui.visible:
+		print("close")
 		close_skill_tree()
 		GameManager.uiOpen = false
 	else:
 		open_skill_tree()
+		print("open")
+
 		GameManager.uiOpen = true
 
 	
