@@ -1,5 +1,6 @@
 extends Control
 
+@onready var proto_controller: CharacterBody3D = $ProtoController
 
 func _on_button_pressed() -> void:
 	get_tree().paused = false

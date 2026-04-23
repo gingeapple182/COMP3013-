@@ -203,13 +203,19 @@ func give_equipped_mail() -> void:
 func _physics_process(delta):
 	if GameManager.uiOpen:
 		return
-	var target = %InteractionRayCast.get_collider()
+	var target =interaction_ray_cast.get_collider()	
+	if target != null && !target.has_method("interact"):
+		var children = target.get_children()
+		for child in children:
+			if child.has_method("interact"):
+				target = child
+	
 	if target != null && target.has_method("interact"):
+
 		interact_text.show()
 		if Input.is_action_just_pressed("interact"):
 			target.interact()
 			interact_text.hide()
-
 	else:
 		interact_text.hide()
 	

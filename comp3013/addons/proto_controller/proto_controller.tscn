@@ -25,6 +25,8 @@ shader_parameter/fade_width_pixels = 240.0
 shader_parameter/fade_strength = 0.5
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1656359831]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ucva2")
 input_left = "move_left"
 input_right = "move_right"

@@ -63,6 +63,7 @@ var item_sway_amount: float = 0.1
 @onready var envelope_hand: Marker3D = %envelope_hand
 @onready var equipped_hand: Marker3D = %equipped_hand
 @onready var skill_tree_ui: CanvasLayer = $SkillTree/CanvasLayer
+@onready var interact_text: Label = %InteractText
 
 func _ready() -> void:
 	add_to_group("player")
@@ -296,9 +297,14 @@ func toggle_skill_tree() -> void:
 
 	
 func close_skill_tree() -> void:
+	GameManager.uiOpen = false
 	skill_tree_ui.hide()
 	capture_mouse()
 	
 func open_skill_tree() -> void:
+	GameManager.uiOpen = true
 	skill_tree_ui.show()
 	release_mouse()
+
+func skill_tree_is_open() -> bool:
+	return skill_tree_ui.visible
