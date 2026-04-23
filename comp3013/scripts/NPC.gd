@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = safe_velocity
 	move_and_slide()
+	#apply_floor_snap()
 
 func _on_velocity_computed(new_safe_velocity: Vector3) -> void:
 	safe_velocity = new_safe_velocity
@@ -251,7 +252,7 @@ func handle_kill_state() -> void:
 func move_towards_next_path_point() -> void:
 	var next_position: Vector3 = navigation_agent.get_next_path_position()
 	var direction: Vector3 = next_position - global_position
-	direction.y = 0.0
+	#direction.y = 0.0
 	
 	if direction.length() <= 0.01:
 		navigation_agent.velocity = Vector3.ZERO

@@ -24,6 +24,7 @@ metadata/_custom_type_script = "uid://c4rfo6jlb4mr8"
 collision_layer = 3
 collision_mask = 3
 floor_max_angle = 0.87266463
+floor_snap_length = 0.99
 script = ExtResource("1_j2mbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=44224535]

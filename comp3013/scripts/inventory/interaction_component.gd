@@ -42,10 +42,13 @@ func interact() -> void:
 	
 	match interaction_type:
 		InteractionType.DEFAULT:
+			print("def")
 			_default_interact()
 		InteractionType.MAIL:
+			print("coll")
 			_collect_mail()
 		InteractionType.NPC:
+			print("inter")
 			_npc_interaction()
 
 func postInteract() -> void:
@@ -72,8 +75,7 @@ func _collect_mail() -> void:
 	emit_signal("item_collected", get_parent())
 
 func _npc_interaction() -> void:
-	if has_output:
-		return
+
 	
 	has_output = true
 	

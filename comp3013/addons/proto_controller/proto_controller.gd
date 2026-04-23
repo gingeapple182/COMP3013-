@@ -298,6 +298,7 @@ func toggle_skill_tree() -> void:
 	
 func close_skill_tree() -> void:
 	GameManager.uiOpen = false
+	print("closing")
 	skill_tree_ui.hide()
 	capture_mouse()
 	

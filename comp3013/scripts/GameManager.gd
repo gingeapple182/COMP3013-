@@ -24,6 +24,8 @@ func _ready() -> void:
 		player = Paladin.new()
 	elif playerClass == "Wizard":
 		player = Wizard.new()
+	else:
+		player = Player.new()
 	newDay()
 
 func newDay() -> void: #use this function to change what is needed when a new day starts

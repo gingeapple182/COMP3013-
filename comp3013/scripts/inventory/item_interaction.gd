@@ -209,6 +209,7 @@ func _physics_process(delta):
 		for child in children:
 			if child.has_method("interact"):
 				target = child
+				
 	
 	if target != null && target.has_method("interact"):
 
