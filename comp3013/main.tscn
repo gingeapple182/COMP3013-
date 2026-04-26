@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="22_lswn8"]
 [ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="23_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="24_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://c1rmdmb2ed0w7" path="res://models/character/NPC.tscn" id="26_lswn8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h0abr"]
 panorama = ExtResource("1_ekdjy")
@@ -116,6 +117,13 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 
 [node name="Main" type="Node3D" unique_id=1543492996]
 script = ExtResource("1_ji0gb")
+
+[node name="NPCs" type="Node" parent="." unique_id=134454224]
+
+[node name="Pablo" parent="NPCs" unique_id=492491780 instance=ExtResource("26_lswn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.378334)
+npc_name = "Pablo"
+npc_address = "Carrera 79B #45D-94"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918803051]
 environment = SubResource("Environment_5j5gy")
