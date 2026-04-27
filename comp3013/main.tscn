@@ -129,7 +129,7 @@ script = ExtResource("1_ji0gb")
 [node name="NPCs" type="Node" parent="." unique_id=134454224]
 
 [node name="Pablo" parent="NPCs" unique_id=492491780 instance=ExtResource("26_lswn8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.378334)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.47235, 0, 129.68681)
 npc_name = "Pablo"
 npc_address = "Carrera 79B #45D-94"
 npc_role = 1
@@ -164,7 +164,7 @@ transform = Transform3D(0.441318, 0.777129, -0.448675, 0, 0.5, 0.866025, 0.89735
 shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=406726599 instance=ExtResource("1_mhrui")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.668303, 0.1, 0.9149785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.80405, 0.1, 140.98013)
 can_sprint = true
 can_freefly = true
 
