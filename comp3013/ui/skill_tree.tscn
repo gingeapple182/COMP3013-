@@ -21,25 +21,249 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SkillTreeButton" parent="." unique_id=540059065 instance=ExtResource("1_3lm3h")]
-layout_mode = 0
-offset_left = 495.0
-offset_top = 406.0
-offset_right = 638.0
-offset_bottom = 599.0
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1321831476]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99700004
+anchor_bottom = 0.998
+offset_left = 4.0
+offset_right = -0.2401123
+offset_bottom = 0.15991211
+scroll_horizontal = 550
+scroll_vertical = 970
 
-[node name="SkillTreeButton2" parent="SkillTreeButton" unique_id=483239096 instance=ExtResource("1_3lm3h")]
-layout_mode = 0
-offset_left = 402.0
-offset_top = -331.0
-offset_right = 554.0
-offset_bottom = -125.0
-disabled = true
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer" unique_id=178111036]
+custom_minimum_size = Vector2(3000, 3000)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="SkillTreeButton" parent="SkillTreeButton" unique_id=2115636537 instance=ExtResource("1_3lm3h")]
-layout_mode = 0
-offset_left = -327.0
-offset_top = -319.0
-offset_right = -175.0
-offset_bottom = -113.0
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer" unique_id=540059065 instance=ExtResource("1_3lm3h")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="WizardGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=1011923115 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.5526261
+anchor_top = 0.077564575
+anchor_right = -1.4896263
+anchor_bottom = 1.1455644
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
 disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Wizard" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen" unique_id=1887689219 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.618
+anchor_top = -0.186
+anchor_right = -1.5550001
+anchor_bottom = 0.88100004
+offset_left = -0.01763916
+offset_top = -0.10159302
+offset_right = -0.026687622
+offset_bottom = -0.032608032
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen/Wizard" unique_id=971444803 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.0266044
+anchor_top = 1.305212
+anchor_right = -1.9636045
+anchor_bottom = 2.3732119
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen/Wizard" unique_id=1153854351 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.0946877
+anchor_top = -1.7420293
+anchor_right = -2.0316877
+anchor_bottom = -0.67402935
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="HermitGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=813286562 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0065735267
+anchor_top = 1.1843607
+anchor_right = 1.0564264
+anchor_bottom = 2.2523606
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Hermit" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen" unique_id=212139839 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05938821
+anchor_top = 3.5194418
+anchor_right = 1.0036116
+anchor_bottom = 4.5864415
+offset_left = 1.5951748
+offset_top = -292.86847
+offset_right = 1.5861359
+offset_bottom = -292.79944
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen/Hermit" unique_id=998505748 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.7887273
+anchor_top = 1.0186803
+anchor_right = -0.7257274
+anchor_bottom = 2.0866802
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen/Hermit" unique_id=850183738 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.7419028
+anchor_top = 1.0232285
+anchor_right = 3.8049028
+anchor_bottom = 2.0912282
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PaladinGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=252098602 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.2434266
+anchor_top = 0.038729623
+anchor_right = 4.3064265
+anchor_bottom = 1.1067295
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Paladin" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen" unique_id=618257342 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.0721903
+anchor_top = -0.087354496
+anchor_right = 8.13519
+anchor_bottom = 0.9796455
+offset_left = -560.6327
+offset_top = -6.7921524
+offset_right = -560.6416
+offset_bottom = -6.7231293
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen/Paladin" unique_id=473663753 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.339593
+anchor_top = 1.305212
+anchor_right = 3.402593
+anchor_bottom = 2.3732119
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen/Paladin" unique_id=1270583810 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0672598
+anchor_top = -1.8875692
+anchor_right = 3.1302598
+anchor_bottom = -0.81956923
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TycoonGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=1714370722 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04605805
+anchor_top = -1.9515617
+anchor_right = 1.109058
+anchor_bottom = -0.8835618
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Tycoon" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen" unique_id=483239096 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05938821
+anchor_top = -3.9125972
+anchor_right = 1.0036116
+anchor_bottom = -2.8455973
+offset_left = -6.404825
+offset_top = 456.3171
+offset_right = -6.413864
+offset_bottom = 456.38614
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen/Tycoon" unique_id=2115636537 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.9805983
+anchor_top = -1.6919999
+anchor_right = -0.9175983
+anchor_bottom = -0.624
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen/Tycoon" unique_id=629660263 instance=ExtResource("1_3lm3h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.2653203
+anchor_top = -1.7420293
+anchor_right = 3.3283203
+anchor_bottom = -0.67402935
+offset_left = -0.0008239746
+offset_top = 0.021728516
+offset_right = -0.009811401
+offset_bottom = -0.1023407
+disabled = true
+metadata/_edit_use_anchors_ = true

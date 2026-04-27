@@ -24,6 +24,12 @@ func _ready():
 		skillButton = skillButton.get_parent()
 	skill_tree = skillButton.get_parent()
 	
+func _process(delta: float) -> void:
+		if get_parent() is SkillTreeButton:
+			line_2d.clear_points()
+			line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
+			line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
+	
 
 
 

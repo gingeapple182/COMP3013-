@@ -304,6 +304,8 @@ func close_skill_tree() -> void:
 	
 func open_skill_tree() -> void:
 	GameManager.uiOpen = true
+	skill_tree_ui.get_child(0).get_child(1).scroll_vertical = 970
+	skill_tree_ui.get_child(0).get_child(1).scroll_horizontal = 550
 	skill_tree_ui.show()
 	release_mouse()
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://blfs5a0hbpfk" path="res://scenes/kenney/wall_doorway_round.tscn" id="1_dotth"]
 [ext_resource type="PackedScene" uid="uid://duhnwnpsr5w55" path="res://scenes/house/central_hub_cleric_chapel.tscn" id="1_e0hlr"]
+[ext_resource type="Script" uid="uid://civyncyeclvee" path="res://scenes/house/central_hub_house.gd" id="1_v3d1n"]
 [ext_resource type="PackedScene" uid="uid://c6ojd1t6csa8h" path="res://scenes/kenney/wall_detail_diagonal.tscn" id="2_8wmts"]
 [ext_resource type="PackedScene" uid="uid://cnkj5gvcb0cy3" path="res://scenes/house/central_hub_tycoon_house.tscn" id="2_m1vre"]
 [ext_resource type="PackedScene" uid="uid://cobfeuljxya6h" path="res://scenes/kenney/wall_window_shutters.tscn" id="3_0jkbm"]
@@ -18,6 +19,7 @@
 size = Vector3(1.8564453, 1, 5.1879883)
 
 [node name="CentralHubHouse" type="Node3D" unique_id=2064951200]
+script = ExtResource("1_v3d1n")
 
 [node name="Extensions" type="Node3D" parent="." unique_id=825085168]
 
