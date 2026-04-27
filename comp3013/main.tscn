@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8fkuk055vyd7" path="res://ui/menu.tscn" id="4_a1ycj"]
 [ext_resource type="PackedScene" uid="uid://dxhhpff888pf5" path="res://scenes/building/pillar.tscn" id="5_b6ikv"]
 [ext_resource type="PackedScene" uid="uid://dr0lnri8310us" path="res://models/pinboard/pinboard.tscn" id="6_0odxb"]
+[ext_resource type="PackedScene" uid="uid://0od2bs5ia1t1" path="res://scenes/are_you_sure.tscn" id="6_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://dmk7n17cjs70s" path="res://scenes/props/chair.tscn" id="9_85ikr"]
 [ext_resource type="PackedScene" uid="uid://dlfno8gvrpwdh" path="res://scenes/props/torch_mounted.tscn" id="10_5g5uq"]
 [ext_resource type="PackedScene" uid="uid://bxil0rvseu6bs" path="res://scenes/props/table_medium.tscn" id="11_2bwhh"]
@@ -168,6 +169,9 @@ can_sprint = true
 can_freefly = true
 
 [node name="Menu" parent="." unique_id=741555259 instance=ExtResource("4_a1ycj")]
+visible = false
+
+[node name="Are you sure?" parent="." unique_id=489327646 instance=ExtResource("6_qsp4k")]
 visible = false
 
 [node name="CentralHubHouse" parent="." unique_id=2064951200 instance=ExtResource("24_xuqvo")]

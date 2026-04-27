@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://0od2bs5ia1t1"]
+
+[ext_resource type="Script" uid="uid://brdg24gj4cs6r" path="res://scenes/are_you_sure.gd" id="1_dpn0t"]
+[ext_resource type="Theme" uid="uid://bqf1mjp7lr4wa" path="res://ui/menu.tres" id="1_hmnxo"]
+
+[node name="Are you sure?" type="Control" unique_id=489327646]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dpn0t")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=317882648]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -62.5
+offset_right = 133.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_hmnxo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=324107614]
+layout_mode = 2
+size_flags_stretch_ratio = 4.35
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1665858863]
+layout_mode = 2
+text = "Are you sure you want to exit?"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=977384454]
+layout_mode = 2
+theme = ExtResource("1_hmnxo")
+text = "CANCEL"
+
+[node name="Button5" type="Button" parent="Panel/VBoxContainer" unique_id=1586927956]
+layout_mode = 2
+text = "EXIT GAME"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
