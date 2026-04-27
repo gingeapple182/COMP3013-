@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	npcs.get_child(int(label.text)).npc_role = NPCRole.RECIPIENT #text on label needs to be changedd
+	npcs.get_child(int(label.text)).npc_role = NPCRole.RECIPIENT #text on label needs to be changed
 	GameManager.acceptedQuests[int(label.text)] = 1
 	pinboard_item.queue_free()
 	pass # Replace with function body.

@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _init() -> void:
-	GameManager.className = "Hermit"
+	GameManager.playerClass = GameManager.PlayerClassTypes.WIZARD
 	xp = 0
 	xpToNextLevel = 100
 	
