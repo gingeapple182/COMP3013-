@@ -199,11 +199,13 @@ func _on_button_submit_pressed() -> void:
 	
 	print("Submitted item to: ", current_npc.npc_name)
 	
-	if (current_npc.npc_name == selected_mail_data.deliver_action.item_recipient and selected_mail_data.action_data.action_type == ActionData.ActionType.DELIVERABLE):
+	if (current_npc.npc_name == selected_mail_data.action_data.item_recipient and selected_mail_data.action_data.action_type == ActionData.ActionType.DELIVERABLE and selected_mail_data.action_data.item_recipient != null):
 		GameManager.player.gainXP(100)
+		print("happy pablo")
 		npc_reaction("happy")
 	else:
 		GameManager.player.gainXP(50)
+		print("sad pablo")
 		npc_reaction("angry")
 	
 	close_screen()

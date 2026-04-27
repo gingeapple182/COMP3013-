@@ -13,6 +13,7 @@
 [sub_resource type="Resource" id="Resource_djy1f"]
 script = ExtResource("2_qvfkj")
 item_address = Array[String](["House no. 1,", "Street no. 1,", "Town no. 1,", "Example Postcode"])
+item_recipient = "Pablo"
 metadata/_custom_type_script = "uid://c76gmf1g8r7no"
 
 [sub_resource type="Resource" id="Resource_0ld3k"]
