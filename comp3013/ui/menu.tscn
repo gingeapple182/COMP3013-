@@ -68,6 +68,7 @@ theme = ExtResource("2_hw341")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=494892102]
+visible = false
 layout_mode = 2
 text = "Select world
 "
@@ -76,23 +77,41 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=126319812]
 layout_mode = 2
 theme = ExtResource("2_hw341")
-text = "MAIN
+text = "ENTER 
 "
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1027352735]
+visible = false
 layout_mode = 2
 text = "OLIVER"
 
 [node name="Button3" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1765927958]
+visible = false
 layout_mode = 2
 text = "MICHAEL
 "
 
 [node name="Button4" type="Button" parent="PanelContainer/VBoxContainer" unique_id=185959603]
+visible = false
 layout_mode = 2
 text = "JOEMAMA"
+
+[node name="Button6" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1441350175]
+layout_mode = 2
+disabled = true
+text = "LOAD GAME"
+
+[node name="Button7" type="Button" parent="PanelContainer/VBoxContainer" unique_id=685466501]
+layout_mode = 2
+disabled = true
+text = "SETTINGS"
+
+[node name="Button5" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2005168456]
+layout_mode = 2
+text = "EXIT GAME"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]

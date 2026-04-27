@@ -38,5 +38,5 @@ shape = SubResource("BoxShape3D_b0tvi")
 interaction_type = 1
 mail_data = SubResource("Resource_0ld3k")
 
-[node name="box" parent="." unique_id=852558366 instance=ExtResource("5_qvfkj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.5, 0)
+[node name="box" parent="." unique_id=1001859144 instance=ExtResource("5_qvfkj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dmk7n17cjs70s" path="res://scenes/props/chair.tscn" id="9_85ikr"]
 [ext_resource type="PackedScene" uid="uid://dlfno8gvrpwdh" path="res://scenes/props/torch_mounted.tscn" id="10_5g5uq"]
 [ext_resource type="PackedScene" uid="uid://bxil0rvseu6bs" path="res://scenes/props/table_medium.tscn" id="11_2bwhh"]
+[ext_resource type="PackedScene" uid="uid://d0cwxoj52daa6" path="res://scenes/house/fantasy_house.tscn" id="12_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://btr8ljbkl0op3" path="res://scenes/props/keg_decorated.tscn" id="12_eqcow"]
 [ext_resource type="PackedScene" uid="uid://7c2fegngui8g" path="res://models/props/banner_mounted.glb" id="13_1nvn7"]
 [ext_resource type="PackedScene" uid="uid://b5p1n3wryynmd" path="res://scenes/props/crates_stacked.tscn" id="14_dl4ij"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="23_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="24_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://c1rmdmb2ed0w7" path="res://models/character/NPC.tscn" id="26_lswn8"]
+[ext_resource type="PackedScene" uid="uid://dpgfp0iy3aird" path="res://models/kenney/kenney/signpost.fbx" id="28_xuqvo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h0abr"]
 panorama = ExtResource("1_ekdjy")
@@ -169,8 +171,8 @@ can_freefly = true
 [node name="Menu" parent="." unique_id=741555259 instance=ExtResource("4_a1ycj")]
 visible = false
 
-[node name="CentralHubHouse" parent="." unique_id=457941109 instance=ExtResource("24_xuqvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, -0.45, -0.001)
+[node name="CentralHubHouse" parent="." unique_id=2064951200 instance=ExtResource("24_xuqvo")]
+transform = Transform3D(0.8645381, 0, 0.50256723, 0, 1, 0, -0.50256723, 0, 0.8645381, 92.15227, -0.45, 143.21515)
 
 [node name="pinboard" parent="CentralHubHouse" unique_id=671473385 instance=ExtResource("6_0odxb")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 4.0525217, 2.1862166, 5.5872273)
@@ -187,6 +189,12 @@ physics_material = SubResource("PhysicsMaterial_lswn8")
 show_navigation = true
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="FantasyHouse" parent="NavigationRegion3D" unique_id=574101167 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.04982, 0, 133.95476)
+
+[node name="FantasyHouse2" parent="NavigationRegion3D" unique_id=793261113 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.91017103, 0, 0.4142326, 0, 1, 0, -0.4142326, 0, 0.91017103, 62.709198, 0, 158.3099)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1347097725]
 
@@ -518,6 +526,9 @@ transform = Transform3D(-0.0233155, 0, -0.999728, 0, 1, 0, 0.999728, 0, -0.02331
 
 [node name="House3" parent="Node3D/Houses" unique_id=1925651265 instance=ExtResource("17_57qwy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -16)
+
+[node name="signpost" parent="." unique_id=1586034587 instance=ExtResource("28_xuqvo")]
+transform = Transform3D(-0.0010647017, 0, 0.9999994, 0, 1, 0, -0.9999994, 0, -0.0010647017, 69.18859, 0, 110.71504)
 
 [editable path="Node3D/Houses/House2"]
 [editable path="Node3D/Houses/House2/Walls/wall_doorway2"]
