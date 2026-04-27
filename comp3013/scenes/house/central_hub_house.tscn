@@ -31,8 +31,7 @@ visible = false
 visible = false
 
 [node name="CentralHubWizardTower" parent="Extensions" unique_id=778040479 instance=ExtResource("3_jsimr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7, 0)
 
 [node name="Walls" type="Node3D" parent="." unique_id=401197678]
 
