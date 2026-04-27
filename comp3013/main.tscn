@@ -132,7 +132,6 @@ script = ExtResource("1_ji0gb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.47235, 0, 129.68681)
 npc_name = "Pablo"
 npc_address = "Carrera 79B #45D-94"
-npc_role = 1
 player_path = NodePath("../../ProtoController")
 
 [node name="CharacterBody3D" parent="NPCs" unique_id=694260484 instance=ExtResource("26_lswn8")]
