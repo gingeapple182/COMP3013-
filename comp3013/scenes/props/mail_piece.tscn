@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dmyyxqiasyx8r" path="res://scripts/inventory/interaction_component.tscn" id="1_b0tvi"]
 [ext_resource type="Script" uid="uid://c4rfo6jlb4mr8" path="res://scripts/inventory/mail_data.gd" id="2_4dwtm"]
-[ext_resource type="Texture2D" uid="uid://c7f3d04l3kb1o" path="res://icon.svg" id="2_djy1f"]
 [ext_resource type="Script" uid="uid://c76gmf1g8r7no" path="res://scripts/inventory/deliver_action.gd" id="2_qvfkj"]
+[ext_resource type="Texture2D" uid="uid://bcs1dtpk8upry" path="res://ui/mailIcon.png" id="3_qvfkj"]
 [ext_resource type="PackedScene" uid="uid://c0nju51lnvy42" path="res://models/kenney/kenney/box.fbx" id="5_qvfkj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vgd7l"]
@@ -13,13 +13,12 @@
 [sub_resource type="Resource" id="Resource_djy1f"]
 script = ExtResource("2_qvfkj")
 item_address = Array[String](["House no. 1,", "Street no. 1,", "Town no. 1,", "Example Postcode"])
-item_recipient = "Mr. J Brown"
 metadata/_custom_type_script = "uid://c76gmf1g8r7no"
 
 [sub_resource type="Resource" id="Resource_0ld3k"]
 script = ExtResource("2_4dwtm")
 item_name = "Envelope"
-item_icon = ExtResource("2_djy1f")
+item_icon = ExtResource("3_qvfkj")
 action_data = SubResource("Resource_djy1f")
 metadata/_custom_type_script = "uid://c4rfo6jlb4mr8"
 

@@ -33,7 +33,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	if (slot_filled):
 		var preview: TextureRect = TextureRect.new()
 		preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		preview.size = item_icon.size
+		#preview.size = item_icon.size
 		preview.pivot_offset = item_icon.size / 2.0
 		preview.texture = item_icon.texture
 		set_drag_preview(preview)
