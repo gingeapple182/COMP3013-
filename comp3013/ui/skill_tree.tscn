@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cjr7wqhog61k6" path="res://ui/SkillTreeButton.tscn" id="1_3lm3h"]
 [ext_resource type="Script" uid="uid://y3nd8i84aghv" path="res://ui/skill_tree.gd" id="1_anxt5"]
+[ext_resource type="Texture2D" uid="uid://dd300meur210" path="res://ui/Royal-Mail.jpg" id="3_bqso3"]
+[ext_resource type="Texture2D" uid="uid://m0bx3tivwjwk" path="res://ui/Wizard.webp" id="3_e6dul"]
+[ext_resource type="Texture2D" uid="uid://cra3ugyyveaj8" path="res://ui/Hermit.webp" id="4_bqso3"]
+[ext_resource type="Texture2D" uid="uid://c6ow50acfxqn3" path="res://ui/Paladin.webp" id="5_txsq5"]
+[ext_resource type="Texture2D" uid="uid://yamsbimx3lxg" path="res://ui/Tycoon.png" id="6_rwceb"]
 
 [node name="SkillTree" type="Control" unique_id=1624636207]
 layout_mode = 3
@@ -29,11 +34,11 @@ anchor_bottom = 0.998
 offset_left = 4.0
 offset_right = -0.2401123
 offset_bottom = 0.15991211
-scroll_horizontal = 550
-scroll_vertical = 970
+scroll_horizontal = 800
+scroll_vertical = 960
 
 [node name="BoxContainer" type="BoxContainer" parent="ScrollContainer" unique_id=178111036]
-custom_minimum_size = Vector2(3000, 3000)
+custom_minimum_size = Vector2(3500, 3000)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -42,6 +47,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+texture_normal = ExtResource("3_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="WizardGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=1011923115 instance=ExtResource("1_3lm3h")]
@@ -56,6 +62,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("3_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Wizard" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen" unique_id=1887689219 instance=ExtResource("1_3lm3h")]
@@ -70,6 +77,7 @@ offset_top = -0.10159302
 offset_right = -0.026687622
 offset_bottom = -0.032608032
 disabled = true
+texture_normal = ExtResource("3_e6dul")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen/Wizard" unique_id=971444803 instance=ExtResource("1_3lm3h")]
@@ -84,6 +92,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("3_e6dul")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen/Wizard" unique_id=1153854351 instance=ExtResource("1_3lm3h")]
@@ -98,6 +107,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("3_e6dul")
 metadata/_edit_use_anchors_ = true
 
 [node name="HermitGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=813286562 instance=ExtResource("1_3lm3h")]
@@ -112,6 +122,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("3_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Hermit" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen" unique_id=212139839 instance=ExtResource("1_3lm3h")]
@@ -126,6 +137,7 @@ offset_top = -292.86847
 offset_right = 1.5861359
 offset_bottom = -292.79944
 disabled = true
+texture_normal = ExtResource("4_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen/Hermit" unique_id=998505748 instance=ExtResource("1_3lm3h")]
@@ -140,6 +152,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("4_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen/Hermit" unique_id=850183738 instance=ExtResource("1_3lm3h")]
@@ -154,6 +167,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("4_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="PaladinGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=252098602 instance=ExtResource("1_3lm3h")]
@@ -168,6 +182,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("3_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Paladin" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen" unique_id=618257342 instance=ExtResource("1_3lm3h")]
@@ -182,6 +197,7 @@ offset_top = -6.7921524
 offset_right = -560.6416
 offset_bottom = -6.7231293
 disabled = true
+texture_normal = ExtResource("5_txsq5")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen/Paladin" unique_id=473663753 instance=ExtResource("1_3lm3h")]
@@ -196,6 +212,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("5_txsq5")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen/Paladin" unique_id=1270583810 instance=ExtResource("1_3lm3h")]
@@ -210,6 +227,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("5_txsq5")
 metadata/_edit_use_anchors_ = true
 
 [node name="TycoonGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=1714370722 instance=ExtResource("1_3lm3h")]
@@ -224,6 +242,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("3_bqso3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Tycoon" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen" unique_id=483239096 instance=ExtResource("1_3lm3h")]
@@ -238,6 +257,7 @@ offset_top = 456.3171
 offset_right = -6.413864
 offset_bottom = 456.38614
 disabled = true
+texture_normal = ExtResource("6_rwceb")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen/Tycoon" unique_id=2115636537 instance=ExtResource("1_3lm3h")]
@@ -252,6 +272,7 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("6_rwceb")
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen/Tycoon" unique_id=629660263 instance=ExtResource("1_3lm3h")]
@@ -266,4 +287,5 @@ offset_top = 0.021728516
 offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
+texture_normal = ExtResource("6_rwceb")
 metadata/_edit_use_anchors_ = true
