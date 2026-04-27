@@ -197,11 +197,15 @@ func _on_button_submit_pressed() -> void:
 		print("No item selected.")
 		return
 	
-	npc_reaction("angry")
 	print("Submitted item to: ", current_npc.npc_name)
-	GameManager.player.gainXP(100)
 	
-	# if mail matches use npc_reaction("happy") if incorrect, use npc_reaction("angry")
+	if (current_npc.npc_name == selected_mail_data.deliver_action.item_recipient and selected_mail_data.action_data.action_type == ActionData.ActionType.DELIVERABLE):
+		GameManager.player.gainXP(100)
+		npc_reaction("happy")
+	else:
+		GameManager.player.gainXP(50)
+		npc_reaction("angry")
+	
 	close_screen()
 	GameManager.uiOpen = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
