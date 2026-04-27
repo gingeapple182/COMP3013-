@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0f4cwp6kjf47" path="res://scripts/NPC.gd" id="1_j2mbo"]
 [ext_resource type="PackedScene" uid="uid://dfbpdfd8u58ht" path="res://models/character/character_medium.tscn" id="1_mq0sf"]
+[ext_resource type="Texture2D" uid="uid://b5ohoq4aagoxs" path="res://addons/ui/emote/emote_music.png" id="2_hggnm"]
 [ext_resource type="AnimationLibrary" uid="uid://bp7r1ldejlmj2" path="res://addons/character_basic/Animations/idle.fbx" id="2_wktfc"]
 [ext_resource type="AnimationLibrary" uid="uid://00r77o02seuy" path="res://addons/character_basic/Animations/run.fbx" id="4_petv1"]
 [ext_resource type="PackedScene" uid="uid://5avgixwcmbgi" path="res://scripts/inventory/npc_interaction.tscn" id="5_t6ka4"]
@@ -33,7 +34,13 @@ shape = SubResource("CapsuleShape3D_wktfc")
 
 [node name="Label3D" type="Label3D" parent="CollisionShape3D" unique_id=1040532518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1062689, 0)
+billboard = 1
 text = "{npc_name}"
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D" unique_id=1919388884]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.5868247, 0)
+billboard = 1
+texture = ExtResource("2_hggnm")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1766874342]
 avoidance_enabled = true

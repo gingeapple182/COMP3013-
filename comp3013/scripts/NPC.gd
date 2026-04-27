@@ -4,6 +4,11 @@ extends CharacterBody3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var name_label: Label3D = $CollisionShape3D/Label3D
+@onready var sprite_3d: Sprite3D = $CollisionShape3D/Sprite3D
+
+const EMOTE_FACE_ANGRY = preload("uid://e5ohwhqxe1sf")
+const EMOTE_FACE_HAPPY = preload("uid://cfypbp2o7jefs")
+const EMOTE_FACE_SAD = preload("uid://d03gpeefblpom")
 
 enum NPCRole {
 	BYSTANDER,
@@ -134,7 +139,9 @@ func enter_idle_state() -> void:
 
 func handle_idle_state(delta: float) -> void:
 	velocity = Vector3.ZERO
-	
+	if GameManager.player.Reputation <= 0:
+		set_icon_state("sad")
+		
 	if base_state == NPCState.WANDER and wander_markers.size() > 0:
 		idle_timer += delta
 		if idle_timer >= current_idle_wait:
@@ -232,6 +239,7 @@ func enter_kill_state() -> void:
 		change_state(NPCState.IDLE)
 		return
 	
+	sprite_3d
 	navigation_agent.set_target_position(player.global_position)
 
 func handle_kill_state() -> void:
@@ -240,7 +248,7 @@ func handle_kill_state() -> void:
 		npc_log("Player missing during KILL state.")
 		change_state(NPCState.IDLE)
 		return
-	
+	set_icon_state("angry")
 	navigation_agent.set_target_position(player.global_position)
 	move_towards_next_path_point()
 
@@ -273,7 +281,7 @@ func move_towards_next_path_point() -> void:
 
 
 # =========================================================
-# ANIMATION
+# VISUALS
 # =========================================================
 
 func update_animation() -> void:
@@ -291,6 +299,14 @@ func update_animation() -> void:
 	if animation_name != "" and animation_player.current_animation != animation_name:
 		animation_player.play(animation_name)
 
+func set_icon_state(state: String) -> void:
+	match state:
+		"happy":
+			sprite_3d.texture = EMOTE_FACE_HAPPY
+		"sad":
+			sprite_3d.texture = EMOTE_FACE_SAD
+		"angry":
+			sprite_3d.texture = EMOTE_FACE_ANGRY
 
 # =========================================================
 # HELPERS

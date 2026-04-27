@@ -19,10 +19,12 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		if proto_controller.is_mail_bag_open():
 			proto_controller.close_mail_bag()
-			return
 		if proto_controller.is_submit_open():
 			proto_controller.close_submit()
-			return
+		if proto_controller.skill_tree_is_open():
+			proto_controller.close_skill_tree()
+		if proto_controller.interact_text.visible:
+			proto_controller.interact_text.hide()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		toggle_pause()
 	
