@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c4rfo6jlb4mr8" path="res://scripts/inventory/mail_data.gd" id="2_4dwtm"]
 [ext_resource type="Texture2D" uid="uid://c7f3d04l3kb1o" path="res://icon.svg" id="2_djy1f"]
 [ext_resource type="Script" uid="uid://c76gmf1g8r7no" path="res://scripts/inventory/deliver_action.gd" id="2_qvfkj"]
+[ext_resource type="PackedScene" uid="uid://c0nju51lnvy42" path="res://models/kenney/kenney/box.fbx" id="5_qvfkj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vgd7l"]
 
@@ -27,6 +28,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1398780775]
+visible = false
 mesh = SubResource("BoxMesh_vgd7l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=759137016]
@@ -35,3 +37,6 @@ shape = SubResource("BoxShape3D_b0tvi")
 [node name="interaction_component" parent="." unique_id=1291159474 instance=ExtResource("1_b0tvi")]
 interaction_type = 1
 mail_data = SubResource("Resource_0ld3k")
+
+[node name="box" parent="." unique_id=852558366 instance=ExtResource("5_qvfkj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.5, 0)
