@@ -198,7 +198,8 @@ func _on_button_submit_pressed() -> void:
 		return
 	
 	print("Submitted item to: ", current_npc.npc_name)
-	
+	current_npc.npc_role = NPC.NPCRole.BYSTANDER
+	submit_ui.hide()
 	if (current_npc.npc_name == selected_mail_data.action_data.item_recipient and selected_mail_data.action_data.action_type == ActionData.ActionType.DELIVERABLE and selected_mail_data.action_data.item_recipient != null):
 		GameManager.player.gainXP(100)
 		print("happy pablo")
@@ -207,7 +208,9 @@ func _on_button_submit_pressed() -> void:
 		GameManager.player.gainXP(50)
 		print("sad pablo")
 		npc_reaction("angry")
-	
+	source_inventory_slots[selected_inventory_index].slot_data = null
+	source_inventory_slots[selected_inventory_index].slot_filled = false
+	source_inventory_slots[selected_inventory_index].item_icon.texture = null
 	close_screen()
 	GameManager.uiOpen = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

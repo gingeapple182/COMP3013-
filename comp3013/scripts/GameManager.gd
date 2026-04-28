@@ -6,7 +6,6 @@ extends Node
 @onready var playerLevel : int
 @onready var uiOpen : bool = false
 @onready var npcQuests = [0,0,0,0,0,0,0,0]
-@onready var acceptedQuests = [0,0,0,0,0,0,0,0]
 @onready var player : Player
 
 enum PlayerClassTypes

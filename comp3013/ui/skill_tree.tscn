@@ -34,8 +34,8 @@ anchor_bottom = 0.998
 offset_left = 4.0
 offset_right = -0.2401123
 offset_bottom = 0.15991211
-scroll_horizontal = 800
-scroll_vertical = 960
+scroll_horizontal = 100
+scroll_vertical = 100
 
 [node name="BoxContainer" type="BoxContainer" parent="ScrollContainer" unique_id=178111036]
 custom_minimum_size = Vector2(3500, 3000)
@@ -43,14 +43,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer" unique_id=540059065 instance=ExtResource("1_3lm3h")]
+[node name="GeneralSkill" parent="ScrollContainer/BoxContainer" unique_id=540059065 instance=ExtResource("1_3lm3h")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture_normal = ExtResource("3_bqso3")
+maxLevel = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="WizardGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=1011923115 instance=ExtResource("1_3lm3h")]
+[node name="WizardGen" parent="ScrollContainer/BoxContainer/GeneralSkill" unique_id=1011923115 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -2.5526261
@@ -63,9 +64,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("3_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Wizard" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen" unique_id=1887689219 instance=ExtResource("1_3lm3h")]
+[node name="Wizard" parent="ScrollContainer/BoxContainer/GeneralSkill/WizardGen" unique_id=1887689219 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -2.618
@@ -78,9 +80,10 @@ offset_right = -0.026687622
 offset_bottom = -0.032608032
 disabled = true
 texture_normal = ExtResource("3_e6dul")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen/Wizard" unique_id=971444803 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/GeneralSkill/WizardGen/Wizard" unique_id=971444803 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.0266044
@@ -93,9 +96,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("3_e6dul")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/WizardGen/Wizard" unique_id=1153854351 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/GeneralSkill/WizardGen/Wizard" unique_id=1153854351 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.0946877
@@ -108,9 +112,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("3_e6dul")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="HermitGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=813286562 instance=ExtResource("1_3lm3h")]
+[node name="HermitGen" parent="ScrollContainer/BoxContainer/GeneralSkill" unique_id=813286562 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0065735267
@@ -123,9 +128,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("3_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Hermit" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen" unique_id=212139839 instance=ExtResource("1_3lm3h")]
+[node name="Hermit" parent="ScrollContainer/BoxContainer/GeneralSkill/HermitGen" unique_id=212139839 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.05938821
@@ -138,9 +144,10 @@ offset_right = 1.5861359
 offset_bottom = -292.79944
 disabled = true
 texture_normal = ExtResource("4_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen/Hermit" unique_id=998505748 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/GeneralSkill/HermitGen/Hermit" unique_id=998505748 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.7887273
@@ -153,9 +160,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("4_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/HermitGen/Hermit" unique_id=850183738 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/GeneralSkill/HermitGen/Hermit" unique_id=850183738 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.7419028
@@ -168,9 +176,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("4_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="PaladinGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=252098602 instance=ExtResource("1_3lm3h")]
+[node name="PaladinGen" parent="ScrollContainer/BoxContainer/GeneralSkill" unique_id=252098602 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.2434266
@@ -183,9 +192,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("3_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Paladin" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen" unique_id=618257342 instance=ExtResource("1_3lm3h")]
+[node name="Paladin" parent="ScrollContainer/BoxContainer/GeneralSkill/PaladinGen" unique_id=618257342 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 7.0721903
@@ -198,9 +208,10 @@ offset_right = -560.6416
 offset_bottom = -6.7231293
 disabled = true
 texture_normal = ExtResource("5_txsq5")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen/Paladin" unique_id=473663753 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/GeneralSkill/PaladinGen/Paladin" unique_id=473663753 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.339593
@@ -213,9 +224,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("5_txsq5")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/PaladinGen/Paladin" unique_id=1270583810 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/GeneralSkill/PaladinGen/Paladin" unique_id=1270583810 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0672598
@@ -228,9 +240,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("5_txsq5")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TycoonGen" parent="ScrollContainer/BoxContainer/SkillTreeButton" unique_id=1714370722 instance=ExtResource("1_3lm3h")]
+[node name="TycoonGen" parent="ScrollContainer/BoxContainer/GeneralSkill" unique_id=1714370722 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.04605805
@@ -243,9 +256,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("3_bqso3")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Tycoon" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen" unique_id=483239096 instance=ExtResource("1_3lm3h")]
+[node name="Tycoon" parent="ScrollContainer/BoxContainer/GeneralSkill/TycoonGen" unique_id=483239096 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.05938821
@@ -258,9 +272,10 @@ offset_right = -6.413864
 offset_bottom = 456.38614
 disabled = true
 texture_normal = ExtResource("6_rwceb")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen/Tycoon" unique_id=2115636537 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton" parent="ScrollContainer/BoxContainer/GeneralSkill/TycoonGen/Tycoon" unique_id=2115636537 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.9805983
@@ -273,9 +288,10 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("6_rwceb")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/SkillTreeButton/TycoonGen/Tycoon" unique_id=629660263 instance=ExtResource("1_3lm3h")]
+[node name="SkillTreeButton2" parent="ScrollContainer/BoxContainer/GeneralSkill/TycoonGen/Tycoon" unique_id=629660263 instance=ExtResource("1_3lm3h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.2653203
@@ -288,4 +304,5 @@ offset_right = -0.009811401
 offset_bottom = -0.1023407
 disabled = true
 texture_normal = ExtResource("6_rwceb")
+maxLevel = 3
 metadata/_edit_use_anchors_ = true

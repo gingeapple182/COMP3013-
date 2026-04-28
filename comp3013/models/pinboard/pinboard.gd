@@ -9,7 +9,7 @@ func _ready() -> void:
 	for i in range(GameManager.npcQuests.size()):
 		if GameManager.npcQuests[i] == 1:
 			var Item = pinboardItem.instantiate()
-			Item.get_child(0).get_child(1).text = str(i)
+			Item.get_child(0).get_child(1).text = str(get_tree().current_scene.get_child(0).get_child(i).name)
 			grid_container.add_child(Item)
 	pass # Replace with function body.
 

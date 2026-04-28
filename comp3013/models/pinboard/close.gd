@@ -16,4 +16,3 @@ func _on_pressed() -> void:
 	GameManager.uiOpen = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	canvas_layer.hide()
-	print(GameManager.acceptedQuests)

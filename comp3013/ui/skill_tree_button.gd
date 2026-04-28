@@ -8,9 +8,16 @@ class_name SkillTreeButton
 @onready var texture_rect: TextureRect = $TextureRect
 
 @onready var skill_tree: Control = $".."
+@export var maxLevel : int
+
+var level : int = 0:
+	set(value):
+		level = value
+		label.text = str(level) + "/"+ str(maxLevel)
 
 
 func _ready():
+	label.text = str(level) + "/"+ str(maxLevel)
 	if get_parent() is SkillTreeButton:
 		line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
 		line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
@@ -29,14 +36,6 @@ func _process(delta: float) -> void:
 			line_2d.clear_points()
 			line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
 			line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
-	
-
-
-
-var level : int = 0:
-	set(value):
-		level = value
-		label.text = str(level) + "/3"
 
 
 func _on_pressed() -> void:
