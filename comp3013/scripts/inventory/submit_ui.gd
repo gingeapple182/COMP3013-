@@ -204,10 +204,14 @@ func _on_button_submit_pressed() -> void:
 		GameManager.player.gainXP(100)
 		print("happy pablo")
 		npc_reaction("happy")
+		current_npc.happiness += 1
 	else:
+		current_npc.happiness -= 1
 		GameManager.player.gainXP(50)
 		print("sad pablo")
 		npc_reaction("angry")
+		if current_npc.happiness < -5:
+			current_npc.enter_kill_state()
 	source_inventory_slots[selected_inventory_index].slot_data = null
 	source_inventory_slots[selected_inventory_index].slot_filled = false
 	source_inventory_slots[selected_inventory_index].item_icon.texture = null

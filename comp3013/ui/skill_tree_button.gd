@@ -26,7 +26,6 @@ enum ClassSkill
 @export var class_Skill: GameManager.PlayerClassTypes = GameManager.PlayerClassTypes.NOCLASS
 
 func _ready():
-	GameManager.skillPoints = 100
 	label.text = str(level) + "/"+ str(maxLevel)
 	if get_parent() is SkillTreeButton:
 		line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))

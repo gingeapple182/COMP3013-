@@ -56,6 +56,7 @@ var idle_timer: float = 0.0
 var current_idle_wait: float = 0.0
 var current_wander_index: int = 0
 var safe_velocity: Vector3 = Vector3.ZERO
+var happiness : int
 
 func _ready() -> void:
 	navigation_agent.path_desired_distance = stop_distance
