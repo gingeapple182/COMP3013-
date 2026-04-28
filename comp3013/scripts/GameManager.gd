@@ -22,7 +22,7 @@ enum PlayerClassTypes
 
 
 func _ready() -> void:
-	playerClass = PlayerClassTypes.WIZARD
+	playerClass = PlayerClassTypes.NOCLASS
 	skillPoints = 1
 	playerLevel = 1
 	if playerClass == PlayerClassTypes.HERMIT:

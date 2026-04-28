@@ -15,8 +15,18 @@ var level : int = 0:
 		level = value
 		label.text = str(level) + "/"+ str(maxLevel)
 
+enum ClassSkill
+{
+	WIZARD,
+	HERMIT,
+	TYCOON,
+	PALADIN,
+	NOCLASS
+}
+@export var class_Skill: GameManager.PlayerClassTypes = GameManager.PlayerClassTypes.NOCLASS
 
 func _ready():
+	GameManager.skillPoints = 100
 	label.text = str(level) + "/"+ str(maxLevel)
 	if get_parent() is SkillTreeButton:
 		line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
@@ -33,6 +43,9 @@ func _ready():
 	
 func _process(delta: float) -> void:
 		if get_parent() is SkillTreeButton:
+			if GameManager.playerClass != class_Skill && GameManager.playerClass != GameManager.PlayerClassTypes.NOCLASS:
+				#print(GameManager.PlayerClassTypes.keys()[GameManager.playerClass])
+				texture_rect.texture = null
 			line_2d.clear_points()
 			line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
 			line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
@@ -41,9 +54,15 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	if GameManager.skillPoints == 0:
 		return
-	if level < 3:
+	if class_Skill != GameManager.PlayerClassTypes.NOCLASS && GameManager.playerClass == GameManager.PlayerClassTypes.NOCLASS:
+		GameManager.playerClass = class_Skill
+	if GameManager.playerClass != class_Skill && class_Skill != GameManager.PlayerClassTypes.NOCLASS:
+		print("return")
+		print(GameManager.PlayerClassTypes.keys()[GameManager.playerClass])
+		return
+	if level < maxLevel:
 		GameManager.skillPoints -= 1
-		level = min(level+1, 3)
+		level = min(level+1, maxLevel)
 	panel.show_behind_parent = true
 	line_2d.default_color = Color(0.0, 1.0, 0.0, 1.0)
 	texture_rect.visible = false
