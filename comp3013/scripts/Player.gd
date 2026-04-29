@@ -12,10 +12,14 @@ class_name Player
 @onready var Entropy : int = 0
 @onready var xp : int
 @onready var xpToNextLevel : int
+@onready var health : int
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if health <= 0:
+		print("died")
 	pass
 	
 func _init() -> void:
