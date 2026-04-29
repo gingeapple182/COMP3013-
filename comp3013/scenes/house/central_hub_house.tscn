@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ckih1sjkbban1" path="res://scenes/kenney/planks_half.tscn" id="7_3pthj"]
 [ext_resource type="PackedScene" uid="uid://bxil0rvseu6bs" path="res://scenes/props/table_medium.tscn" id="8_0jkbm"]
 [ext_resource type="PackedScene" uid="uid://c2i2wsnwo53y" path="res://scenes/props/mail_piece.tscn" id="9_0ddcj"]
+[ext_resource type="PackedScene" uid="uid://05nmrwiawd5b" path="res://models/Bell/ReceptionBell.tscn" id="14_m1vre"]
 [ext_resource type="Texture2D" uid="uid://c37kcg4avbxo" path="res://ui/tyler.jpg" id="15_e0hlr"]
 [ext_resource type="Texture2D" uid="uid://k3dhgvpdwpei" path="res://ui/jj.jpg" id="16_m1vre"]
 
@@ -205,6 +206,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 
 
 [node name="table_medium2" parent="Mail Bench" unique_id=420710502 instance=ExtResource("8_0jkbm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 4.7683716e-07)
+
+[node name="ReceptionBell" parent="Mail Bench" unique_id=1019711059 instance=ExtResource("14_m1vre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025803, -0.798789)
 
 [node name="mail_piece" parent="." unique_id=1769382295 instance=ExtResource("9_0ddcj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.0000002, 4.7)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bpcbhj1kkkoeg"]
+
+[ext_resource type="PackedScene" uid="uid://cxthsno4o5cpe" path="res://models/Bell/source/reception_bell.fbx" id="1_3kjmx"]
+[ext_resource type="Script" uid="uid://bw1hrrv8aikqi" path="res://models/Bell/reception_bell.gd" id="2_4u5i8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3kjmx"]
+size = Vector3(0.08111572, 0.045654297, 0.08041382)
+
+[node name="reception_bell" unique_id=981602502 instance=ExtResource("1_3kjmx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("2_4u5i8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=1871530244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000579834, 0.021362305, 0.0006866455)
+shape = SubResource("BoxShape3D_3kjmx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=153676970]
+collision_layer = 3
+collision_mask = 3

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://05nmrwiawd5b"]
+
+[ext_resource type="PackedScene" uid="uid://cxthsno4o5cpe" path="res://models/Bell/source/reception_bell.fbx" id="1_h0ybj"]
+[ext_resource type="Script" uid="uid://bw1hrrv8aikqi" path="res://models/Bell/reception_bell.gd" id="1_u1orl"]
+[ext_resource type="PackedScene" uid="uid://dwbs8l483uoie" path="res://ui/EndOfDayResults.tscn" id="3_jfsj5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u1orl"]
+size = Vector3(0.26783752, 0.12805176, 0.23905563)
+
+[node name="ReceptionBell" type="StaticBody3D" unique_id=1019711059]
+script = ExtResource("1_u1orl")
+
+[node name="reception_bell" parent="." unique_id=981602502 instance=ExtResource("1_h0ybj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1829144275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008079529, 0.06951904, -0.00039100647)
+shape = SubResource("BoxShape3D_u1orl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=922185553]
+visible = false
+
+[node name="EndOfDayResults" parent="CanvasLayer" unique_id=428790894 instance=ExtResource("3_jfsj5")]

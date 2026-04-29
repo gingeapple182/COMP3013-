@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://dwbs8l483uoie"]
+
+[ext_resource type="Script" uid="uid://b3vqarg4yajfw" path="res://ui/end_of_day_results.gd" id="1_8humi"]
+[ext_resource type="Texture2D" uid="uid://bwkn2muws6i1c" path="res://models/pinboard/pinboardUIbg.png" id="2_i4bj8"]
+[ext_resource type="Texture2D" uid="uid://bctv1mq8cg7dd" path="res://models/pinboard/pinboardButtonTex.png" id="3_gntg4"]
+
+[node name="EndOfDayResults" type="Control" unique_id=428790894]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8humi")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=692873546]
+custom_minimum_size = Vector2(900, 600)
+layout_mode = 0
+anchor_left = 0.265625
+anchor_top = 0.22222222
+anchor_right = 0.734375
+anchor_bottom = 0.7777778
+texture = ExtResource("2_i4bj8")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="TextureRect" unique_id=799093120]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.093333334
+anchor_right = 0.67
+anchor_bottom = 0.195
+theme_override_font_sizes/font_size = 44
+text = "Day Complete"
+metadata/_edit_use_anchors_ = true
+
+[node name="Deliveries" type="Label" parent="TextureRect" unique_id=1100052978]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10888889
+anchor_top = 0.36
+anchor_right = 0.34444445
+anchor_bottom = 0.4066667
+offset_bottom = -1.5258789e-05
+theme_override_font_sizes/font_size = 20
+text = "Completed Deliveries:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/Deliveries" unique_id=1067336728]
+layout_mode = 0
+offset_left = 224.0
+offset_right = 264.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Correct deliveries" type="Label" parent="TextureRect" unique_id=41606685]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10888889
+anchor_top = 0.44
+anchor_right = 0.30666667
+anchor_bottom = 0.48666668
+theme_override_font_sizes/font_size = 20
+text = "Correct Deliveries:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/Correct deliveries" unique_id=2049486135]
+layout_mode = 0
+offset_left = 224.0
+offset_right = 264.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Incorrect deliveries" type="Label" parent="TextureRect" unique_id=938892359]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10888889
+anchor_top = 0.52
+anchor_right = 0.32444444
+anchor_bottom = 0.56666666
+theme_override_font_sizes/font_size = 20
+text = "Incorrect Deliveries:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/Incorrect deliveries" unique_id=839016161]
+layout_mode = 0
+offset_left = 224.0
+offset_right = 264.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Next Day Button" type="TextureButton" parent="TextureRect" unique_id=1435844462]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39333335
+anchor_top = 0.6666667
+anchor_right = 0.64
+anchor_bottom = 0.9131667
+offset_right = 518.0
+offset_bottom = 345.09998
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("3_gntg4")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/Next Day Button" unique_id=751950777]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.0
+offset_top = -68.5
+offset_right = 221.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Next Day"
+
+[connection signal="pressed" from="TextureRect/Next Day Button" to="." method="_on_next_day_pressed"]

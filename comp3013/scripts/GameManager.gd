@@ -19,6 +19,7 @@ enum PlayerClassTypes
 
 @onready var playerClass : PlayerClassTypes
 
+@onready var npcs: Node = $NPCs
 
 
 func _ready() -> void:
@@ -38,6 +39,8 @@ func _ready() -> void:
 	newDay()
 
 func newDay() -> void: #use this function to change what is needed when a new day starts
+	for i in range(npcQuests.size()):
+		npcQuests[i] = 0
 	var rand = RandomNumberGenerator.new()
 	var numOfQuests = rand.randi_range(2,6)
 	var questRange = range(0,7)
@@ -46,4 +49,3 @@ func newDay() -> void: #use this function to change what is needed when a new da
 	for i in range(numOfQuests):
 		npcQuests[questRange[i]] = 1
 	print(npcQuests)
-		
