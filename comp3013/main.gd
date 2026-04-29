@@ -14,17 +14,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func hide_canvas_layers(node):
+	for child in node.get_children():
+		if child is CanvasLayer:
+			child.visible = false
+		hide_canvas_layers(child)
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		if proto_controller.is_mail_bag_open():
-			proto_controller.close_mail_bag()
-		if proto_controller.is_submit_open():
-			proto_controller.close_submit()
-		if proto_controller.skill_tree_is_open():
-			proto_controller.close_skill_tree()
-		if proto_controller.interact_text.visible:
-			proto_controller.interact_text.hide()
+		hide_canvas_layers(get_tree().current_scene)
+		GameManager.uiOpen = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		toggle_pause()
 
