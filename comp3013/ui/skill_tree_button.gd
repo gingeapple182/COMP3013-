@@ -45,10 +45,8 @@ func _ready():
 	skill_tree = skillButton.get_parent()
 	
 func _process(delta: float) -> void:
-	
-
 	if get_parent() is SkillTreeButton:
-		if GameManager.playerClass != class_Skill && GameManager.playerClass != GameManager.PlayerClassTypes.NOCLASS:
+		if GameManager.playerClass != class_Skill && class_Skill != GameManager.PlayerClassTypes.NOCLASS && GameManager.playerClass !=GameManager.PlayerClassTypes.NOCLASS :
 			#print(GameManager.PlayerClassTypes.keys()[GameManager.playerClass])
 			texture_rect.texture = null
 		line_2d.clear_points()
@@ -76,7 +74,7 @@ func _on_pressed() -> void:
 		
 	var skills = get_children()
 	for skill in skills:
-		if skill is SkillTreeButton and level == 1:
+		if skill is SkillTreeButton and level == 1 and skill.level == 0:
 			skill.disabled = false
 			skill.texture_rect.visible = true
 
@@ -93,6 +91,3 @@ func set_Skill_Level() -> void: #tycoongen xp, wizardgen movespeed, paladingen c
 		"HermitGen":
 			for npc in 	get_tree().current_scene.get_child(0).get_children():
 				npc.scale = Vector3(1.0 + level*0.1, 1.0 + level*0.1, 1.0 + level*0.1)
-
-		
-		
