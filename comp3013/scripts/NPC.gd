@@ -67,8 +67,15 @@ func _ready() -> void:
 		player = get_node_or_null(player_path) as Node3D
 	if player == null:
 		npc_log("Player path is not assigned or invalid.")
-	
-	name_label.text = npc_name 
+	#if name_label.text:
+		#name_label.text = npc_name 
+	#else:
+		#name_label = name
+	if npc_name.strip_edges() != "":
+		name_label.text = npc_name
+	else:
+		name_label.text = name
+
 	current_idle_wait = randf_range(idle_wait_min, idle_wait_max)
 	current_state = starting_state
 	npc_log("STARTING STATE: %s | BASE STATE: %s" % [NPCState.keys()[current_state], NPCState.keys()[base_state]])

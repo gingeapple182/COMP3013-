@@ -135,25 +135,25 @@ npc_name = "Pablo"
 npc_address = "Carrera 79B #45D-94"
 player_path = NodePath("../../ProtoController")
 
-[node name="CharacterBody3D" parent="NPCs" unique_id=694260484 instance=ExtResource("26_lswn8")]
+[node name="Joseph" parent="NPCs" unique_id=694260484 instance=ExtResource("26_lswn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.304611)
 
-[node name="CharacterBody3D2" parent="NPCs" unique_id=1753540154 instance=ExtResource("26_lswn8")]
+[node name="Mao" parent="NPCs" unique_id=1753540154 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.0943516, 0, 0.99553895, 0, 1, 0, -0.99553895, 0, 0.0943516, -4.4321423, 0, -7.1614795)
 
-[node name="CharacterBody3D3" parent="NPCs" unique_id=958919223 instance=ExtResource("26_lswn8")]
+[node name="Benito" parent="NPCs" unique_id=958919223 instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.99914604, 0, 0.04131753, 0, 1, 0, -0.04131753, 0, -0.99914604, -0.12580681, 0, 2.542357)
 
-[node name="CharacterBody3D4" parent="NPCs" unique_id=678156554 instance=ExtResource("26_lswn8")]
+[node name="Pol" parent="NPCs" unique_id=678156554 instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.3097473, 0, -0.9508189, 0, 1, 0, 0.9508189, 0, -0.3097473, 2.5634112, 0, -10.807007)
 
-[node name="CharacterBody3D5" parent="NPCs" unique_id=1471868077 instance=ExtResource("26_lswn8")]
+[node name="Augusto" parent="NPCs" unique_id=1471868077 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.42618978, 0, 0.90463376, 0, 1, 0, -0.90463376, 0, 0.42618978, -2.662712, 0, -7.9135523)
 
-[node name="CharacterBody3D6" parent="NPCs" unique_id=1112281290 instance=ExtResource("26_lswn8")]
+[node name="Fidel" parent="NPCs" unique_id=1112281290 instance=ExtResource("26_lswn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.006915)
 
-[node name="CharacterBody3D7" parent="NPCs" unique_id=724118597 instance=ExtResource("26_lswn8")]
+[node name="Mobuto" parent="NPCs" unique_id=724118597 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.61085016, 0, -0.79174626, 0, 1, 0, 0.79174626, 0, 0.61085016, 5.187587, 0, -8.49296)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918803051]
