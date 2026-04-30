@@ -15,11 +15,15 @@ func _process(delta: float) -> void:
 
 func interact() -> void:
 	print("Interact")
+	if !GameManager.questsGenerated:
+		for child in grid_container.get_children():
+			child.queue_free()
 	for i in range(GameManager.npcQuests.size()):
-		if GameManager.npcQuests[i] == 1:
+		if GameManager.npcQuests[i] == 1 && !GameManager.questsGenerated:
 			var Item = pinboardItem.instantiate()
 			Item.get_child(0).get_child(1).text = str(get_tree().current_scene.get_child(0).get_child(i).name)
 			grid_container.add_child(Item)
+	GameManager.questsGenerated = true
 	canvas_layer.show()
 	GameManager.uiOpen = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

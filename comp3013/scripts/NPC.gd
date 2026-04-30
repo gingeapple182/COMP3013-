@@ -147,10 +147,6 @@ func enter_idle_state() -> void:
 
 func handle_idle_state(delta: float) -> void:
 	velocity = Vector3.ZERO
-	if GameManager.player.Reputation <= 0:
-		set_icon_state("sad")
-	elif GameManager.player.Reputation >= 1:
-		set_icon_state("happy")
 		
 	if base_state == NPCState.WANDER and wander_markers.size() > 0:
 		idle_timer += delta

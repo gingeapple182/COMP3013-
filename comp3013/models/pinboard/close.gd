@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	for gridItem in grid_container.get_children():
-		gridItem.queue_free()
+	#for gridItem in grid_container.get_children():
+		#gridItem.queue_free()
 	GameManager.uiOpen = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	canvas_layer.hide()

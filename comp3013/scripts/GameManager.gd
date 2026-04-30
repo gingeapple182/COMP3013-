@@ -7,6 +7,7 @@ extends Node
 @onready var uiOpen : bool = false
 @onready var npcQuests = [0,0,0,0,0,0,0,0]
 @onready var player : Player
+@onready var questsGenerated : bool
 
 enum PlayerClassTypes
 {
@@ -23,6 +24,7 @@ enum PlayerClassTypes
 
 
 func _ready() -> void:
+
 	playerClass = PlayerClassTypes.NOCLASS
 	skillPoints = 1
 	playerLevel = 1
@@ -39,6 +41,7 @@ func _ready() -> void:
 	newDay()
 
 func newDay() -> void: #use this function to change what is needed when a new day starts
+	questsGenerated = false
 	for i in range(npcQuests.size()):
 		npcQuests[i] = 0
 	var rand = RandomNumberGenerator.new()
