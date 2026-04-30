@@ -26,7 +26,7 @@ enum PlayerClassTypes
 func _ready() -> void:
 
 	playerClass = PlayerClassTypes.NOCLASS
-	skillPoints = 1
+	skillPoints = 10000
 	playerLevel = 1
 	if playerClass == PlayerClassTypes.HERMIT:
 		player = Hermit.new()

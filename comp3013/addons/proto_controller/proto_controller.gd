@@ -20,11 +20,11 @@ extends CharacterBody3D
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 7.0
+@export var base_speed : float = 6.0
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
-@export var sprint_speed : float = 10.0
+@export var sprint_speed : float = 12.0
 ## How fast do we freefly?
 @export var freefly_speed : float = 25.0
 
@@ -109,13 +109,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			disable_freefly()
 
-
 func _physics_process(delta: float) -> void:
 	
 	#if ui is open dont let player move their character
 	if GameManager.uiOpen:
 		return
 	
+	base_speed = 6.0 + GameManager.player.movementSpeedSkill * 1.0
+
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)

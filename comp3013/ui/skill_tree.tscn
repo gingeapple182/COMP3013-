@@ -49,6 +49,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 texture_normal = ExtResource("3_bqso3")
 maxLevel = 1
+level = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="WizardGen" parent="ScrollContainer/BoxContainer/GeneralSkill" unique_id=1011923115 instance=ExtResource("1_3lm3h")]

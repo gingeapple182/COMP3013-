@@ -13,7 +13,8 @@ class_name Player
 @onready var xp : int
 @onready var xpToNextLevel : int
 @onready var health : int
-
+@onready var movementSpeedSkill : int
+@onready var carryWeight : int
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,6 +26,7 @@ func _process(delta: float) -> void:
 func _init() -> void:
 	xp = 0
 	xpToNextLevel = 100
+	carryWeight = 10
 	
 func gainXP(xpGain: int) -> void: #override later if class skills affect xp gain
 	xp+= xpGain

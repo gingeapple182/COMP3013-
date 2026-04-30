@@ -10,10 +10,10 @@ class_name SkillTreeButton
 @onready var skill_tree: Control = $".."
 @export var maxLevel : int
 
-var level : int = 0:
+@export var level : int = 0:
 	set(value):
 		level = value
-		label.text = str(level) + "/"+ str(maxLevel)
+		label = str(level) + "/"+ str(maxLevel)
 
 enum ClassSkill
 {
@@ -26,6 +26,13 @@ enum ClassSkill
 @export var class_Skill: GameManager.PlayerClassTypes = GameManager.PlayerClassTypes.NOCLASS
 
 func _ready():
+	if level > 0:
+		panel.show_behind_parent = true
+		var skills = get_children()
+		for skill in skills:
+			if skill is SkillTreeButton and level == 1:
+				skill.disabled = false
+				skill.texture_rect.visible = true
 	label.text = str(level) + "/"+ str(maxLevel)
 	if get_parent() is SkillTreeButton:
 		line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
@@ -41,13 +48,15 @@ func _ready():
 	skill_tree = skillButton.get_parent()
 	
 func _process(delta: float) -> void:
-		if get_parent() is SkillTreeButton:
-			if GameManager.playerClass != class_Skill && GameManager.playerClass != GameManager.PlayerClassTypes.NOCLASS:
-				#print(GameManager.PlayerClassTypes.keys()[GameManager.playerClass])
-				texture_rect.texture = null
-			line_2d.clear_points()
-			line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
-			line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
+	
+
+	if get_parent() is SkillTreeButton:
+		if GameManager.playerClass != class_Skill && GameManager.playerClass != GameManager.PlayerClassTypes.NOCLASS:
+			#print(GameManager.PlayerClassTypes.keys()[GameManager.playerClass])
+			texture_rect.texture = null
+		line_2d.clear_points()
+		line_2d.add_point(Vector2(global_position.x + size.x/2, global_position.y + size.y))
+		line_2d.add_point(Vector2(get_parent().global_position.x + size.x/2, get_parent().global_position.y))
 
 
 func _on_pressed() -> void:
@@ -62,7 +71,7 @@ func _on_pressed() -> void:
 	if level < maxLevel:
 		GameManager.skillPoints -= 1
 		level = min(level+1, maxLevel)
-	panel.show_behind_parent = true
+		set_Skill_Level()
 	line_2d.default_color = Color(0.0, 1.0, 0.0, 1.0)
 	texture_rect.visible = false
 	
@@ -71,3 +80,13 @@ func _on_pressed() -> void:
 		if skill is SkillTreeButton and level == 1:
 			skill.disabled = false
 			skill.texture_rect.visible = true
+
+func set_Skill_Level() -> void: #tycoongen xp, wizardgen movespeed, paladingen carryweight, hermit npcSize, gen deftault to on
+	match self.name:
+		"WizardGen":
+			GameManager.player.movementSpeedSkill = level
+		"PaladinGen":
+			GameManager.player.carryWeight = 10 + level * 5
+			print("carryweight")
+		
+		
