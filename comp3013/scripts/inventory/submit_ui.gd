@@ -210,8 +210,6 @@ func _on_button_submit_pressed() -> void:
 		GameManager.player.gainXP(50)
 		print("sad pablo")
 		npc_reaction("angry")
-		if current_npc.happiness < -5:
-			current_npc.enter_kill_state()
 	source_inventory_slots[selected_inventory_index].slot_data = null
 	source_inventory_slots[selected_inventory_index].slot_filled = false
 	source_inventory_slots[selected_inventory_index].item_icon.texture = null
@@ -224,5 +222,7 @@ func npc_reaction(state: String) -> void:
 		"happy":
 			GameManager.player.Reputation +=1
 		"angry":
+			if current_npc.happiness < -5:
+				current_npc.start_kill()
 			GameManager.player.Reputation -=1
-			current_npc.start_kill()
+			
