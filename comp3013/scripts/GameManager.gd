@@ -24,7 +24,6 @@ enum PlayerClassTypes
 
 
 func _ready() -> void:
-
 	playerClass = PlayerClassTypes.NOCLASS
 	skillPoints = 10000
 	playerLevel = 1

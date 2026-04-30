@@ -12,6 +12,7 @@ class_name Player
 @onready var Entropy : int = 0
 @onready var xp : int
 @onready var xpToNextLevel : int
+@onready var xpMultiplier : int
 @onready var health : int
 @onready var movementSpeedSkill : int
 @onready var carryWeight : int
@@ -29,7 +30,7 @@ func _init() -> void:
 	carryWeight = 10
 	
 func gainXP(xpGain: int) -> void: #override later if class skills affect xp gain
-	xp+= xpGain
+	xp+= xpGain + xpGain * xpMultiplier/10
 	if xp >= xpToNextLevel:
 		GameManager.playerLevel+=1
 		GameManager.skillPoints+=1

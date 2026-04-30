@@ -218,6 +218,8 @@ func _on_button_submit_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func npc_reaction(state: String) -> void:
+	current_npc.set_icon_state(state)
+
 	match state:
 		"happy":
 			GameManager.player.Reputation +=1

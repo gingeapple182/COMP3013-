@@ -19,4 +19,5 @@ func _on_next_day_pressed() -> void:
 	GameManager.uiOpen = false
 	for npc in get_tree().current_scene.get_child(0).get_children():
 		npc.npc_role = NPC.NPCRole.BYSTANDER
+		npc.set_icon_state("sad")
 	pass # Replace with function body.

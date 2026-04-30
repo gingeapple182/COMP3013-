@@ -10,11 +10,8 @@ class_name SkillTreeButton
 @onready var skill_tree: Control = $".."
 @export var maxLevel : int
 
-@export var level : int = 0:
-	set(value):
-		level = value
-		label = str(level) + "/"+ str(maxLevel)
-
+@export var level : int
+	
 enum ClassSkill
 {
 	WIZARD,
@@ -68,13 +65,15 @@ func _on_pressed() -> void:
 		print("return")
 		print(GameManager.PlayerClassTypes.keys()[GameManager.playerClass])
 		return
+
 	if level < maxLevel:
+		panel.show_behind_parent = true
 		GameManager.skillPoints -= 1
 		level = min(level+1, maxLevel)
 		set_Skill_Level()
 	line_2d.default_color = Color(0.0, 1.0, 0.0, 1.0)
 	texture_rect.visible = false
-	
+		
 	var skills = get_children()
 	for skill in skills:
 		if skill is SkillTreeButton and level == 1:
@@ -82,11 +81,18 @@ func _on_pressed() -> void:
 			skill.texture_rect.visible = true
 
 func set_Skill_Level() -> void: #tycoongen xp, wizardgen movespeed, paladingen carryweight, hermit npcSize, gen deftault to on
+	label.text = str(level) + "/"+ str(maxLevel)
+	print(level)
 	match self.name:
 		"WizardGen":
 			GameManager.player.movementSpeedSkill = level
 		"PaladinGen":
 			GameManager.player.carryWeight = 10 + level * 5
-			print("carryweight")
+		"TycoonGen":
+			GameManager.player.xpMultiplier = level
+		"HermitGen":
+			for npc in 	get_tree().current_scene.get_child(0).get_children():
+				npc.scale = Vector3(1.0 + level*0.1, 1.0 + level*0.1, 1.0 + level*0.1)
+
 		
 		
