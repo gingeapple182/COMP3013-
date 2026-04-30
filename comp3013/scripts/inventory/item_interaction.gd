@@ -84,11 +84,13 @@ func _input(event: InputEvent) -> void:
 
 func _on_item_collected(item: Node):
 	if item is RigidBody3D:
-		item.get_child(1).queue_free()
 		item.freeze = true
 		item.linear_velocity = Vector3.ZERO
 		item.angular_velocity = Vector3.ZERO
 		item.gravity_scale = 0.0
+		for child in item.get_children():
+			if child is CollisionShape3D:
+				child.queue_free()
 	
 	item.get_parent().remove_child(item)
 	envelope_hand.add_child(item)
