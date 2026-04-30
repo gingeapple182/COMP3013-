@@ -84,6 +84,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_item_collected(item: Node):
 	if item is RigidBody3D:
+		item.get_child(1).queue_free()
 		item.freeze = true
 		item.linear_velocity = Vector3.ZERO
 		item.angular_velocity = Vector3.ZERO

@@ -69,14 +69,13 @@ func _default_interact() -> void:
 
 func _collect_mail() -> void:
 	var collider = get_parent().find_child("CollisionShape3D", true, false)
-	if collider:
-		collider.get_parent().remove_child(collider)
-		collider.queue_free()
+	#if collider:
+	#	collider.get_parent().remove_child(collider)
+	#	collider.queue_free()
 	emit_signal("item_collected", get_parent())
 
 func _npc_interaction() -> void:
 
-	
 	has_output = true
 	
 	var npc := get_parent() as NPC
