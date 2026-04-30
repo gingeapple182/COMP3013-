@@ -55,7 +55,10 @@ anchor_right = 0.61153847
 anchor_bottom = 0.5499164
 offset_right = -3.0517578e-05
 grow_vertical = 2
+theme_override_font_sizes/font_size = 35
 text = "quest info"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TextureRect/Accept" to="TextureRect/Accept" method="_on_pressed"]
