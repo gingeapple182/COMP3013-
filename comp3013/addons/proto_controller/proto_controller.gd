@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	base_speed = 6.0 + GameManager.player.movementSpeedSkill * 1.0
-
+	
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)

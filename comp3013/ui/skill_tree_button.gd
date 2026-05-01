@@ -80,7 +80,6 @@ func _on_pressed() -> void:
 
 func set_Skill_Level() -> void: #tycoongen xp, wizardgen movespeed, paladingen carryweight, hermit npcSize, gen deftault to on
 	label.text = str(level) + "/"+ str(maxLevel)
-	print(level)
 	match self.name:
 		"WizardGen":
 			GameManager.player.movementSpeedSkill = level
