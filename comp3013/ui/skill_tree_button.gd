@@ -6,10 +6,13 @@ class_name SkillTreeButton
 @onready var label = $MarginContainer/Label
 @onready var line_2d = $Line2D
 @onready var texture_rect: TextureRect = $TextureRect
+@onready var skill_explanation: TextureRect = $SkillExplanation
+@onready var skill_text: Label = $SkillExplanation/SkillText
 
 @onready var skill_tree: Control = $".."
 @export var maxLevel : int
 
+@export_multiline() var skill_explanation_text : String
 @export var level : int
 	
 enum ClassSkill
@@ -23,6 +26,7 @@ enum ClassSkill
 @export var class_Skill: GameManager.PlayerClassTypes = GameManager.PlayerClassTypes.NOCLASS
 
 func _ready():
+	skill_text.text = skill_explanation_text
 	if level > 0:
 		panel.show_behind_parent = true
 		var skills = get_children()
@@ -90,3 +94,11 @@ func set_Skill_Level() -> void: #tycoongen xp, wizardgen movespeed, paladingen c
 		"HermitGen":
 			for npc in 	get_tree().current_scene.get_child(0).get_children():
 				npc.scale = Vector3(1.0 + level*0.1, 1.0 + level*0.1, 1.0 + level*0.1)
+
+func _on_mouse_entered() -> void:
+	skill_explanation.show()
+	print("hover")
+
+
+func _on_mouse_exited() -> void:
+	skill_explanation.hide()
