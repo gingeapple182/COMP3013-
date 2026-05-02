@@ -15,11 +15,12 @@ script = ExtResource("1_8humi")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=692873546]
 custom_minimum_size = Vector2(900, 600)
-layout_mode = 0
-anchor_left = 0.265625
-anchor_top = 0.22222222
-anchor_right = 0.734375
-anchor_bottom = 0.7777778
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10763889
+anchor_top = 0.033950616
+anchor_right = 0.8888889
+anchor_bottom = 0.95987654
 texture = ExtResource("2_i4bj8")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
@@ -49,11 +50,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Deliveries" unique_id=1067336728]
 layout_mode = 0
-offset_left = 224.0
-offset_right = 264.0
-offset_bottom = 28.0
+anchor_left = 1.0566038
+anchor_right = 1.245283
+anchor_bottom = 1.0
 theme_override_font_sizes/font_size = 20
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="Correct deliveries" type="Label" parent="TextureRect" unique_id=41606685]
 layout_mode = 1
@@ -68,11 +70,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Correct deliveries" unique_id=2049486135]
 layout_mode = 0
-offset_left = 224.0
-offset_right = 264.0
-offset_bottom = 28.0
+anchor_left = 1.258427
+anchor_right = 1.4831461
+anchor_bottom = 1.0
+offset_left = -1.5258789e-05
 theme_override_font_sizes/font_size = 20
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="Incorrect deliveries" type="Label" parent="TextureRect" unique_id=938892359]
 layout_mode = 1
@@ -87,11 +91,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Incorrect deliveries" unique_id=839016161]
 layout_mode = 0
-offset_left = 224.0
-offset_right = 264.0
-offset_bottom = 28.0
+anchor_left = 1.1546391
+anchor_right = 1.3608247
+anchor_bottom = 1.0
+offset_left = 1.5258789e-05
 theme_override_font_sizes/font_size = 20
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="Next Day Button" type="TextureButton" parent="TextureRect" unique_id=1435844462]
 layout_mode = 1
@@ -111,18 +117,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Next Day Button" unique_id=751950777]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -221.0
-offset_top = -68.5
-offset_right = 221.0
-offset_bottom = 68.5
+anchors_preset = -1
+anchor_left = 0.20135134
+anchor_top = 0.36105478
+anchor_right = 0.79864866
+anchor_bottom = 0.6389452
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "Next Day"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TextureRect/Next Day Button" to="." method="_on_next_day_pressed"]

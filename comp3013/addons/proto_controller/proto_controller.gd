@@ -45,8 +45,10 @@ extends CharacterBody3D
 @export var input_freefly : String = "freefly"
 ## Name of Input Action to open and close the mail bag.
 @export var input_mail_bag : String = "OpenMailBag"
-## Name of Input Actio to open and close the skill tree
+## Name of Input Action to open and close the skill tree
 @export var input_skill_tree : String = "OpenSkillTree"
+## Name of Input Action to fly as a wizard
+@export var input_wizard_fly : String = "WizardFly"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -105,9 +107,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Toggle freefly mode
 	if can_freefly and Input.is_action_just_pressed(input_freefly):
 		if not freeflying:
-			enable_freefly()
+			enable_freefly(false)
 		else:
-			disable_freefly()
+			disable_freefly(false)
+			
+	if can_freefly and Input.is_action_just_pressed(input_wizard_fly) and GameManager.playerClass == GameManager.PlayerClassTypes.WIZARD:
+		if not freeflying:
+			enable_freefly(true)
+		else:
+			disable_freefly(true)
 
 func _physics_process(delta: float) -> void:
 	
@@ -174,13 +182,15 @@ func rotate_look(rot_input : Vector2):
 	head.rotate_x(look_rotation.x)
 
 
-func enable_freefly():
-	collider.disabled = true
+func enable_freefly(wizard : bool):
+	if !wizard:
+		collider.disabled = true
 	freeflying = true
 	velocity = Vector3.ZERO
 
-func disable_freefly():
-	collider.disabled = false
+func disable_freefly(wizard : bool):
+	if !wizard:
+		collider.disabled = false
 	freeflying = false
 
 

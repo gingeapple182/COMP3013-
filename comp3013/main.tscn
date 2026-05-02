@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://w4y3e0mklysp" path="res://scenes/Forest/oak_tree_3.tscn" id="38_f6a44"]
 [ext_resource type="PackedScene" uid="uid://b8prhm0w3piqj" path="res://models/kenney/tree-crooked.glb" id="39_0cbny"]
 [ext_resource type="PackedScene" uid="uid://djlercd60sweh" path="res://models/kenney/tree-high-round.glb" id="40_hrvbo"]
+[ext_resource type="PackedScene" uid="uid://d2441d5wu30kv" path="res://scenes/Forest/spruce_tree_2.tscn" id="41_4lmeg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h0abr"]
 panorama = ExtResource("1_ekdjy")
@@ -141,7 +142,7 @@ script = ExtResource("1_ji0gb")
 [node name="NPCs" type="Node" parent="." unique_id=134454224]
 
 [node name="Pablo" parent="NPCs" unique_id=492491780 instance=ExtResource("26_lswn8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.47235, 0, 129.68681)
+transform = Transform3D(-0.021273948, 0, -0.9997736, 0, 1, 0, 0.9997736, 0, -0.021273948, -188.68533, 75.1855, -15.80421)
 npc_name = "Pablo"
 npc_address = "Carrera 79B #45D-94"
 player_path = NodePath("../../ProtoController")
@@ -152,7 +153,7 @@ npc_name = "Joseph"
 npc_address = "32 Stalin Ave Gori Georgia"
 
 [node name="Mao" parent="NPCs" unique_id=1753540154 instance=ExtResource("26_lswn8")]
-transform = Transform3D(0.0943516, 0, 0.99553895, 0, 1, 0, -0.99553895, 0, 0.0943516, -4.4321423, 0, -7.1614795)
+transform = Transform3D(0.013927214, 0, -0.999903, 0, 1, 0, 0.999903, 0, 0.013927214, -257.18268, 74.994156, 11.272993)
 npc_name = "Mao"
 npc_address = "China Bei Jing Shi Dongcheng 天安门 邮政编码: 100051"
 
@@ -162,11 +163,11 @@ npc_name = "Benito"
 npc_address = "Via Nomentana 70 00161 Roma RM Italy"
 
 [node name="Pol" parent="NPCs" unique_id=678156554 instance=ExtResource("26_lswn8")]
-transform = Transform3D(-0.3097473, 0, -0.9508189, 0, 1, 0, 0.9508189, 0, -0.3097473, 2.5634112, 0, -10.807007)
+transform = Transform3D(0.999216, 0, 0.039591044, 0, 1, 0, -0.039591044, 0, 0.999216, -191.19379, 75.06549, -64.78681)
 npc_name = "Pol"
 
 [node name="Augusto" parent="NPCs" unique_id=1471868077 instance=ExtResource("26_lswn8")]
-transform = Transform3D(0.42618978, 0, 0.90463376, 0, 1, 0, -0.90463376, 0, 0.42618978, -2.662712, 0, -7.9135523)
+transform = Transform3D(0.0014136732, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.0014136732, -230.4546, 74.985954, 10.407004)
 npc_name = "Augusto"
 
 [node name="Fidel" parent="NPCs" unique_id=1112281290 instance=ExtResource("26_lswn8")]
@@ -221,6 +222,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.04982, 0, 133.95476)
 transform = Transform3D(0.91017103, 0, 0.4142326, 0, 1, 0, -0.4142326, 0, 0.91017103, 62.709198, 0, 158.3099)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1347097725]
+visible = false
 
 [node name="Floor" type="Node3D" parent="Node3D" unique_id=1426160630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.1, 75, 25.1)
@@ -759,23 +761,145 @@ transform = Transform3D(-0.8933871, 0, 0.44928783, 0, 1, 0, -0.44928783, 0, -0.8
 [node name="Wizard Market3" parent="Village1" unique_id=600433833 instance=ExtResource("31_4lmeg")]
 transform = Transform3D(-0.6035977, 0, 0.79728895, 0, 1, 0, -0.79728895, 0, -0.6035977, 103.56933, 9.858028, -131.05768)
 
-[node name="OakTree4" parent="." unique_id=1031971846 instance=ExtResource("36_qnost")]
+[node name="OakTree4" parent="Village1" unique_id=1031971846 instance=ExtResource("36_qnost")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.43864, 10.190092, -209.24496)
 
-[node name="OakTree1" parent="." unique_id=288964329 instance=ExtResource("36_qnost")]
+[node name="OakTree1" parent="Village1" unique_id=288964329 instance=ExtResource("36_qnost")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.661285, 9.900328, -200.73257)
 
-[node name="OakTree2" parent="." unique_id=1036924566 instance=ExtResource("37_wnkbs")]
+[node name="OakTree2" parent="Village1" unique_id=1036924566 instance=ExtResource("37_wnkbs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.859303, 9.571802, -203.02997)
 
-[node name="OakTree3" parent="." unique_id=642292013 instance=ExtResource("38_f6a44")]
+[node name="OakTree3" parent="Village1" unique_id=642292013 instance=ExtResource("38_f6a44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6970463, 9.8390255, -177.92805)
 
-[node name="tree-crooked2" parent="." unique_id=1429548495 instance=ExtResource("39_0cbny")]
+[node name="tree-crooked2" parent="Village1" unique_id=1429548495 instance=ExtResource("39_0cbny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.56658, 10.155346, -127.71576)
 
-[node name="tree-high-round2" parent="." unique_id=1716247199 instance=ExtResource("40_hrvbo")]
+[node name="tree-high-round2" parent="Village1" unique_id=1716247199 instance=ExtResource("40_hrvbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.59185, 10.000986, -139.85487)
+
+[node name="Village2" type="Node3D" parent="." unique_id=1296765747]
+
+[node name="FantasyHouse" parent="Village2" unique_id=1129249006 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.7002618, 0, -0.71388626, 0, 1, 0, 0.71388626, 0, -0.7002618, -238.38625, 74.987, 37.02417)
+
+[node name="FantasyHouse2" parent="Village2" unique_id=1353346185 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.7002618, 0, -0.71388626, 0, 1, 0, 0.71388626, 0, -0.7002618, -246.67319, 74.987, 28.891872)
+
+[node name="FantasyHouse3" parent="Village2" unique_id=970103707 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.99949175, 0, -0.03188163, 0, 1, 0, 0.03188163, 0, -0.99949175, -254.22578, 74.987, 11.210145)
+
+[node name="FantasyHouse4" parent="Village2" unique_id=1455697464 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.99949175, 0, -0.03188163, 0, 1, 0, 0.03188163, 0, -0.99949175, -254.57863, 74.987, -0.37689543)
+
+[node name="OakTree2" parent="Village2" unique_id=1333273247 instance=ExtResource("37_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250.94878, 74.86643, 4.242668)
+
+[node name="FantasyHouse5" parent="Village2" unique_id=1715596246 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.9993767, 0, 0.035300545, 0, 1, 0, -0.035300545, 0, 0.9993767, -233.53241, 74.987, -1.0727806)
+
+[node name="FantasyHouse6" parent="Village2" unique_id=491623275 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.9993767, 0, 0.035300545, 0, 1, 0, -0.035300545, 0, 0.9993767, -233.13992, 74.987, 10.512983)
+
+[node name="FantasyHouse7" parent="Village2" unique_id=58615179 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.99949175, 0, -0.03188163, 0, 1, 0, 0.03188163, 0, -0.99949175, -219.10919, 74.987, 11.210145)
+
+[node name="FantasyHouse8" parent="Village2" unique_id=99424379 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.99949175, 0, -0.03188163, 0, 1, 0, 0.03188163, 0, -0.99949175, -219.46204, 74.987, -0.37689543)
+
+[node name="SpruceTree2" parent="Village2" unique_id=1577666112 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.3563, 74.78583, 38.576523)
+
+[node name="SpruceTree3" parent="Village2" unique_id=947752470 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.61255, 74.78583, 36.094093)
+
+[node name="SpruceTree4" parent="Village2" unique_id=1307896153 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(0.9090253, 0, 0.41674092, 0, 1, 0, -0.41674092, 0, 0.9090253, -226.86745, 74.78583, 31.469227)
+
+[node name="SpruceTree5" parent="Village2" unique_id=246171445 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(0.79755235, 0, -0.6032498, 0, 1, 0, 0.6032498, 0, 0.79755235, -240.73027, 74.78583, 28.489758)
+
+[node name="SpruceTree6" parent="Village2" unique_id=1274869738 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -227.67032, 74.78583, 40.52554)
+
+[node name="SpruceTree7" parent="Village2" unique_id=1129871205 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -227.37454, 74.78583, 37.253742)
+
+[node name="SpruceTree8" parent="Village2" unique_id=472873793 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -233.6135, 74.78583, 33.86581)
+
+[node name="SpruceTree9" parent="Village2" unique_id=1604309133 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.99466, 74.78583, 28.402706)
+
+[node name="SpruceTree10" parent="Village2" unique_id=970333308 instance=ExtResource("41_4lmeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.92603, 74.78583, 41.322773)
+
+[node name="FantasyHouse9" parent="Village2" unique_id=1999438594 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.9993767, 0, 0.035300545, 0, 1, 0, -0.035300545, 0, 0.9993767, -233.53241, 74.987, -42.795017)
+
+[node name="FantasyHouse10" parent="Village2" unique_id=976421727 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.9993767, 0, 0.035300545, 0, 1, 0, -0.035300545, 0, 0.9993767, -233.13992, 74.987, -31.209253)
+
+[node name="FantasyHouse11" parent="Village2" unique_id=1369686228 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.06157104, 0, -0.99810266, 0, 1, 0, 0.99810266, 0, 0.06157104, -249.76094, 74.987, -25.279997)
+
+[node name="Wizard Market2" parent="Village2" unique_id=1179792352 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(-0.02015721, 0, 0.99979675, 0, 1, 0, -0.99979675, 0, -0.02015721, -196.55865, 74.97842, 0.9323702)
+
+[node name="Wizard Market3" parent="Village2" unique_id=1703389296 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(0.009040607, 0, -0.99995905, 0, 1, 0, 0.99995905, 0, 0.009040607, -196.55865, 74.942276, -33.198917)
+
+[node name="FantasyHouse12" parent="Village2" unique_id=1172144137 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.99949175, 0, -0.03188163, 0, 1, 0, 0.03188163, 0, -0.99949175, -219.10919, 74.987, -31.683146)
+
+[node name="FantasyHouse13" parent="Village2" unique_id=102942519 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.99949175, 0, -0.03188163, 0, 1, 0, 0.03188163, 0, -0.99949175, -219.46204, 74.987, -43.270187)
+
+[node name="Sketchfab_Scene" parent="Village2" unique_id=1690162114 instance=ExtResource("30_h8e4i")]
+transform = Transform3D(0.0020944327, 0, -0.9999979, 0, 1, 0, 0.9999979, 0, 0.0020944327, -179.77832, 75.07006, -15.513945)
+
+[node name="Wizard Market" parent="Village2" unique_id=1552301961 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(-0.8075269, 0, 0.58983076, 0, 1, 0, -0.58983076, 0, -0.8075269, -217.93643, 74.94593, 26.78459)
+
+[node name="OakTree3" parent="Village2" unique_id=2124250041 instance=ExtResource("38_f6a44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271.4134, 74.90614, -44.700268)
+
+[node name="Sketchfab_Scene2" parent="Village2" unique_id=1459305553 instance=ExtResource("30_h8e4i")]
+transform = Transform3D(0.752932, 0, 0.65809834, 0, 1, 0, -0.65809834, 0, 0.752932, -237.8097, 74.98917, -85.47656)
+
+[node name="FantasyHouse14" parent="Village2" unique_id=1685093174 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.50631994, 0, -0.86234576, 0, 1, 0, 0.86234576, 0, -0.50631994, -222.44588, 74.987, -77.74632)
+
+[node name="FantasyHouse15" parent="Village2" unique_id=1063525261 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.50631994, 0, -0.86234576, 0, 1, 0, 0.86234576, 0, -0.50631994, -212.43196, 74.987, -71.87086)
+
+[node name="FantasyHouse16" parent="Village2" unique_id=1733526803 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.94415236, 0, 0.32950938, 0, 1, 0, -0.32950938, 0, 0.94415236, -236.41931, 74.987, -57.472218)
+
+[node name="Wizard Market4" parent="Village2" unique_id=1184170192 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(0.9971681, 0, 0.07520512, 0, 1, 0, -0.07520512, 0, 0.9971681, -245.23235, 74.94592, -68.93397)
+
+[node name="FantasyHouse17" parent="Village2" unique_id=1301159729 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.02879379, 0, 0.9995854, 0, 1, 0, -0.9995854, 0, -0.02879379, -202.74164, 74.987, -50.387157)
+
+[node name="FantasyHouse18" parent="Village2" unique_id=830403109 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(-0.02879379, 0, 0.9995854, 0, 1, 0, -0.9995854, 0, -0.02879379, -191.15498, 74.987, -50.74411)
+
+[node name="FantasyHouse19" parent="Village2" unique_id=1298934884 instance=ExtResource("12_0rl1p")]
+transform = Transform3D(0.027921874, 0, -0.9996101, 0, 1, 0, 0.9996101, 0, 0.027921874, -191.15498, 74.987, -66.85633)
+
+[node name="OakTree4" parent="Village2" unique_id=98452680 instance=ExtResource("37_wnkbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.56793, 74.88974, -88.36646)
+
+[node name="Wizard Market5" parent="Village2" unique_id=2135646748 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(-0.99550915, 0, -0.094664365, 0, 1, 0, 0.094664365, 0, -0.99550915, -167.33014, 74.94592, -56.78315)
+
+[node name="Wizard Market6" parent="Village2" unique_id=301708838 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(-0.14668761, 0, 0.9891828, 0, 1, 0, -0.9891828, 0, -0.14668761, -178.25047, 74.94592, -43.59663)
+
+[node name="Wizard Market7" parent="Village2" unique_id=631719314 instance=ExtResource("31_4lmeg")]
+transform = Transform3D(-0.38184422, 0, -0.9242267, 0, 1, 0, 0.9242267, 0, -0.38184422, -177.33897, 74.960106, -69.50576)
 
 [editable path="Node3D/Houses/House2"]
 [editable path="Node3D/Houses/House2/Walls/wall_doorway2"]
