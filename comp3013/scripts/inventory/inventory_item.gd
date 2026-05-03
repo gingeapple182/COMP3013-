@@ -9,6 +9,7 @@ var slot_index: int = -1
 var slot_filled: bool = false
 var slot_data : MailData
 const MAIL_ICON = preload("uid://bcs1dtpk8upry")
+const MAIL_PIECE = preload("uid://c2i2wsnwo53y")
 
 
 signal on_item_swapped(old_slot_index: int, new_slot_index: int)
@@ -29,6 +30,7 @@ func fill_slot(mail_data: MailData) -> void:
 		print(mail_data.action_data.item_recipient)
 		slot_data = mail_data.duplicate(true)
 		slot_data.item_icon = MAIL_ICON
+		slot_data.item_model_prefab = MAIL_PIECE
 		#slot_data = MailData.new()
 	#	var new_action_data := DeliveryAction.new()
 	#	new_action_data.item_recipient = mail_data.action_data.item_recipient

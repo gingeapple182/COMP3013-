@@ -73,11 +73,11 @@ func item_right_clicked(selected_index: int) -> void:
 	if (slot.slot_data == null):
 		return
 	context_menu.clear()
-	match get_action_data(slot.slot_data):
-		ActionData.ActionType.DELIVERABLE:
-			context_menu.add_item("View", 0)
-			context_menu.add_item("Equip", 1)
-			context_menu.add_item("Drop", 2)
+	print(slot.slot_data.action_data.action_type)
+	if slot.slot_data.action_data.action_type == ActionData.ActionType.DELIVERABLE:
+		context_menu.add_item("View", 0)
+		context_menu.add_item("Equip", 1)
+		context_menu.add_item("Drop", 2)
 	context_menu.set_meta("selected_index", selected_index)
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
 	var rect: Rect2i = Rect2i(mouse_position.floor(), Vector2i(1,1))
@@ -89,15 +89,14 @@ func _on_context_menu(id: int) -> void:
 	if (slot.slot_data == null):
 		return
 	
-	match get_action_data(slot.slot_data):
-		ActionData.ActionType.DELIVERABLE:
-			match id:
-				0:
-					view_item(selected_index)
-				1:
-					equip_item(selected_index)
-				2:
-					drop_item(selected_index)
+	if slot.slot_data.action_data.action_type == ActionData.ActionType.DELIVERABLE:
+		match id:
+			0:
+				view_item(selected_index)
+			1:
+				equip_item(selected_index)
+			2:
+				drop_item(selected_index)
 
 func get_action_data(mail_data: MailData) -> ActionData.ActionType:
 	if (mail_data == null or mail_data.item_model_prefab == null):

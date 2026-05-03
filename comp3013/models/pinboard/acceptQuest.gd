@@ -29,7 +29,9 @@ func _on_pressed() -> void:
 		if npc.npc_name == label.text:
 			delivery_action.item_address = [npc.npc_address]
 			delivery_action.item_recipient = label.text
+			delivery_action.action_type = ActionData.ActionType.DELIVERABLE
 			mail.get_child(2).mail_data.action_data = delivery_action.duplicate(true)
+			mail.get_child(2).mail_data.item_model_prefab = mail_scene
 	mail.position = Vector3(92.152,0.5,143.215)
 	get_tree().current_scene.add_child(mail)
 	pass # Replace with function body.
