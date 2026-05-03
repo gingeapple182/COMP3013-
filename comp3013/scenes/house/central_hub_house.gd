@@ -10,6 +10,7 @@ func _ready() -> void:
 	central_hub_tycoon_house.process_mode = 4
 	central_hub_wizard_tower.process_mode = 4
 	central_hub_cleric_chapel.process_mode = 4
+	
 	pass # Replace with function body.
 
 
