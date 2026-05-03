@@ -36,6 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_1x8ju")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1346799217]
 layout_mode = 1
@@ -49,7 +50,6 @@ offset_bottom = 2.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_aaqae")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jd13s")
 value = 100.0
-script = ExtResource("1_1x8ju")
 
 [node name="DamageBar" type="ProgressBar" parent="HealthBar" unique_id=121271212]
 z_index = -1
@@ -75,7 +75,6 @@ anchor_right = 0.22569445
 anchor_bottom = 0.108024694
 theme_override_styles/background = SubResource("StyleBoxFlat_1x8ju")
 theme_override_styles/fill = SubResource("StyleBoxFlat_aaqae")
-value = 17.02
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]

@@ -87,13 +87,31 @@ func set_Skill_Level() -> void: #tycoongen xp, wizardgen movespeed, paladingen c
 	match self.name:
 		"WizardGen":
 			GameManager.player.movementSpeedSkill = level
-		"PaladinGen":
-			GameManager.player.carryWeight = 10 + level * 5
-		"TycoonGen":
-			GameManager.player.xpMultiplier = level
+		"WizardHappiness":
+			GameManager.player.happinessMultiplier = 1.0 * level * 2
+		"WizardLowerXp":
+			GameManager.player.levelXpReqMulti = level
 		"HermitGen":
 			for npc in 	get_tree().current_scene.get_child(0).get_children():
 				npc.scale = Vector3(1.0 + level*0.1, 1.0 + level*0.1, 1.0 + level*0.1)
+		"PaladinGen":
+			GameManager.player.carryWeight = 10 + level * 5
+		"Paladin":
+			#enable combat with monsters
+			pass
+		"PaladinIncreaseHealth":
+			GameManager.player.max_health = 100 + 100 * level * 0.15
+		"PaladinIncreaseDamage":
+			#increase damage player deals to monsters
+			pass
+		"TycoonGen":
+			GameManager.player.xpMultiplier = level
+		"Tycoon":
+			GameManager.maxQuests = 6
+		"TycoonMinQuests":
+			GameManager.minQuests = 2 + level
+		"TycoonEndOfDayXp":
+			GameManager.endOfDayXp = level
 
 func _on_mouse_entered() -> void:
 	skill_explanation.show()

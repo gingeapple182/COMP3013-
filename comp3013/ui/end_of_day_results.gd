@@ -1,7 +1,6 @@
 extends Control
 @onready var canvas_layer: CanvasLayer = $".."
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,6 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_next_day_pressed() -> void:
+	print(GameManager.deliveries)
+	GameManager.player.gainXP(GameManager.endOfDayXp * GameManager.playerLevel * 20)
 	GameManager.newDay()
 	canvas_layer.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

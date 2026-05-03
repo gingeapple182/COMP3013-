@@ -202,14 +202,17 @@ func _on_button_submit_pressed() -> void:
 	submit_ui.hide()
 	if (current_npc.npc_name == selected_mail_data.action_data.item_recipient and selected_mail_data.action_data.action_type == ActionData.ActionType.DELIVERABLE and selected_mail_data.action_data.item_recipient != null):
 		GameManager.player.gainXP(100)
+		GameManager.correctDeliveries += 1
 		print("happy pablo")
 		npc_reaction("happy")
-		current_npc.happiness += 1
+		current_npc.happiness += 1 * GameManager.player.happinessMultiplier
 	else:
-		current_npc.happiness -= 1
+		current_npc.happiness -= 1 * GameManager.player.happinessMultiplier
 		GameManager.player.gainXP(50)
+		GameManager.incorectDeliveries +=1
 		print("sad pablo")
 		npc_reaction("angry")
+	GameManager.deliveries += 1 
 	source_inventory_slots[selected_inventory_index].slot_data = null
 	source_inventory_slots[selected_inventory_index].slot_filled = false
 	source_inventory_slots[selected_inventory_index].item_icon.texture = null

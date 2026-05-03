@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://or0wf2hww0md" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="Script" uid="uid://c32j1jmseivj4" path="res://scripts/Player.gd" id="1_ujot4"]
 [ext_resource type="PackedScene" uid="uid://oe45i43rmj36" path="res://scripts/inventory/item_interaction.tscn" id="2_wr06p"]
 [ext_resource type="Shader" uid="uid://c0go56pu08jgg" path="res://ui/address_fade.gdshader" id="3_0rk7u"]
 [ext_resource type="PackedScene" uid="uid://c2huwe1qym023" path="res://scripts/inventory/inventory_controller.tscn" id="3_5hfox"]
@@ -167,6 +168,11 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="Node" unique_id=669350220]
 
 [node name="Hud" parent="Node/CanvasLayer" unique_id=1015810131 instance=ExtResource("7_ujot4")]
+
+[node name="Player" type="Node" parent="." unique_id=1146807897]
+script = ExtResource("1_ujot4")
+
+[connection signal="xp_changed" from="Player" to="Node/CanvasLayer/Hud" method="_on_player_xp_changed"]
 
 [editable path="Inventory Controller"]
 [editable path="SubmitScreen"]

@@ -10,7 +10,7 @@ class_name Player
 @onready var Courier : int = 0
 @onready var Banker : int = 0
 @onready var Entropy : int = 0
-@onready var xp : int
+@onready var xp : float
 @onready var xpToNextLevel : int
 @onready var xpMultiplier : int
 @onready var health : int
@@ -18,13 +18,15 @@ class_name Player
 @onready var max_health : int
 @onready var movementSpeedSkill : int
 @onready var carryWeight : int
+@onready var happinessMultiplier : int
+@onready var levelXpReqMulti : int
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if health <= 0:
 		print("died")
-	pass
+		
 	
 func _init() -> void:
 	xp = 0
@@ -33,10 +35,10 @@ func _init() -> void:
 	max_health = 100
 	health = max_health
 	
-func gainXP(xpGain: int) -> void: #override later if class skills affect xp gain
+func gainXP(xpGain: float) -> void: #override later if class skills affect xp gain
 	xp+= xpGain + xpGain * xpMultiplier/10
 	if xp >= xpToNextLevel:
 		GameManager.playerLevel+=1
 		GameManager.skillPoints+=1
 		xp-=xpToNextLevel
-		xpToNextLevel = 100 + (GameManager.playerLevel-1)*50 #temporary xp increase
+		xpToNextLevel = 100 + (GameManager.playerLevel-1)*50/(1 + levelXpReqMulti * 0.1) #temporary xp increase

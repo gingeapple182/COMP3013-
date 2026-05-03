@@ -9,6 +9,12 @@ extends Node
 @onready var player : Player
 @onready var questsGenerated : bool
 @onready var invinsibilityTime : float = 0.0
+@onready var correctDeliveries : int
+@onready var incorectDeliveries : int
+@onready var deliveries : int
+@onready var maxQuests : int = 4
+@onready var minQuests : int = 1
+@onready var endOfDayXp : int = 0
 
 enum PlayerClassTypes
 {
@@ -28,24 +34,19 @@ func _ready() -> void:
 	playerClass = PlayerClassTypes.NOCLASS
 	skillPoints = 10000
 	playerLevel = 1
-	if playerClass == PlayerClassTypes.HERMIT:
-		player = Hermit.new()
-	elif playerClass == PlayerClassTypes.TYCOON:
-		player = Tycoon.new()
-	elif playerClass == PlayerClassTypes.PALADIN:
-		player = Paladin.new()
-	elif playerClass == PlayerClassTypes.WIZARD:
-		player = Wizard.new()
-	else:
-		player = Player.new()
+	player = Player.new()
 	newDay()
 
 func newDay() -> void: #use this function to change what is needed when a new day starts
+	deliveries = 0
+	incorectDeliveries = 0
+	correctDeliveries = 0
+	player.health = player.max_health
 	questsGenerated = false
 	for i in range(npcQuests.size()):
 		npcQuests[i] = 0
 	var rand = RandomNumberGenerator.new()
-	var numOfQuests = rand.randi_range(2,6)
+	var numOfQuests = rand.randi_range(minQuests,maxQuests)
 	var questRange = range(0,7)
 	questRange.shuffle()
 	questRange = questRange.slice(0,numOfQuests)

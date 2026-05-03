@@ -197,7 +197,7 @@ func give_equipped_mail() -> void:
 			print("no item use component")
 	else:
 		print("nothing to interact with")
-	inventory_ui.pickup_item(equipped_item_component.mail_data.duplicate(true))
+	inventory_ui.pickup_item(equipped_item_component.mail_data.duplicate())
 	equipped_item.queue_free()
 	player_controller.item_equipped = false
 
