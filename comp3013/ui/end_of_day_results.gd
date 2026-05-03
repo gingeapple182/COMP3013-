@@ -10,7 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_next_day_pressed() -> void:
 	print(GameManager.deliveries)
 	GameManager.player.gainXP(GameManager.endOfDayXp * GameManager.playerLevel * 20)

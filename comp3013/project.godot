@@ -27,6 +27,10 @@ GameManager="*res://scripts/GameManager.gd"
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ui_focus_next={
