@@ -8,6 +8,7 @@ extends Node
 @onready var npcQuests = [0,0,0,0,0,0,0,0]
 @onready var player : Player
 @onready var questsGenerated : bool
+@onready var invinsibilityTime : float = 0.0
 
 enum PlayerClassTypes
 {

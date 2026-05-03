@@ -151,32 +151,39 @@ player_path = NodePath("../../ProtoController")
 transform = Transform3D(-0.8316151, 0, -0.55535245, 0, 1, 0, 0.55535245, 0, -0.8316151, 72.200294, 10.097949, -118.747086)
 npc_name = "Joseph"
 npc_address = "32 Stalin Ave Gori Georgia"
+player_path = NodePath("../../ProtoController")
 
 [node name="Mao" parent="NPCs" unique_id=1753540154 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.013927214, 0, -0.999903, 0, 1, 0, 0.999903, 0, 0.013927214, -257.18268, 74.994156, 11.272993)
 npc_name = "Mao"
 npc_address = "China Bei Jing Shi Dongcheng 天安门 邮政编码: 100051"
+player_path = NodePath("../../ProtoController")
 
 [node name="Benito" parent="NPCs" unique_id=958919223 instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.49023467, 0, 0.8715906, 0, 1, 0, -0.8715906, 0, -0.49023467, 14.730565, 10.103214, -151.54266)
 npc_name = "Benito"
 npc_address = "Via Nomentana 70 00161 Roma RM Italy"
+player_path = NodePath("../../ProtoController")
 
 [node name="Pol" parent="NPCs" unique_id=678156554 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.999216, 0, 0.039591044, 0, 1, 0, -0.039591044, 0, 0.999216, -191.19379, 75.06549, -64.78681)
 npc_name = "Pol"
+player_path = NodePath("../../ProtoController")
 
 [node name="Augusto" parent="NPCs" unique_id=1471868077 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.0014136732, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.0014136732, -230.4546, 74.985954, 10.407004)
 npc_name = "Augusto"
+player_path = NodePath("../../ProtoController")
 
 [node name="Fidel" parent="NPCs" unique_id=1112281290 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.8441502, 0, 0.53610677, 0, 1, 0, -0.53610677, 0, 0.8441502, 45.71943, 10.038806, -196.55219)
 npc_name = "Fidel"
+player_path = NodePath("../../ProtoController")
 
 [node name="Mobuto" parent="NPCs" unique_id=724118597 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.38791776, 0, -0.92169404, 0, 1, 0, 0.92169404, 0, 0.38791776, 120.697395, 10.036288, -182.81349)
 npc_name = "Mobuto"
+player_path = NodePath("../../ProtoController")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918803051]
 environment = SubResource("Environment_5j5gy")

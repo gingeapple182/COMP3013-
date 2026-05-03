@@ -51,7 +51,7 @@ var current_state: NPCState = NPCState.IDLE
 @export_group("Targets")
 @export var player_path: NodePath
 
-var player: Node3D = null
+var player: CharacterBody3D = null
 var idle_timer: float = 0.0
 var current_idle_wait: float = 0.0
 var current_wander_index: int = 0
@@ -59,6 +59,7 @@ var safe_velocity: Vector3 = Vector3.ZERO
 var happiness : int
 
 func _ready() -> void:
+	happiness = 0
 	navigation_agent.path_desired_distance = stop_distance
 	navigation_agent.target_desired_distance = stop_distance
 	if not navigation_agent.velocity_computed.is_connected(_on_velocity_computed):
@@ -83,6 +84,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	GameManager.invinsibilityTime -= delta
 	match current_state:
 		NPCState.IDLE:
 			handle_idle_state(delta)
@@ -94,7 +96,16 @@ func _physics_process(delta: float) -> void:
 			handle_return_state()
 		NPCState.KILL:
 			handle_kill_state()
-	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+			
+		if collider.name == "ProtoController" &&  GameManager.invinsibilityTime <= 0.0 && current_state == NPCState.KILL:
+			print("attack")
+			GameManager.player.previous_health = GameManager.player.health
+			GameManager.player.health -= 15
+			GameManager.invinsibilityTime = 10.0
+		
 	velocity = safe_velocity
 	move_and_slide()
 	#apply_floor_snap()

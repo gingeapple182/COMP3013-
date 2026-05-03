@@ -2,10 +2,14 @@ extends Control
 class_name InventoryItem
 
 @onready var item_icon: TextureRect = $TextureRect
+@onready var item_details: TextureRect = $ItemDetails
+@onready var label: Label = $ItemDetails/Label
 
 var slot_index: int = -1
 var slot_filled: bool = false
-var slot_data: MailData
+var slot_data : MailData
+const MAIL_ICON = preload("uid://bcs1dtpk8upry")
+
 
 signal on_item_swapped(old_slot_index: int, new_slot_index: int)
 signal on_item_double_clicked(selected_index:int)
@@ -21,10 +25,20 @@ func _process(delta: float) -> void:
 	pass
 
 func fill_slot(mail_data: MailData) -> void:
-	slot_data = mail_data
-	if (slot_data != null):
+	if mail_data != null:
+		print(mail_data.action_data.item_recipient)
+		slot_data = mail_data.duplicate(true)
+		slot_data.item_icon = MAIL_ICON
+		#slot_data = MailData.new()
+	#	var new_action_data := DeliveryAction.new()
+	#	new_action_data.item_recipient = mail_data.action_data.item_recipient
+	#	new_action_data.item_address = mail_data.action_data.item_address
+	#	self.slot_data.action_data = new_action_data
+
+	if (mail_data != null):
+		
 		slot_filled = true
-		item_icon.texture = mail_data.item_icon
+		item_icon.texture = slot_data.item_icon
 	else:
 		slot_filled = false
 		item_icon.texture = null
@@ -56,4 +70,14 @@ func _gui_input(event: InputEvent) -> void:
 		elif (event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
 			on_item_right_clicked.emit(slot_index)
 			
-			
+
+
+func _on_texture_rect_mouse_entered() -> void:
+	if(slot_data != null):
+		print(slot_data.action_data.item_recipient)
+		label.text = slot_data.action_data.item_recipient + "\n" +slot_data.action_data.item_address[0]
+		item_details.show()
+
+
+func _on_texture_rect_mouse_exited() -> void:
+	item_details.hide()

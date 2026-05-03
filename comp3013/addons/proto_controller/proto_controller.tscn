@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2huwe1qym023" path="res://scripts/inventory/inventory_controller.tscn" id="3_5hfox"]
 [ext_resource type="PackedScene" uid="uid://hayylx4cfwia" path="res://scripts/inventory/submit_screen.tscn" id="4_6dqce"]
 [ext_resource type="PackedScene" uid="uid://usmj4tcgfjv8" path="res://ui/skill_tree.tscn" id="6_h60nn"]
+[ext_resource type="PackedScene" uid="uid://htcruplv4flc" path="res://ui/HUD.tscn" id="7_ujot4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -160,6 +161,12 @@ text = "Press \"F\" to interact"
 visible = false
 
 [node name="SkillTree" parent="SkillTree/CanvasLayer" unique_id=1624636207 instance=ExtResource("6_h60nn")]
+
+[node name="Node" type="Node" parent="." unique_id=867321611]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Node" unique_id=669350220]
+
+[node name="Hud" parent="Node/CanvasLayer" unique_id=1015810131 instance=ExtResource("7_ujot4")]
 
 [editable path="Inventory Controller"]
 [editable path="SubmitScreen"]

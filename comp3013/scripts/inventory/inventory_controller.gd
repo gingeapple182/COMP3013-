@@ -39,7 +39,7 @@ func has_free_slot() -> bool:
 func pickup_item(mail_data: MailData) -> void:
 	for slot in inventory_slots:
 		if (!slot.slot_filled):
-			slot.fill_slot(mail_data)
+			slot.fill_slot(mail_data.duplicate())
 			inventory_full = not has_free_slot()
 			return
 	inventory_full = true

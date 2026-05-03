@@ -14,6 +14,8 @@ class_name Player
 @onready var xpToNextLevel : int
 @onready var xpMultiplier : int
 @onready var health : int
+@onready var previous_health : int
+@onready var max_health : int
 @onready var movementSpeedSkill : int
 @onready var carryWeight : int
 
@@ -28,6 +30,8 @@ func _init() -> void:
 	xp = 0
 	xpToNextLevel = 100
 	carryWeight = 10
+	max_health = 100
+	health = max_health
 	
 func gainXP(xpGain: int) -> void: #override later if class skills affect xp gain
 	xp+= xpGain + xpGain * xpMultiplier/10
