@@ -214,7 +214,6 @@ func _physics_process(delta):
 				target = child
 	
 	if target != null && target.has_method("interact"):
-
 		interact_text.show()
 		if Input.is_action_just_pressed("interact"):
 			target.interact()

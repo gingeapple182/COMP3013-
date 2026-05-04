@@ -20,15 +20,15 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	npcs.get_node(label.text).npc_role = NPCRole.RECIPIENT #text on label needs to be changed
+	npcs.get_node(label.text.substr(0, label.text.find(","))).npc_role = NPC.NPCRole.RECIPIENT
 	pinboard_item.queue_free()
 	var mail = mail_scene.instantiate()
 	mail.get_child(2).mail_data = MailData.new()
 	var delivery_action := DeliveryAction.new()
 	for npc in get_tree().current_scene.get_child(0).get_children():
-		if npc.npc_name == label.text:
+		if npc.npc_name == label.text.substr(0, label.text.find(",")):
 			delivery_action.item_address = [npc.npc_address]
-			delivery_action.item_recipient = label.text
+			delivery_action.item_recipient = label.text.substr(0, label.text.find(","))
 			delivery_action.action_type = ActionData.ActionType.DELIVERABLE
 			mail.get_child(2).mail_data.action_data = delivery_action.duplicate(true)
 			mail.get_child(2).mail_data.item_model_prefab = mail_scene

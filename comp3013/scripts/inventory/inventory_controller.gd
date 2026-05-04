@@ -111,8 +111,9 @@ func drop_item (selected_index: int) -> void:
 		return
 	
 	var instance = slot.slot_data.item_model_prefab.instantiate() as Node3D
+	instance.get_child(2).mail_data = slot.slot_data.duplicate()
 	get_tree().current_scene.add_child(instance)
-	
+	print(instance.get_child(2).mail_data.action_data.item_address)
 	# forward check
 	var drop_distance: float = 2.0
 	var forward_direction: Vector3 = -player_camera.global_transform.basis.z.normalized()
@@ -161,6 +162,8 @@ func view_item (selectedindex: int) -> void:
 		return
 	
 	var instance = slot.slot_data.item_model_prefab.instantiate() as Node3D
+	instance.get_child(2).mail_data = slot.slot_data.duplicate()
+
 	item_interaction.on_item_viewed(instance)
 	slot.fill_slot(null)
 	
@@ -170,6 +173,8 @@ func equip_item (selectedindex: int) -> void:
 		return
 	
 	var instance = slot.slot_data.item_model_prefab.instantiate() as Node3D
+	instance.get_child(2).mail_data = slot.slot_data.duplicate()
+
 	item_interaction.on_item_equipped(instance)
 	slot.fill_slot(null)
 	var envelopes = equipped_hand.get_children()
