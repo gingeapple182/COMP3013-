@@ -22,6 +22,11 @@ func interact() -> void:
 		if GameManager.npcQuests[i] == 1 && !GameManager.questsGenerated:
 			var Item = pinboardItem.instantiate()
 			Item.get_child(0).get_child(1).text = str(get_tree().current_scene.get_child(0).get_child(i).name)
+			match str(get_tree().current_scene.get_child(0).get_child(i).name):
+				"Pablo", "Mao", "Augusto", "Pol":
+					Item.get_child(0).get_child(1).text += ", Valemont"
+				"Benito", "Fidel", "Joseph", "Mobuto":
+					Item.get_child(0).get_child(1).text += ", Stonefoot"
 			grid_container.add_child(Item)
 	GameManager.questsGenerated = true
 	canvas_layer.show()
