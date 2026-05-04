@@ -216,8 +216,8 @@ func _on_button_submit_pressed() -> void:
 	source_inventory_slots[selected_inventory_index].slot_data = null
 	source_inventory_slots[selected_inventory_index].slot_filled = false
 	source_inventory_slots[selected_inventory_index].item_icon.texture = null
-	close_screen()
 	GameManager.uiOpen = false
+	close_screen()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func npc_reaction(state: String) -> void:

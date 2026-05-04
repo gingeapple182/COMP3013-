@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hayylx4cfwia" path="res://scripts/inventory/submit_screen.tscn" id="4_6dqce"]
 [ext_resource type="PackedScene" uid="uid://usmj4tcgfjv8" path="res://ui/skill_tree.tscn" id="6_h60nn"]
 [ext_resource type="PackedScene" uid="uid://htcruplv4flc" path="res://ui/HUD.tscn" id="7_ujot4"]
+[ext_resource type="AudioStream" uid="uid://8miojs80abh3" path="res://audio/GrassRunning.mp3" id="9_ths8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -71,6 +72,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.25, -0.75)
 [node name="equipped_hand" type="Marker3D" parent="Head/Eyes/MainCamera" unique_id=980383191]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.25, -0.75)
+
+[node name="HUD" type="Node" parent="." unique_id=867321611]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD" unique_id=669350220]
+
+[node name="Hud" parent="HUD/CanvasLayer" unique_id=1015810131 instance=ExtResource("7_ujot4")]
+z_index = -4
 
 [node name="item_interaction" parent="." unique_id=655012343 instance=ExtResource("2_wr06p")]
 unique_name_in_owner = true
@@ -163,16 +171,13 @@ visible = false
 
 [node name="SkillTree" parent="SkillTree/CanvasLayer" unique_id=1624636207 instance=ExtResource("6_h60nn")]
 
-[node name="Node" type="Node" parent="." unique_id=867321611]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Node" unique_id=669350220]
-
-[node name="Hud" parent="Node/CanvasLayer" unique_id=1015810131 instance=ExtResource("7_ujot4")]
-
 [node name="Player" type="Node" parent="." unique_id=1146807897]
 script = ExtResource("1_ujot4")
 
-[connection signal="xp_changed" from="Player" to="Node/CanvasLayer/Hud" method="_on_player_xp_changed"]
+[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=1115303587]
+stream = ExtResource("9_ths8c")
+autoplay = true
+parameters/looping = true
 
 [editable path="Inventory Controller"]
 [editable path="SubmitScreen"]

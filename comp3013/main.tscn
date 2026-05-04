@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="23_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://cq1njky4f8bhx" path="res://scenes/house/central_hub_house.tscn" id="24_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://c1rmdmb2ed0w7" path="res://models/character/NPC.tscn" id="26_lswn8"]
+[ext_resource type="AudioStream" uid="uid://dvnhim7gtemgh" path="res://audio/BackgroundMusic.mp3" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://dpgfp0iy3aird" path="res://models/kenney/kenney/signpost.fbx" id="28_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://b7jaoo2ulgalg" path="res://scenes/house/cottage_house_stylized.glb" id="30_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://n81upb8nsinn" path="res://scenes/house/druids-house-and-shop/source/Wizard Market.fbx" id="31_4lmeg"]
@@ -861,7 +862,7 @@ transform = Transform3D(-0.4732428, 0, -0.88093203, 0, 1, 0, 0.88093203, 0, -0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.341064, 0, -121.35217)
 
 [node name="OakTree1" parent="Forest2" unique_id=2106829971 instance=ExtResource("36_qnost")]
-transform = Transform3D(0.8989929, 0, 0.43796325, 0, 1, 0, -0.43796325, 0, 0.8989929, -2.3068657, 1.1319075, -117.7652)
+transform = Transform3D(0.8989929, 0, 0.43796322, 0, 1, 0, -0.43796322, 0, 0.8989929, -2.3068666, -0.22337627, -117.7652)
 
 [node name="OakTree2" parent="Forest2" unique_id=209200355 instance=ExtResource("36_qnost")]
 transform = Transform3D(0.8989929, 0, 0.43796322, 0, 1, 0, -0.43796322, 0, 0.8989929, -22.579983, -0.2982664, -100.20075)
@@ -1512,3 +1513,8 @@ transform = Transform3D(-0.86073303, 0, 0.5090564, 0, 1, 0, -0.5090564, 0, -0.86
 
 [node name="OakTree164" parent="Forest3" unique_id=1173443950 instance=ExtResource("36_qnost")]
 transform = Transform3D(-0.86073303, 0, 0.5090564, 0, 1, 0, -0.5090564, 0, -0.86073303, -98.64377, -0.19133377, 4.0900173)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1456488549]
+stream = ExtResource("27_a6jrf")
+volume_db = -17.93
+autoplay = true

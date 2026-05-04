@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var menu: Control = $Menu
 @onready var proto_controller: CharacterBody3D = $ProtoController
+@onready var are_you_sure_: Control = $"Are you sure?"
 
 var is_paused := false
 
@@ -25,8 +26,14 @@ func _input(event):
 		hide_canvas_layers(get_tree().current_scene)
 		GameManager.uiOpen = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		toggle_pause()
+		
+		open_AreYouSure()
+		#toggle_pause()
 
+func open_AreYouSure():
+	GameManager.uiOpen = true
+	are_you_sure_.visible = true
+	are_you_sure_.mouse_filter = Control.MOUSE_FILTER_STOP
 
 func toggle_pause():
 	is_paused = not is_paused

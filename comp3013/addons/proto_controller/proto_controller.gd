@@ -66,6 +66,7 @@ var item_sway_amount: float = 0.1
 @onready var equipped_hand: Marker3D = %equipped_hand
 @onready var skill_tree_ui: CanvasLayer = $SkillTree/CanvasLayer
 @onready var interact_text: Label = %InteractText
+@onready var footsteps: AudioStreamPlayer = $Footsteps
 
 func _ready() -> void:
 	add_to_group("player")
@@ -159,8 +160,14 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
+		if is_on_floor() && !footsteps.playing && input_dir != Vector2.ZERO:
+			print(freeflying)
+			footsteps.play()
+		elif input_dir == Vector2.ZERO || !is_on_floor():
+			footsteps.stop()
 		item_swaying(input_dir, delta)
 	else:
+		footsteps.stop()
 		velocity.x = 0
 		velocity.y = 0
 		item_swaying(Vector2.ZERO, delta)
@@ -186,6 +193,8 @@ func enable_freefly(wizard : bool):
 	if !wizard:
 		collider.disabled = true
 	freeflying = true
+	footsteps.stop()
+
 	velocity = Vector3.ZERO
 
 func disable_freefly(wizard : bool):
@@ -315,8 +324,9 @@ func close_skill_tree() -> void:
 	
 func open_skill_tree() -> void:
 	GameManager.uiOpen = true
-	skill_tree_ui.get_child(0).get_child(1).scroll_vertical = 970
-	skill_tree_ui.get_child(0).get_child(1).scroll_horizontal = 800
+	skill_tree_ui.get_child(0).get_child(1).scroll_vertical = 1172
+	skill_tree_ui.get_child(0).get_child(1).scroll_horizontal = 1250
+	print(skill_tree_ui.get_child(0).get_child(1).scroll_vertical)
 	skill_tree_ui.show()
 	release_mouse()
 

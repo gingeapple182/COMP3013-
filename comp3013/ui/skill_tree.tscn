@@ -34,11 +34,11 @@ anchor_bottom = 0.998
 offset_left = 4.0
 offset_right = -0.2401123
 offset_bottom = 0.15991211
-scroll_horizontal = 100
-scroll_vertical = 100
+scroll_horizontal = 1250
+scroll_vertical = 1172
 
 [node name="BoxContainer" type="BoxContainer" parent="ScrollContainer" unique_id=178111036]
-custom_minimum_size = Vector2(3500, 3000)
+custom_minimum_size = Vector2(3700, 3000)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -49,6 +49,8 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 texture_normal = ExtResource("3_bqso3")
 maxLevel = 1
+skill_explanation_text = "Your a mailman. Now give those
+commoners their mail!"
 level = 1
 metadata/_edit_use_anchors_ = true
 
