@@ -103,7 +103,7 @@ anchor_top = 0.35460994
 anchor_right = 0.8979592
 anchor_bottom = 0.58156025
 theme_override_font_sizes/font_size = 23
-text = "Accepct Deliveries"
+text = "Accept Deliveries"
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1816682068]
