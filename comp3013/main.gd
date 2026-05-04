@@ -15,25 +15,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func hide_canvas_layers(node):
-	for child in node.get_children():
-		if child is CanvasLayer:
-			child.visible = false
-		hide_canvas_layers(child)
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		hide_canvas_layers(get_tree().current_scene)
-		GameManager.uiOpen = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+		GameManager.uiOpen = true
 		open_AreYouSure()
 		#toggle_pause()
 
 func open_AreYouSure():
 	GameManager.uiOpen = true
-	are_you_sure_.visible = true
-	are_you_sure_.mouse_filter = Control.MOUSE_FILTER_STOP
+	are_you_sure_.show()
 
 func toggle_pause():
 	is_paused = not is_paused

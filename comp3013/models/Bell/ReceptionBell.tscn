@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cxthsno4o5cpe" path="res://models/Bell/source/reception_bell.fbx" id="1_h0ybj"]
 [ext_resource type="Script" uid="uid://bw1hrrv8aikqi" path="res://models/Bell/reception_bell.gd" id="1_u1orl"]
 [ext_resource type="PackedScene" uid="uid://dwbs8l483uoie" path="res://ui/EndOfDayResults.tscn" id="3_jfsj5"]
+[ext_resource type="PackedScene" uid="uid://hcclm4coopgr" path="res://ui/NextDayConfirm.tscn" id="4_6rdu3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1orl"]
 size = Vector3(0.26783752, 0.12805176, 0.23905563)
@@ -21,3 +22,8 @@ shape = SubResource("BoxShape3D_u1orl")
 visible = false
 
 [node name="EndOfDayResults" parent="CanvasLayer" unique_id=428790894 instance=ExtResource("3_jfsj5")]
+
+[node name="Confirm" type="CanvasLayer" parent="." unique_id=176151977]
+visible = false
+
+[node name="NextDayConfirm" parent="Confirm" unique_id=1890379455 instance=ExtResource("4_6rdu3")]

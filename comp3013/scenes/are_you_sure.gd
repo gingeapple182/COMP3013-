@@ -11,18 +11,29 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func hide_canvas_layers(node):
+	for child in node.get_children():
+		if child is CanvasLayer:
+			child.hide()
+		hide_canvas_layers(child)
+
 func _on_button_5_pressed() -> void:
 	get_tree().paused = true
-	visible = false
+	self.hide()
 	menu.visible = true
-
+	GameManager.uiOpen = false
+	hide_canvas_layers(get_tree().current_scene)
 	pass # Replace with function body.
 
 
 func _on_button_pressed() -> void:
 	GameManager.uiOpen = false
-	visible = false
+	self.hide()
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pass # Replace with function body.
+
+
+func _on_button_mouse_entered() -> void:
+	print("asdsadasdasdasd")
 	pass # Replace with function body.

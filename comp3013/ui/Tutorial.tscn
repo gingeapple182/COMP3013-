@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dietku8k0r3gi"]
+
+[ext_resource type="Script" uid="uid://c4xna0vtqv26j" path="res://ui/tutorial.gd" id="1_p5k3b"]
+[ext_resource type="Theme" uid="uid://bqf1mjp7lr4wa" path="res://ui/menu.tres" id="1_pn81w"]
+
+[node name="Tutorial" type="Control" unique_id=1558291057]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p5k3b")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=560147164]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29166666
+anchor_top = 0.16666667
+anchor_right = 0.7074653
+anchor_bottom = 0.7808642
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_pn81w")
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel" unique_id=1324926604]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/BoxContainer" unique_id=769610463]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="Panel/BoxContainer/Title" unique_id=908932269]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.1617647
+anchor_top = 1.32
+anchor_right = -0.036764707
+anchor_bottom = 6.46
+text = "Controls
+Forward: W
+Backward: S
+Left: A
+Right: D
+Jump: Space
+Interact: F
+Open Inventory: B
+Open Skill Tree: Tab
+Fly (Wizard Only): G"
+metadata/_edit_use_anchors_ = true
+
+[node name="How to play" type="Label" parent="Panel/BoxContainer/Title" unique_id=2064868807]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22794117
+anchor_top = 1.32
+anchor_right = 2.235294
+anchor_bottom = 7.5
+text = "How To play
+Your goal is to deliver mail to
+commoners. First accept a quest
+in the central hub and then pick
+up the mail. You can see the 
+information about the mail by
+hovering your mouse over it in 
+your inventory. Give mail to the
+correct NPC and you will be 
+rewarded with xp. When you level 
+up you gain skill points that can be 
+spent in the skill tree."
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Panel/BoxContainer/Title" unique_id=819807030]
+layout_mode = 0
+offset_left = -153.0
+offset_top = 336.0
+offset_right = 4.0
+offset_bottom = 367.0
+theme = ExtResource("1_pn81w")
+text = "CLOSE
+"
+
+[connection signal="pressed" from="Panel/BoxContainer/Title/Button" to="." method="_on_button_pressed"]

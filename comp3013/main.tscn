@@ -188,6 +188,7 @@ visible = false
 
 [node name="Are you sure?" parent="." unique_id=489327646 instance=ExtResource("6_qsp4k")]
 visible = false
+z_index = 10
 
 [node name="CentralHubHouse" parent="." unique_id=2064951200 instance=ExtResource("24_xuqvo")]
 transform = Transform3D(0.8645381, 0, 0.50256723, 0, 1, 0, -0.50256723, 0, 0.8645381, 92.15227, -0.45, 143.21515)

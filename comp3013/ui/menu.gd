@@ -1,6 +1,7 @@
 extends Control
 
 @onready var proto_controller: CharacterBody3D = $ProtoController
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 func _on_button_pressed() -> void:
 	get_tree().paused = false
@@ -21,3 +22,7 @@ func _on_button_4_pressed() -> void:
 
 func _on_button_5_pressed() -> void:
 	get_tree().quit()
+
+func _on_button_8_pressed() -> void:
+	canvas_layer.show()
+	pass # Replace with function body.

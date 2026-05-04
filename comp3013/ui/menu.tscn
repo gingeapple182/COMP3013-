@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dnqxr8qv5pam3" path="res://ui/menu.gd" id="1_hkmy2"]
 [ext_resource type="Theme" uid="uid://bqf1mjp7lr4wa" path="res://ui/menu.tres" id="2_hw341"]
 [ext_resource type="Texture2D" uid="uid://b1va0of837nfi" path="res://addons/ui/Default/banner_classic_curtain.png" id="3_baxqe"]
+[ext_resource type="PackedScene" uid="uid://dietku8k0r3gi" path="res://ui/Tutorial.tscn" id="4_2ot4n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5m01"]
 texture = ExtResource("3_baxqe")
@@ -101,6 +102,12 @@ layout_mode = 2
 disabled = true
 text = "LOAD GAME"
 
+[node name="Button8" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2063522038]
+layout_mode = 2
+theme = ExtResource("2_hw341")
+text = "TUTORIAL
+"
+
 [node name="Button7" type="Button" parent="PanelContainer/VBoxContainer" unique_id=685466501]
 layout_mode = 2
 disabled = true
@@ -110,8 +117,15 @@ text = "SETTINGS"
 layout_mode = 2
 text = "EXIT GAME"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=581269315]
+visible = false
+
+[node name="Tutorial" parent="CanvasLayer" unique_id=1558291057 instance=ExtResource("4_2ot4n")]
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]

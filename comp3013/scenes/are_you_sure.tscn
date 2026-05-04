@@ -47,5 +47,6 @@ text = "CANCEL"
 layout_mode = 2
 text = "EXIT GAME"
 
+[connection signal="mouse_entered" from="Panel/VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
