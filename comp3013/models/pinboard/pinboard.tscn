@@ -98,10 +98,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="model/CanvasLayer/TextureRect2" unique_id=680604427]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.07755102
+anchor_left = 0.12653062
 anchor_top = 0.35460994
-anchor_right = 0.8979592
-anchor_bottom = 0.58156025
+anchor_right = 0.89387757
+anchor_bottom = 0.6241135
 theme_override_font_sizes/font_size = 23
 text = "Accept Deliveries"
 metadata/_edit_use_anchors_ = true
