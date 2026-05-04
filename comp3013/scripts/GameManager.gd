@@ -29,6 +29,11 @@ enum PlayerClassTypes
 
 @onready var npcs: Node = $NPCs
 
+func _process(delta: float) -> void:
+	if player.health <= 0:
+		var protoController = get_tree().current_scene.find_child("ProtoController")
+		protoController.position = Vector3(88.804, 0.1, 140.98)
+		newDay()
 
 func _ready() -> void:
 	playerClass = PlayerClassTypes.NOCLASS

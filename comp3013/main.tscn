@@ -132,48 +132,56 @@ transform = Transform3D(-0.021273948, 0, -0.9997736, 0, 1, 0, 0.9997736, 0, -0.0
 npc_name = "Pablo"
 npc_address = "Valemont"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(-188.6, 75.186, -15.8)
 
 [node name="Joseph" parent="NPCs" unique_id=694260484 instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.8316151, 0, -0.55535245, 0, 1, 0, 0.55535245, 0, -0.8316151, 72.200294, 10.097949, -118.747086)
 npc_name = "Joseph"
 npc_address = "Stonefoot"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(72.2, 10.098, -118.7)
 
 [node name="Mao" parent="NPCs" unique_id=1753540154 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.013927214, 0, -0.999903, 0, 1, 0, 0.999903, 0, 0.013927214, -257.18268, 74.994156, 11.272993)
 npc_name = "Mao"
 npc_address = "Valemont"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(-257.1, 74.994, 11.273)
 
 [node name="Benito" parent="NPCs" unique_id=958919223 instance=ExtResource("26_lswn8")]
 transform = Transform3D(-0.49023467, 0, 0.8715906, 0, 1, 0, -0.8715906, 0, -0.49023467, 14.730565, 10.103214, -151.54266)
 npc_name = "Benito"
 npc_address = "Stonefoot"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(14.731, 10.103, -151.5)
 
 [node name="Pol" parent="NPCs" unique_id=678156554 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.999216, 0, 0.039591044, 0, 1, 0, -0.039591044, 0, 0.999216, -191.19379, 75.06549, -64.78681)
 npc_name = "Pol"
 npc_address = "Valemont"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(-191.1, 75.065, -64.78)
 
 [node name="Augusto" parent="NPCs" unique_id=1471868077 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.0014136732, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.0014136732, -230.4546, 74.985954, 10.407004)
 npc_name = "Augusto"
 npc_address = "Valemont"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(-230.4, 74.986, 10.407)
 
 [node name="Fidel" parent="NPCs" unique_id=1112281290 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.8441502, 0, 0.53610677, 0, 1, 0, -0.53610677, 0, 0.8441502, 45.71943, 10.038806, -196.55219)
 npc_name = "Fidel"
 npc_address = "Stonefoot"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(45.719, 10.039, -196.5)
 
 [node name="Mobuto" parent="NPCs" unique_id=724118597 instance=ExtResource("26_lswn8")]
 transform = Transform3D(0.38791776, 0, -0.92169404, 0, 1, 0, 0.92169404, 0, 0.38791776, 120.697395, 10.036288, -182.81349)
 npc_name = "Mobuto"
 npc_address = "Stonefoot"
 player_path = NodePath("../../ProtoController")
+npc_start_position = Vector3(120.69, 10.036, -182.8)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918803051]
 environment = SubResource("Environment_5j5gy")

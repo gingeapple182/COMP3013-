@@ -51,6 +51,8 @@ var current_state: NPCState = NPCState.IDLE
 @export_group("Targets")
 @export var player_path: NodePath
 
+@export var npc_start_position : Vector3
+
 var player: CharacterBody3D = null
 var idle_timer: float = 0.0
 var current_idle_wait: float = 0.0
