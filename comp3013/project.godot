@@ -31,6 +31,10 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom_font="uid://b4ukbddyi0mlm"
+
 [input]
 
 ui_focus_next={
