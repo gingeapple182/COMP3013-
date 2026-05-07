@@ -22,7 +22,7 @@ Playable builds can be found here:
 
 - Repository: https://github.com/gingeapple182/COMP3013-
 - Itch.io Page: https://the-fudge-man.itch.io/common-mail
-- YouTube Playthrough: `<insert YouTube link>`
+- YouTube Playthrough: https://youtu.be/iND02nNUvNE
 
 ---
 
